@@ -1,0 +1,16 @@
+#selectedWebSources{
+  position: absolute;
+  top: 134px;
+  width: 280px;
+}
+
+#webSourcesList li{
+  list-style: none;
+  font-family:'HelveticaNeue', 'Helvetica Neue';
+  margin-bottom: 5px;
+}
+
+#webSourcesList li .remove-selected-url {
+  float: right;
+  color: #bbb6b6;
+}
