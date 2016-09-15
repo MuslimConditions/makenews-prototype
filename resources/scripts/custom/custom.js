@@ -12,7 +12,6 @@ $(document).ready(function(){
   });
 
   function removeUrl(e, url){
-    console.log(e.currentTarget.parentNode.dataset.id);
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();
     $("#"+e.currentTarget.parentNode.dataset.id+"_state0").css({"display": "block", "visibility": "visible"});
@@ -21,9 +20,13 @@ $(document).ready(function(){
 
   function updateConfiguredWebUrlsDOM(url, domId) {
     var li = $("<li data-id='"+domId+"'>");
+    li.append("<span class='squre-box-list-style'>");
     li.append(url);
     li.append($("<span class='remove-selected-url'><i class='fa fa-close'></i></span>").click(".remove-selected-url", function(e){removeUrl(e, url)}));
     WebUrlsListDOM.append(li);
+
+    $("#"+domId+"_state0").css({"display": "none", "visibility": "hidden"});
+    $("#"+domId+"_state1").css({"display": "block", "visibility": "visible"});
   }
 
   function remove(arr, item) {
