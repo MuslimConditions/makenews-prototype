@@ -13,4 +13,5 @@
 #webSourcesList li .remove-selected-url {
   float: right;
   color: #bbb6b6;
+  cursor: pointer;
 }

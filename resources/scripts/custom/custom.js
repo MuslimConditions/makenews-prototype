@@ -1,35 +1,37 @@
 $(document).ready(function(){
 
-  var configuredWebUrls = {};
+  var configuredWebUrls = [];
   var WebUrlsListDOM = $("#webSourcesList");
 
   $(".add-url").click(function(e){
     var url = $($(this).parent().children()[1])[0].innerText.trim();
-    if(!configuredWebUrls.hasOwnProperty(url)) {
-      configuredWebUrls[url] = $(this)[0].id;
-      updateConfiguredWebUrlsDOM();
+    if(configuredWebUrls.indexOf(url) === -1) {
+      configuredWebUrls.push(url);
+      updateConfiguredWebUrlsDOM(url, $(this)[0].id);
     }
-    console.log(configuredWebUrls)
   });
 
   function removeUrl(e, url){
-    console.log("removeing url==>", url, configuredWebUrls)
-    delete configuredWebUrls[url];
-    updateConfiguredWebUrlsDOM();
+    console.log(e.currentTarget.parentNode.dataset.id);
+    remove(configuredWebUrls, url);
+    e.currentTarget.parentNode.remove();
+    $("#"+e.currentTarget.parentNode.dataset.id+"_state0").css({"display": "block", "visibility": "visible"});
+    $("#"+e.currentTarget.parentNode.dataset.id+"_state1").css({"display": "none", "visibility": "hidden"});
   }
 
-  WebUrlsListDOM.click(function(e) {
-    console.log($(e.target).parents("li"));
-  })
-
-  function updateConfiguredWebUrlsDOM() {
-    WebUrlsListDOM.empty();
-    for(var url in configuredWebUrls){
-      var li = $("<li>");
-      li.append(url);
-      li.append($("<span class='remove-selected-url'><i class='fa fa-close'></i></span>"));
-      // li.find(".remove-selected-url").click(function(e){removeUrl(e, url)});
-      WebUrlsListDOM.append(li);
-    }
+  function updateConfiguredWebUrlsDOM(url, domId) {
+    var li = $("<li data-id='"+domId+"'>");
+    li.append(url);
+    li.append($("<span class='remove-selected-url'><i class='fa fa-close'></i></span>").click(".remove-selected-url", function(e){removeUrl(e, url)}));
+    WebUrlsListDOM.append(li);
   }
+
+  function remove(arr, item) {
+      for(var i = arr.length; i--;) {
+          if(arr[i] === item) {
+              arr.splice(i, 1);
+          }
+      }
+  }
+
 });
