@@ -3,11 +3,11 @@ $(document).ready(function(){
   var configuredWebUrls = [];
   var WebUrlsListDOM = $("#webSourcesList");
 
-  $(".add-url").click(function(e){
-    var url = $($(this).parent().children()[1])[0].innerText.trim();
+  $("div[data-label='Add']").click(function(e){
+    var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
     if(configuredWebUrls.indexOf(url) === -1) {
       configuredWebUrls.push(url);
-      updateConfiguredWebUrlsDOM(url, $(this)[0].id);
+      updateConfiguredWebUrlsDOM(url, $(this)[0].id.split("_")[0]);
     }
   });
 
