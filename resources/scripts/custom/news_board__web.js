@@ -108,7 +108,6 @@ $(document).ready(function() {
     var selectedUrls = [];
     var checkbox = $(".filter-web-checkbox");
     for(var index=0; index<checkbox.length;index++){
-//        console.log($(checkbox[index]).siblings()[0].innerText);
         if(checkbox[index].checked){
             selectedUrls.push($(checkbox[index]).siblings()[0].innerText);
         }
@@ -117,5 +116,18 @@ $(document).ready(function() {
     renderFeeds(selectedUrls);
     $("#u1881_state0").css({"display": "block", "visibility": "visible"});
     $("#u1881_state1").css({"display": "none", "visibility": "hidden"});
+  });
+  $("#u2012").click(function(){
+     var checkbox = $(".filter-web-checkbox");
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = false;
+        }
+  });
+
+  $("#u2015").click(function(){
+     var checkbox = $(".filter-web-checkbox");
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = true;
+        }
   });
 });
