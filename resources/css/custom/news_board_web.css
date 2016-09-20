@@ -94,16 +94,18 @@
 #filteredWebUrlsList{
     position: absolute;
     left: 0px;
-    margin : 0px;
     top: 125px;
     width: 222px;
     height: 18px;
     font-size: 16px;
     list-style: none;
 }
-#filteredWebUrlsList .filter-checkbox{
-    left: -23px;
-    top: -2px;
+#filteredWebUrls{
+    text-align : left;
+}
+#filteredWebUrlsList .filter-web-checkbox{
+margin-right:15px;
+margin-bottom:5px;
 }
 #u1881_state0{
 visibility: visible;
