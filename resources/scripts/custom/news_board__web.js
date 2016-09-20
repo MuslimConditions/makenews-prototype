@@ -97,4 +97,8 @@ $(document).ready(function() {
     $articleTitle.innerHTML = $currentItem.find(".web-feed__item__title").text();
     $articleSource.innerText = $currentItem.find("#web-feed__item__source").text();
   }
+  configuredWebUrls.forEach(function(url){
+    var listItem = $("<li><input type = 'checkbox' class = 'filter-checkbox' checked><span>"+url+"</span></li>");
+    $("#filteredWebUrlsList").append(listItem);
+  });
 });
