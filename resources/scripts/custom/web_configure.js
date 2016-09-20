@@ -8,6 +8,7 @@ $(document).ready(function(){
     if(configuredWebUrls.indexOf(url) === -1) {
       configuredWebUrls.push(url);
       updateConfiguredWebUrlsDOM(url, $(this)[0].id.split("_")[0]);
+      localStorage.setItem("configuredWebUrls", JSON.stringify(configuredWebUrls));
     }
   });
 
