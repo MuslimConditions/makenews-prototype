@@ -2,6 +2,10 @@
   top: 200px !important;
 }
 
+#u2077 {
+  position: static;
+}
+
 .article .article__image {
   top: 200px;
   width: 300px;
@@ -12,4 +16,65 @@
 .article .article__body p{
   font-size: 16px;
   padding-bottom: 12px;
+}
+
+.web-feed {
+  margin-top: 130px;
+  width: 410px;
+  text-align: left;
+}
+
+.web-feed__items {
+  margin: 0;
+  padding: 0;
+}
+
+.web-feed__items .web-feed__item {
+  list-style: none;
+  border-bottom: 1px solid #d4cccc;
+  padding: 10px 15px;
+  font-style: normal;
+}
+
+.web-feed__item__title {
+  font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+
+.web-feed__item__summary {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 14px;
+  color: #848484;
+  line-height: 1.5em;
+}
+
+.web-feed__item__source {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 11px;
+  color: #A2A2A2;
+  padding-top: 10px;
+}
+
+.web-feed__item__source:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  background-color: rgba(215, 215, 215, 1);
+  border: none;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-right: 8px;
+  vertical-align: top;
+}
+
+.web-feed__item.current {
+  background: #f2f2f2;
 }
