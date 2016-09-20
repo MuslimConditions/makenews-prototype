@@ -39,8 +39,8 @@ $(document).ready(function(){
   }
 
   $("div[data-label='Add All']").click(function(x){
-    let addParent = this.parentElement;
-    let parentSiblings = addParent.parentElement.children;
+    var addParent = this.parentElement;
+    var parentSiblings = addParent.parentElement.children;
     for(var i=1; i<=21;i++){
         var child = parentSiblings[i];
         var add = (child.children)[4];
