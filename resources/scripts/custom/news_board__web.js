@@ -76,7 +76,6 @@ $(document).ready(function() {
   var $webFeed = $("#webFeedItems");
   var $articleSource = $(".article__source")[0];
   var $articleTitle = $(".article__title")[0];
-  var $oldSelectedArticle = null;
   var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
   var countConfiguredWebUrls = configuredWebUrls.length;
   webFeed.forEach(function(url, index){
@@ -87,12 +86,12 @@ $(document).ready(function() {
     .click(function(event){showSelectedArticle(event)});
     $webFeed.append(webFeedItemDOM);
   });
+  var $oldSelectedArticle = $($(".web-feed__item")[0]);
+  $oldSelectedArticle.addClass("current");
 
   function showSelectedArticle(event) {
     var $currentItem = $(event.currentTarget);
-    if($oldSelectedArticle) {
-      $oldSelectedArticle.removeClass("current");
-    }
+    $oldSelectedArticle.removeClass("current");
     $oldSelectedArticle = $currentItem;
     $currentItem.addClass("current");
     $articleTitle.innerHTML = $currentItem.find(".web-feed__item__title").text();
