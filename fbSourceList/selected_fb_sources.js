@@ -39,11 +39,11 @@ $(document).ready(function(){
         $(".profile_up").css({"display": "none","visibility": "hidden"});
     });
     $(".add_all_friends").click(function(){
-        let parents = $(this).parent().parent().parent().parent();
+        var parents = $(this).parent().parent().parent().parent();
 
-        for(let parent=1; parent<=21; parent++){
-             let friend = (((parents.siblings())[parent]).children)[4];
-             let profile = $(friend).siblings()[1].textContent.trim();
+        for(var parent=1; parent<=21; parent++){
+             var friend = (((parents.siblings())[parent]).children)[4];
+             var profile = $(friend).siblings()[1].textContent.trim();
              if(!configuredProfiles.has(profile)){
                  configuredProfiles.add(profile);
                  add_to_profile_configured(friend);
@@ -51,10 +51,10 @@ $(document).ready(function(){
         }
     });
     $(".remove_all_friends").click(function(){
-        let parents = $(this).parent().parent().parent().parent();
-        let childsLength = fbProfilesList.children().length;
-        for(let child=1; child <= 21; child++){
-            let friend = (((parents.siblings())[child]).children)[4];
+        var parents = $(this).parent().parent().parent().parent();
+        var childsLength = fbProfilesList.children().length;
+        for(var child=1; child <= 21; child++){
+            var friend = (((parents.siblings())[child]).children)[4];
             removeConfiguredProfile((fbProfilesList.children())[0],friend);
         }
     });
@@ -94,10 +94,10 @@ $(document).ready(function(){
        $(".group_up").css({"display": "none", "visibility": "hidden"});
     });
     $(".add_all_groups").click(function(){
-            let parents = $(this).parent().parent().parent().parent();
+            var parents = $(this).parent().parent().parent().parent();
             for(var parent=1; parent<=18; parent++){
-            let friend = (((parents.siblings())[parent]).children)[4];
-                 let profile = $(friend).siblings()[1].textContent.trim();
+            var friend = (((parents.siblings())[parent]).children)[4];
+                 var profile = $(friend).siblings()[1].textContent.trim();
                  if(!configuredGroups.has(profile)){
                      configuredGroups.add(profile);
                      add_to_group_configured(friend);
@@ -105,10 +105,10 @@ $(document).ready(function(){
             }
         });
         $(".remove_all_groups").click(function(){
-            let parents = $(this).parent().parent().parent().parent();
-            let childsLength = fbGroupsList.children().length;
-            for(let child=1; child <= 18; child++){
-                let friend = (((parents.siblings())[child]).children)[4];
+            var parents = $(this).parent().parent().parent().parent();
+            var childsLength = fbGroupsList.children().length;
+            for(var child=1; child <= 18; child++){
+                var friend = (((parents.siblings())[child]).children)[4];
                 console.log(friend);
                 removeConfiguredGroup((fbGroupsList.children())[0],friend);
             }
@@ -149,10 +149,10 @@ $(document).ready(function(){
         $(".page_up").css({"display": "none","visibility": "hidden"});
     });
     $(".add_all_pages").click(function(){
-        let parents = $(this).parent().parent().parent().parent();
-        for(let parent=1; parent<=9; parent++){
-            let friend = (((parents.siblings())[parent]).children)[4];
-           let profile = $(friend).siblings()[1].textContent.trim();
+        var parents = $(this).parent().parent().parent().parent();
+        for(var parent=1; parent<=9; parent++){
+            var friend = (((parents.siblings())[parent]).children)[4];
+           var profile = $(friend).siblings()[1].textContent.trim();
            if(!configuredPages.has(profile)){
               configuredPages.add(profile);
               add_to_pages_configured(friend);
@@ -160,10 +160,10 @@ $(document).ready(function(){
         }
     });
     $(".remove_all_pages").click(function(){
-        let parents = $(this).parent().parent().parent().parent();
-        let childsLength = fbPagesList.children().length;
-        for(let child=1; child <= 9; child++){
-        let friend = (((parents.siblings())[child]).children)[4];
+        var parents = $(this).parent().parent().parent().parent();
+        var childsLength = fbPagesList.children().length;
+        for(var child=1; child <= 9; child++){
+        var friend = (((parents.siblings())[child]).children)[4];
              removeConfiguredPage((fbPagesList.children())[0],friend);
         }
     });
