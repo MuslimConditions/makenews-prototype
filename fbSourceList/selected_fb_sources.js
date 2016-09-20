@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //fb profiles
-    var count = 1;
+    var count = 1;var countPage = 1;var countGroup = 1;
     var configuredProfiles =new Set();
     var fbProfilesList = $("#selected_fb_profiles");
     $(".add_to_fb_profile_configured").click(function(){
@@ -9,7 +9,7 @@ $(document).ready(function(){
             configuredProfiles.add(profile);
             add_to_profile_configured(this);
         }
-    })
+    });
     function add_to_profile_configured(label){
         var listItem = $('<li></li>');
         listItem.append("<span class='squre-box-list-style'>");
@@ -76,6 +76,9 @@ $(document).ready(function(){
             removeConfiguredGroup(this,label);
         });
         fbGroupsList.append(listItem);
+        var temp = "group" + countGroup++;
+        localStorage.setItem(temp, listItem[0].innerText);
+        localStorage.setItem("countGroup", countGroup);
     }
     function removeConfiguredGroup(target,label){
        $(label.children[0]).css({"display": "block", "visibility": "visible"});
@@ -131,6 +134,9 @@ $(document).ready(function(){
             removeConfiguredPage(this,label);
         });
         fbPagesList.append(listItem);
+        var temp = "pages" + countPage++;
+        localStorage.setItem(temp, listItem[0].innerText);
+        localStorage.setItem("countPage", countPage);
     }
     function removeConfiguredPage(target,label){
        $(label.children[0]).css({"display": "block", "visibility": "visible"});

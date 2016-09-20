@@ -808,19 +808,39 @@ But finding Jina Kanchi is not straightforward. Unless I dive right into the ann
     $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
     var profileList =localStorage.getItem("profile1");
     var i=0, j=0;
+    var coloredDivision;
     var count = 1;
-    var storedCount = parseInt(localStorage.getItem("count"));
+    var storedCount = parseInt(localStorage.getItem("count")) ;
+    var storedCountgroup = parseInt(localStorage.getItem("countGroup")) ;
+    var storedCountpage= parseInt(localStorage.getItem("countPage")) ;
     var spanElements = document.getElementsByClassName("fb-source");
-    for( j=0; j<10; j++){
+    for( j=0; j<3; j++){
         var source = localStorage.getItem("profile"+count++) + "\xa0\xa0\xa0"+ spanElements[j].innerHTML.substring(15);
         spanElements[j].innerHTML = source;
         if(count == storedCount){
             count =1;
         }
     }
+    count =1;
+    for( j=3; j<7; j++){
+        var source = localStorage.getItem("group"+count++) + "\xa0\xa0\xa0"+ spanElements[j].innerHTML.substring(15);
+        spanElements[j].innerHTML = source;
+        if(count == storedCountgroup){
+            count =1;
+        }
+    }
+    count =1;
+    for( j=7; j<10; j++){
+        var source = localStorage.getItem("pages"+count++) + "\xa0\xa0\xa0"+ spanElements[j].innerHTML.substring(15);
+        spanElements[j].innerHTML = source;
+        if(count == storedCountpage){
+            count =1;
+        }
+    }
     function changeName(value){
             document.getElementsByClassName("fb-source-content")[0].innerHTML = document.getElementById(value).innerHTML;
     }
+
 
 </script>
 
