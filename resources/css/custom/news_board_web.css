@@ -6,6 +6,14 @@
   position: static;
 }
 
+#u2079 {
+  width: 375px !important;
+}
+
+#u2075 {
+  width: 750px !important;
+}
+
 .article .article__image {
   top: 200px;
   width: 300px;
@@ -16,6 +24,10 @@
 .article .article__body p{
   font-size: 16px;
   padding-bottom: 12px;
+}
+
+.article__source {
+  padding-right: 5px;
 }
 
 .web-feed {
@@ -34,6 +46,7 @@
   border-bottom: 1px solid #d4cccc;
   padding: 10px 15px;
   font-style: normal;
+  cursor: pointer;
 }
 
 .web-feed__item__title {
@@ -51,7 +64,7 @@
   line-height: 1.5em;
 }
 
-.web-feed__item__source {
+.web-feed__item__source-date {
   font-family: 'HelveticaNeue', 'Helvetica Neue';
   font-weight: 400;
   font-size: 11px;
@@ -59,7 +72,7 @@
   padding-top: 10px;
 }
 
-.web-feed__item__source:before {
+.web-feed__item__source-date:before {
   content: '';
   display: inline-block;
   width: 14px;

@@ -73,14 +73,29 @@ $(document).ready(function() {
   }];
 
 
-  var webFeedDOM = $("#webFeedItems");
+  var $webFeed = $("#webFeedItems");
+  var $articleSource = $(".article__source")[0];
+  var $articleTitle = $(".article__title")[0];
+  var $oldSelectedArticle = null;
   var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
   var countConfiguredWebUrls = configuredWebUrls.length;
   webFeed.forEach(function(url, index){
-    var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title+"</p><p class='web-feed__item__summary'>"+url.summary+"</p><div class='web-feed__item__source'>"+configuredWebUrls[index%countConfiguredWebUrls]+" | Aug 21, 2016, 08.23 PM IST</div></li>");
-    webFeedDOM.append(webFeedItemDOM);
-  })
+    var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title
+    +"</p><p class='web-feed__item__summary'>"+url.summary
+    +"</p><div class='web-feed__item__source-date'><span id='web-feed__item__source'>"
+    +configuredWebUrls[index%countConfiguredWebUrls]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
+    .click(function(event){showSelectedArticle(event)});
+    $webFeed.append(webFeedItemDOM);
+  });
 
-
-
+  function showSelectedArticle(event) {
+    var $currentItem = $(event.currentTarget);
+    if($oldSelectedArticle) {
+      $oldSelectedArticle.removeClass("current");
+    }
+    $oldSelectedArticle = $currentItem;
+    $currentItem.addClass("current");
+    $articleTitle.innerHTML = $currentItem.find(".web-feed__item__title").text();
+    $articleSource.innerText = $currentItem.find("#web-feed__item__source").text();
+  }
 });
