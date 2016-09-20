@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //fb profiles
+    var count = 1;
     var configuredProfiles =new Set();
     var fbProfilesList = $("#selected_fb_profiles");
     $(".add_to_fb_profile_configured").click(function(){
@@ -17,6 +18,9 @@ $(document).ready(function(){
         removeConfiguredProfile(this,label);
         });
         fbProfilesList.append(listItem);
+        var temp = "profile" + count++;
+        localStorage.setItem(temp, listItem[0].innerText);
+        localStorage.setItem("count", count);
     }
     function removeConfiguredProfile(target,label){
         $(label.children[0]).css({"display": "block", "visibility": "visible"});
