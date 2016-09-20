@@ -77,15 +77,18 @@ $(document).ready(function() {
   var $articleSource = $(".article__source")[0];
   var $articleTitle = $(".article__title")[0];
   var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
-  var countConfiguredWebUrls = configuredWebUrls.length;
-  webFeed.forEach(function(url, index){
-    var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title
-    +"</p><p class='web-feed__item__summary'>"+url.summary
-    +"</p><div class='web-feed__item__source-date'><span id='web-feed__item__source'>"
-    +configuredWebUrls[index%countConfiguredWebUrls]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
-    .click(function(event){showSelectedArticle(event)});
-    $webFeed.append(webFeedItemDOM);
-  });
+  renderFeeds(configuredWebUrls);
+  function renderFeeds(configuredUrls){
+    var countConfiguredUrls = configuredUrls.length;
+      webFeed.forEach(function(url, index){
+        var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title
+        +"</p><p class='web-feed__item__summary'>"+url.summary
+        +"</p><div class='web-feed__item__source-date'><span id='web-feed__item__source'>"
+        +configuredUrls[index%countConfiguredUrls]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
+        .click(function(event){showSelectedArticle(event)});
+        $webFeed.append(webFeedItemDOM);
+      });
+  }
   var $oldSelectedArticle = $($(".web-feed__item")[0]);
   $oldSelectedArticle.addClass("current");
 
@@ -98,7 +101,21 @@ $(document).ready(function() {
     $articleSource.innerText = $currentItem.find("#web-feed__item__source").text();
   }
   configuredWebUrls.forEach(function(url){
-    var listItem = $("<li><input type = 'checkbox' class = 'filter-checkbox' checked><span>"+url+"</span></li>");
+    var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
     $("#filteredWebUrlsList").append(listItem);
+  });
+  $("#u2041").click(function(){
+    var selectedUrls = [];
+    var checkbox = $(".filter-web-checkbox");
+    for(var index=0; index<checkbox.length;index++){
+//        console.log($(checkbox[index]).siblings()[0].innerText);
+        if(checkbox[index].checked){
+            selectedUrls.push($(checkbox[index]).siblings()[0].innerText);
+        }
+    }
+    $("#webFeedItems").empty();
+    renderFeeds(selectedUrls);
+    $("#u1881_state0").css({"display": "block", "visibility": "visible"});
+    $("#u1881_state1").css({"display": "none", "visibility": "hidden"});
   });
 });
