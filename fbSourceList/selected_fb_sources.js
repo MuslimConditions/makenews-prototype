@@ -163,4 +163,8 @@ $(document).ready(function(){
              removeConfiguredPage((fbPagesList.children())[0],friend);
         }
     });
+
+    $("#u14222").click(function() {
+        window.location.href = "./twitter.html";
+    });
 });

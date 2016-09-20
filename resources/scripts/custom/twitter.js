@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   var configuredWebUrls = [];
-  var WebUrlsListDOM = $("#webSourcesList");
+  var WebUrlsListDOM = $("#twitterSourcesList");
 
   $("div[data-label='Add']").click(function(e){
     var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
@@ -12,6 +12,7 @@ $(document).ready(function(){
   });
 
   function removeUrl(e, url){
+    console.log(e+"url:: "+url);
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();
     $("#"+e.currentTarget.parentNode.dataset.id+"_state0").css({"display": "block", "visibility": "visible"});
@@ -36,4 +37,24 @@ $(document).ready(function(){
           }
       }
   }
+
+  $("div[data-label='Add All']").click(function(x){
+    let addParent = this.parentElement;
+    let parentSiblings = addParent.parentElement.children;
+    for(var i=1; i<=21;i++){
+        var child = parentSiblings[i];
+        var add = (child.children)[4];
+            var url = $((add.children)[0]).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
+        if(configuredWebUrls.indexOf(url) === -1) {
+            configuredWebUrls.push(url);
+            updateConfiguredWebUrlsDOM(url, $((child.children)[4])[0].id.split
+            ("_")[0]);
+        }
+    }
+  });
+
+   $("div[data-label='Remove all']").click(function(y){
+        configuredWebUrls=[];
+        $("#twitterSourcesList").empty();
+   });
 });

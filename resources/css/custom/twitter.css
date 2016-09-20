@@ -1,0 +1,35 @@
+#selectedTwitterSources{
+  position: absolute;
+  top: 134px;
+  width: 280px;
+}
+
+#twitterSourcesList li{
+  list-style: none;
+  font-family:'HelveticaNeue', 'Helvetica Neue';
+  margin-bottom: 5px;
+}
+.squre-box-list-style{
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: inherit;
+  background-color: rgba(215, 215, 215, 1);
+  border: none;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.add-url {
+  cursor: pointer;
+}
+
+#twitterSourcesList li .remove-selected-url {
+  float: right;
+  color: #bbb6b6;
+  cursor: pointer;
+}
