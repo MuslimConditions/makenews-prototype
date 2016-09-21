@@ -67,7 +67,7 @@ $(document).ready(function(){
           configuredGroups.add(group);
           add_to_group_configured(this);
        }
-    })
+    });
     function add_to_group_configured(label){
        var listItem = $('<li></li>');
        listItem.append("<span class='squre-box-list-style'>");
