@@ -78,19 +78,19 @@ $(document).ready(function() {
     var $articleTitle = $(".article__title")[0];
     var length = parseInt(localStorage.getItem('count'));
     var arrayList = [];
-    for(var i =1 ; i<=length; i++){
+    for(var i =1 ; i<length; i++){
         var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+localStorage.getItem("profile"+i)+"</span></li>");
         $("#filteredWebUrlsList").append(listItem);
         arrayList.push(localStorage.getItem("profile"+i));
     }
     var length1 = parseInt(localStorage.getItem('countPage'));
-    for(var i1 =1 ; i1<=length1; i1++){
+    for(var i1 =1 ; i1<length1; i1++){
         var listItem1 = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+localStorage.getItem("pages"+i1)+"</span></li>");
         $("#filteredWebUrlsList").append(listItem1);
         arrayList.push(localStorage.getItem("pages"+i1));
     }
     var length2 = parseInt(localStorage.getItem('countGroup'));
-    for(var i2 =1 ; i2<=length2; i2++){
+    for(var i2 =1 ; i2<length2; i2++){
         var listItem2 = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+localStorage.getItem("group"+i2)+"</span></li>");
         $("#filteredWebUrlsList").append(listItem2);
         arrayList.push(localStorage.getItem("group"+i2));
