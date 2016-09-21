@@ -78,8 +78,10 @@ $(document).ready(function() {
   var $articleTitle = $(".article__title")[0];
   var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
   renderFeeds(configuredWebUrls);
+
   function renderFeeds(configuredUrls){
     var countConfiguredUrls = configuredUrls.length;
+    if(countConfiguredUrls !== 0){
       webFeed.forEach(function(url, index){
         var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title
         +"</p><p class='web-feed__item__summary'>"+url.summary
@@ -88,6 +90,7 @@ $(document).ready(function() {
         .click(function(event){showSelectedArticle(event)});
         $webFeed.append(webFeedItemDOM);
       });
+    }
   }
   var $oldSelectedArticle = $($(".web-feed__item")[0]);
   $oldSelectedArticle.addClass("current");
