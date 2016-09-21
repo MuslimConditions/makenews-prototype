@@ -22,6 +22,39 @@
   top: 424px;
 }
 
+#u2678 {
+  top: 176px;
+}
+#u2680 {
+  top: 181px;
+}
+
+#u2685 {
+  top: 172px;
+}
+
+#u2687 {
+  top: 174px;
+}
+
+#u2692 {
+  top: 13px;
+}
+
+#u2676_img {
+  position: static;
+  height: 270px;
+  margin-bottom: 10px;
+}
+
+#u2677 {
+  position: static;
+}
+
+#u2676 {
+  top: 227px;
+}
+
 .article .article__image {
   top: 200px;
   width: 300px;
@@ -47,6 +80,7 @@
 .twitter-feed__items {
   margin: 0;
   padding: 0;
+  width: 858px;
 }
 
 .twitter-feed__items .twitter-feed__item {
@@ -55,7 +89,16 @@
   padding: 10px 15px;
   font-style: normal;
   cursor: pointer;
+  width: 380px;
+  display: inline-block;
+  height: 160px;
+  overflow: hidden;
+  margin-top: -10px;
 }
+
+.twitter-feed__item:nth-child(even) {
+    border-left: 1px solid #bbb;
+  }
 
 .twitter-feed__item__title {
   font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
