@@ -14,6 +14,14 @@
   width: 750px !important;
 }
 
+#u2641 {
+  cursor: pointer;
+}
+
+#u2643, #u2641 {
+  top: 424px;
+}
+
 .article .article__image {
   top: 200px;
   width: 300px;
@@ -93,12 +101,13 @@
 }
 #filteredWebUrlsList{
     position: absolute;
-    left: 0px;
+    left: 420px;
     top: 125px;
     width: 222px;
-    height: 18px;
+    height: 250px;
     font-size: 16px;
     list-style: none;
+    overflow-y: auto;
 }
 #filteredWebUrls{
     text-align : left;

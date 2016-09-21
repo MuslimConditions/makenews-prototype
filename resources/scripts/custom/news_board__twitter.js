@@ -103,5 +103,33 @@ $(document).ready(function() {
     $articleTitle.innerHTML = $currentItem.find(".twitter-feed__item__title").text();
     $articleSource.innerText = $currentItem.find("#twitter-feed__item__source").text();
   }
+  configuredWebUrls.forEach(function(url){
+    var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+    $("#filteredWebUrlsList").append(listItem);
+  });
+  $("#u2641").click(function(){
+    var selectedUrls = [];
+    var checkbox = $(".filter-web-checkbox");
+    for(var index=0; index<checkbox.length;index++){
+        if(checkbox[index].checked){
+            selectedUrls.push($(checkbox[index]).siblings()[0].innerText);
+        }
+    }
+    $("#TwitterFeedItems").empty();
+    renderFeeds(selectedUrls);
+    $("#u2643").click();
+  });
+  $("#u2621").click(function(){
+     var checkbox = $(".filter-web-checkbox");
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = false;
+        }
+  });
 
+  $("#u2623").click(function(){
+     var checkbox = $(".filter-web-checkbox");
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = true;
+        }
+  });
 });
