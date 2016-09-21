@@ -7,6 +7,7 @@ $(document).ready(function(){
     var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
     if(configuredWebUrls.indexOf(url) === -1) {
       configuredWebUrls.push(url);
+      localStorage.setItem("configuredTwitterUrls", JSON.stringify(configuredWebUrls));
       updateConfiguredWebUrlsDOM(url, $(this)[0].id.split("_")[0]);
     }
   });
@@ -57,4 +58,5 @@ $(document).ready(function(){
         configuredWebUrls=[];
         $("#twitterSourcesList").empty();
    });
+
 });
