@@ -78,25 +78,43 @@ $(document).ready(function() {
     var $articleTitle = $(".article__title")[0];
     var length = parseInt(localStorage.getItem('count'));
     var arrayList = [];
-    for(var i =1 ; i<length; i++){
-        var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+localStorage.getItem("profile"+i)+"</span></li>");
+    var profileLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-profile' checked><span class ='filter-web-source' style='font-weight: bold'>Facebook Friends</span><span class='profile-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></span></li>");
+    var pagesLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-page' checked><span class ='filter-web-source' style='font-weight: bold'>Facebook Pages</span><span class='page-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></li>");
+    var groupsLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-group' checked><span class ='filter-web-source' style='font-weight: bold'>Facebook Groups</span><span class='group-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></li>");
+
+    $("#filteredWebUrlsList").append(profileLabel);
+
+    for(var i =1 ; i<=length; i++){
+        var listItem = $("<li class='profile-elements'><input type = 'checkbox' class = 'filter-web-checkbox profile' checked><span class ='filter-web-source'>"+localStorage.getItem("profile"+i)+"</span></li>");
         $("#filteredWebUrlsList").append(listItem);
         arrayList.push(localStorage.getItem("profile"+i));
     }
+    $("#filteredWebUrlsList").append(pagesLabel);
     var length1 = parseInt(localStorage.getItem('countPage'));
-    for(var i1 =1 ; i1<length1; i1++){
-        var listItem1 = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+localStorage.getItem("pages"+i1)+"</span></li>");
+    for(var i1 =1 ; i1<=length1; i1++){
+        var listItem1 = $("<li class='page-elements'><input type = 'checkbox' class = 'filter-web-checkbox page' checked><span class ='filter-web-source'>"+localStorage.getItem("pages"+i1)+"</span></li>");
         $("#filteredWebUrlsList").append(listItem1);
         arrayList.push(localStorage.getItem("pages"+i1));
     }
+    $("#filteredWebUrlsList").append(groupsLabel);
     var length2 = parseInt(localStorage.getItem('countGroup'));
-    for(var i2 =1 ; i2<length2; i2++){
-        var listItem2 = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+localStorage.getItem("group"+i2)+"</span></li>");
+    for(var i2 =1 ; i2<=length2; i2++){
+        var listItem2 = $("<li class='group-elements'><input type = 'checkbox' class = 'filter-web-checkbox group' checked><span class ='filter-web-source'>"+localStorage.getItem("group"+i2)+"</span></li>");
         $("#filteredWebUrlsList").append(listItem2);
         arrayList.push(localStorage.getItem("group"+i2));
     }
     var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
     renderFeeds(arrayList);
+    for(var i=0; i< document.getElementsByClassName("page").length; i++){
+        document.getElementsByClassName("page-elements")[i].style.display='none';
+    }
+    for(var i=0; i< document.getElementsByClassName("group").length; i++){
+        document.getElementsByClassName("group-elements")[i].style.display='none';
+    }
+    for(var i=0; i< document.getElementsByClassName("profile").length; i++){
+        document.getElementsByClassName("profile-elements")[i].style.display='block';
+    }
+
 
     var firstElement = document.querySelector("ul > li > p");
     var source = document.querySelector("ul > li > div > span");
@@ -150,6 +168,9 @@ $(document).ready(function() {
         for(var index=0; index<checkbox.length;index++){
             checkbox[index].checked = false;
         }
+        document.getElementsByClassName("filter-web-checkbox-profile")[0].checked = false;
+        document.getElementsByClassName("filter-web-checkbox-page")[0].checked = false;
+        document.getElementsByClassName("filter-web-checkbox-group")[0].checked = false;
     });
 
     $("#u2015").click(function(){
@@ -157,5 +178,104 @@ $(document).ready(function() {
         for(var index=0; index<checkbox.length;index++){
             checkbox[index].checked = true;
         }
+        document.getElementsByClassName("filter-web-checkbox-profile")[0].checked = true;
+        document.getElementsByClassName("filter-web-checkbox-page")[0].checked = true;
+        document.getElementsByClassName("filter-web-checkbox-group")[0].checked = true;
+
+    });
+
+    $(".filter-web-checkbox-profile").click(function(){
+        var checkbox = $(".profile");
+        var check=document.getElementsByClassName("filter-web-checkbox-profile")[0].checked;
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = check;
+        }
+    });
+
+    $(".filter-web-checkbox-page").click(function(){
+        var checkbox = $(".page");
+        var check=document.getElementsByClassName("filter-web-checkbox-page")[0].checked;
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = check;
+        }
+    });
+
+    $(".filter-web-checkbox-group").click(function(){
+        var checkbox = $(".group");
+        var check=document.getElementsByClassName("filter-web-checkbox-group")[0].checked;
+        for(var index=0; index<checkbox.length;index++){
+            checkbox[index].checked = check;
+        }
+    });
+    $(".profile-select").click(function(){
+        for(var i=0; i< document.getElementsByClassName("page").length; i++){
+            document.getElementsByClassName("page-elements")[i].style.display='none';
+        }
+        for(var i=0; i< document.getElementsByClassName("group").length; i++){
+            document.getElementsByClassName("group-elements")[i].style.display='none';
+        }
+        for(var i=0; i< document.getElementsByClassName("profile").length; i++){
+            document.getElementsByClassName("profile-elements")[i].style.display='block';
+        }
+    });
+    $(".group-select").click(function(){
+        for(var i=0; i< document.getElementsByClassName("page").length; i++){
+            document.getElementsByClassName("page-elements")[i].style.display='none';
+        }
+        for(var i=0; i< document.getElementsByClassName("profile").length; i++){
+            document.getElementsByClassName("profile-elements")[i].style.display='none';
+        }
+        for(var i=0; i< document.getElementsByClassName("group").length; i++){
+            document.getElementsByClassName("group-elements")[i].style.display='block';
+        }
+    });
+    $(".page-select").click(function(){
+        for(var i=0; i< document.getElementsByClassName("profile").length; i++){
+            document.getElementsByClassName("profile-elements")[i].style.display='none';
+        }
+        for(var i=0; i< document.getElementsByClassName("group").length; i++){
+            document.getElementsByClassName("group-elements")[i].style.display='none';
+        }
+        for(var i=0; i< document.getElementsByClassName("page").length; i++){
+            document.getElementsByClassName("page-elements")[i].style.display='block';
+        }
+    });
+    $(".profile").click(function(){
+        for(var i=0; i< document.getElementsByClassName("profile").length; i++){
+            var check =true;
+             if(document.getElementsByClassName("profile")[i].checked === false) {
+                 document.getElementsByClassName("filter-web-checkbox-profile")[0].checked = false;
+                 check =false;
+                 break;
+             }
+        }
+        if(check)
+            document.getElementsByClassName("filter-web-checkbox-profile")[0].checked = true;
+    });
+
+    $(".page").click(function(){
+        for(var i=0; i< document.getElementsByClassName("page").length; i++){
+            var check =true;
+             if(document.getElementsByClassName("page")[i].checked === false) {
+                 document.getElementsByClassName("filter-web-checkbox-page")[0].checked = false;
+                 check =false;
+                 break;
+             }
+        }
+        if(check)
+            document.getElementsByClassName("filter-web-checkbox-page")[0].checked = true;
+    });
+
+    $(".group").click(function(){
+        for(var i=0; i< document.getElementsByClassName("group").length; i++){
+            var check =true;
+             if(document.getElementsByClassName("group")[i].checked === false) {
+                 document.getElementsByClassName("filter-web-checkbox-group")[0].checked = false;
+                 check =false;
+                 break;
+             }
+        }
+        if(check)
+            document.getElementsByClassName("filter-web-checkbox-group")[0].checked = true;
     });
 });
