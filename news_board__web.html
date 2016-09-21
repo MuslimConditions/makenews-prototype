@@ -45,6 +45,7 @@
     <script src="resources/scripts/axure/viewer.js"></script>
     <script src="resources/scripts/axure/math.js"></script>
     <script src="resources/scripts/custom/news_board__web.js"></script>
+    <script src="resources/scripts/custom/selectedTextAddToCollection.js"></script>
     <script type="text/javascript">
       $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
       $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
@@ -464,6 +465,40 @@
             <p><span></span></p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div id="collectionsPopUp" class="collection-pop-up">
+      <div class="collections-pop-up-container">
+        <h2 class="collection__heading">Pick a Collection</h2>
+        <div id="createCollection" class="new-collection">
+            <div class="new-collection__label">
+              <span class="plus-icon">+</span>
+              <span class="create-collection-label">Create New Collection</span>
+            </div>
+            <div class="new-collection__form">
+              <span class="collection-avatar-box"></span>
+              <input id="newCollectionName" class="new-collection-name" placeholder="Name your Collection"/>
+              <br />
+              <button id="newCollectionCancel" class="btn btn-primary">Cancel</button>
+              <button id="newCollectionApply" class="btn btn-primary">Apply</button>
+            </div>
+        </div>
+        <div id="collectionList">
+
+        </div>
+      </div>
+    </div>
+
+    <div id="addToCollectionPopUp">
+      <div id="addToCollection" class="add-to-collection item">
+        <span class="fa-stack">
+          <i class="fa fa-folder-o fa-stack-1x"></i>
+          <i class="fa fa-plus fa-stack-1x"></i>
+        </span>
+      </div>
+      <div id="copySelectedText" class="copy item">
+        <i class="fa fa-copy"></i>
       </div>
     </div>
   </body>
