@@ -9,6 +9,7 @@
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/news_board__twitter/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/custom/collections_pop_up.css" type="text/css" rel="stylesheet"/>
     <link href="resources/css/custom/news_board__twitter.css" type="text/css" rel="stylesheet"/>
     <link href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
     <script src="resources/scripts/jquery-1.7.1.min.js"></script>
@@ -45,6 +46,7 @@
     <script src="resources/scripts/axure/viewer.js"></script>
     <script src="resources/scripts/axure/math.js"></script>
     <script src="resources/scripts/custom/news_board__twitter.js"></script>
+    <script src="resources/scripts/custom/selectedTextAddToCollection.js"></script>
     <script type="text/javascript">
       $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
       $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
@@ -314,7 +316,7 @@
       <div id="u2676" class="ax_default paragraph">
         <img id="u2676_img" class="img " src="images/Cs2wDz1UIAAw1Ej.jpg"/>
         <!-- Unnamed () -->
-        <div id="u2677" class="text" style="visibility: visible;">
+        <div id="u2677" class="text article__body" style="visibility: visible;">
           <p><span>Two women drivers M Hamsaveni and A Nalini to steer the first two trains @TheHindu @the_hindu #MetrotoAirport</span></p>
         </div>
       </div>
@@ -350,7 +352,7 @@
         </div>
 
         <!-- Unnamed (Paragraph) -->
-        <div id="u2687" class="ax_default paragraph">
+        <div id="u2687" class="ax_default paragraph add-whole-article-to-collection">
           <img id="u2687_img" class="img " src="images/news_board__web/u2092.png"/>
           <!-- Unnamed () -->
           <div id="u2688" class="text" style="visibility: visible;">
@@ -459,6 +461,43 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="collectionsPopUp" class="collection-pop-up">
+      <div class="collections-pop-up-container">
+        <h2 class="collection__heading">Pick a Collection</h2>
+        <div id="createCollection" class="new-collection">
+            <div id="newCollectionLabel" class="new-collection__label">
+              <span class="plus-icon">+</span>
+              <span class="create-collection-label">Create New Collection</span>
+            </div>
+            <div id="newCollectionForm" class="new-collection__form">
+              <span class="collection-avatar-box"></span>
+              <input id="newCollectionName" class="new-collection-name" placeholder="Name your Collection"/>
+              <br />
+              <button id="newCollectionCancel" class="btn btn-primary">Cancel</button>
+              <button id="newCollectionCreate" class="btn btn-primary">Apply</button>
+            </div>
+        </div>
+        <ul id="collectionList">
+
+        </ul>
+      </div>
+    </div>
+
+    <div id="addToCollectionPopUp">
+      <div id="addToCollection" class="add-to-collection item">
+        <span class="fa-stack">
+          <i class="fa fa-folder-o fa-stack-1x"></i>
+          <i class="fa fa-plus fa-stack-1x"></i>
+        </span>
+      </div>
+      <div id="copySelectedText" class="copy item">
+        <i class="fa fa-copy"></i>
+      </div>
+    </div>
+    <div id="toast">
+      <span class="message">Successfully added to collection</span>
+      <span id="closeToast" class="fa fa-close"></span>
     </div>
   </body>
 </html>
