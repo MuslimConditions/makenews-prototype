@@ -150,4 +150,8 @@ $(document).ready(function() {
             checkbox[index].checked = true;
         }
   });
+
+  $("#u2668").click(function(){
+      window.location.href = "news_board__collections.html";
+  });
 });

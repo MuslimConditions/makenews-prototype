@@ -152,4 +152,7 @@ $(document).ready(function() {
             checkbox[index].checked = true;
         }
   });
+  $("#u2068").click(function() {
+    window.location.href = "news_board__collections.html";
+  });
 });

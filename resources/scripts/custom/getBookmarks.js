@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var cList = $('#bookmark_articles');
 
-    var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data"));
+    var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data")) || [];
 
     for (var index = 0; index < bookmarkList.length; index++) {
         var source = bookmarkList[index].source;
@@ -34,6 +34,23 @@ $(document).ready(function () {
         location.reload();
     });
 
-    $(".article__body").replaceWith(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
+         if(bookmarkList.length > 0){
+           $(".article__body").replaceWith(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
+         }
 
+    $("#u2857").click(function() {
+      window.location.href = "news_board__web.html";
+    });
+
+    $("#u2859").click(function() {
+      window.location.href = "news_board__facebook.html";
+    });
+
+    $("#u2861").click(function() {
+      window.location.href = "news_board__twitter.html";
+    });
+
+    $("#u2863").click(function() {
+      window.location.href = "news_board__collections.html";
+    });
 });

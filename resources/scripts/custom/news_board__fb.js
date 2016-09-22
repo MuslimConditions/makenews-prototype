@@ -298,4 +298,8 @@ $(document).ready(function() {
     $("#u2062").click(function(){
         window.location.href = "news_board__web.html";
     });
+
+    $("#u2068").click(function(){
+        window.location.href = "news_board__collections.html";
+    });
 });

@@ -89,3 +89,9 @@
 #u2869{
   margin-top: 30px;
 }
+#u2857,
+#u2859,
+#u2861,
+#u2863 {
+  cursor: pointer;
+}

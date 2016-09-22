@@ -91,4 +91,19 @@ $(document).ready(function(){
 
       return arr;
   }
+  $("#u2925").click(function(){
+    window.location.href = "news_board__bookmarks.html";
+  })
+
+  $("#u2921").click(function(){
+    window.location.href = "news_board__twitter.html";
+  })
+
+  $("#u2919").click(function(){
+    window.location.href = "news_board__facebook.html";
+  })
+
+  $("#u2917").click(function(){
+    window.location.href = "news_board__web.html";
+  })
 });
