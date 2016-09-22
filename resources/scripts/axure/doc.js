@@ -737,7 +737,7 @@
         var obj = this.getObjectFromElementIdDisregardHex(elementId);
         return obj && obj.type;
     };
-
+    
     $ax.getNumFromPx = function(pxNum) {
         return Number(pxNum.replace('px', ''));
     }
