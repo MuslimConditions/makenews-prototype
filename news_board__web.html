@@ -387,7 +387,7 @@
         </div>
 
         <!-- Unnamed (Paragraph) -->
-        <div id="u2092" class="ax_default paragraph">
+        <div id="u2092" class="ax_default paragraph add-whole-article-to-collection">
           <img id="u2092_img" class="img " src="images/news_board__web/u2092.png"/>
           <!-- Unnamed () -->
           <div id="u2093" class="text" style="visibility: visible;">
@@ -472,21 +472,21 @@
       <div class="collections-pop-up-container">
         <h2 class="collection__heading">Pick a Collection</h2>
         <div id="createCollection" class="new-collection">
-            <div class="new-collection__label">
+            <div id="newCollectionLabel" class="new-collection__label">
               <span class="plus-icon">+</span>
               <span class="create-collection-label">Create New Collection</span>
             </div>
-            <div class="new-collection__form">
+            <div id="newCollectionForm" class="new-collection__form">
               <span class="collection-avatar-box"></span>
               <input id="newCollectionName" class="new-collection-name" placeholder="Name your Collection"/>
               <br />
               <button id="newCollectionCancel" class="btn btn-primary">Cancel</button>
-              <button id="newCollectionApply" class="btn btn-primary">Apply</button>
+              <button id="newCollectionCreate" class="btn btn-primary">Apply</button>
             </div>
         </div>
-        <div id="collectionList">
+        <ul id="collectionList">
 
-        </div>
+        </ul>
       </div>
     </div>
 
@@ -500,6 +500,10 @@
       <div id="copySelectedText" class="copy item">
         <i class="fa fa-copy"></i>
       </div>
+    </div>
+    <div id="toast">
+      <span class="message">Successfully added to collection</span>
+      <span id="closeToat" class="fa fa-close"></span>
     </div>
   </body>
 </html>

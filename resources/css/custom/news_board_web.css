@@ -151,6 +151,7 @@ visibility: visible;
 }
 
 #collectionsPopUp {
+  display: none;
   position: absolute;
   left: 60px;
   top: 130px;
@@ -176,12 +177,17 @@ visibility: visible;
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .new-collection__label .plus-icon {
   border: 1px dashed #bbb;
   padding: 0 8px 4px;
   border-radius: 4px;
+}
+
+.new-collection__form {
+  display: none;
 }
 
 .collection-avatar-box {
@@ -209,6 +215,36 @@ visibility: visible;
   color: #999999;
   text-align: left;
   margin: 15px 0;
+}
+
+#collectionList {
+  margin: 15px 0;
+  padding: 0;
+}
+
+.collection-item {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: #000000;
+  line-height: normal;
+  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.collection-item:before {
+  content: '';
+  width: 41px;
+  height: 41px;
+  background: inherit;
+  background-color: #d7d7d7;
+  border: none;
+  border-radius: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .btn {

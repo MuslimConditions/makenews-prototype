@@ -5,6 +5,28 @@ $(document).ready(function(){
   var $addToCollection = $("#addToCollection");
   var $copySelectedText = $("#copySelectedText");
 
+  // collectionsPopUp
+  var $createNewCollectionLabel = $("#newCollectionLabel");
+  var $newCollectionForm = $("#newCollectionForm");
+  var $collectionsPopUp = $("#collectionsPopUp");
+  var $cancelCreateCollectionBtn = $("#newCollectionCancel");
+  var $createNewCollectionBtn = $("#newCollectionCreate");
+  var $collectionList = $("#collectionList");
+  var $addWholeArticleToCollection = $($(".add-whole-article-to-collection")[0]);
+
+
+  var collections = JSON.parse(localStorage.getItem("collections")) || [];
+  renderColletionList(collections);
+
+  function renderColletionList(collections) {
+    var collectionNames = [];
+    for (var collection in collections) { collectionNames.push(collection); }
+    collectionNames.forEach(function(collection) {
+      var $li = $("<li class='collection-item'>"+collection+"</li>");
+      $collectionList.append($li);
+    });
+  }
+
   $($articleBody).on("mouseup", function(event) {
     selectedText = getSelectedTextWithin($articleBody);
     if (selectedText.length !== 0) {
@@ -15,10 +37,49 @@ $(document).ready(function(){
     }
   });
 
+  $createNewCollectionLabel.click(function() {
+    $newCollectionForm.show();
+  });
+
+  $cancelCreateCollectionBtn.click(function() {
+    $newCollectionForm.hide();
+  });
+
+  $createNewCollectionBtn.click(function() {
+    var article = {
+      "title": $(".article__title").text().trim(),
+      "source": $(".article__source").text().trim(),
+      "content": selectedText
+    }
+    var newCollectionName = $("#newCollectionName").val();
+    $("#newCollectionName").val("");
+    collections[newCollectionName] = [article];
+    localStorage.setItem("collections", JSON.stringify(collections));
+    var $li = $("<li class='collection-item'>"+newCollectionName+"</li>");
+    $collectionList.append($li);
+    $newCollectionForm.hide();
+    $collectionsPopUp.hide();
+  })
+
   $addToCollection.click(function() {
-    console.log(selectedText);
     $addToCollectionPopUp.hide();
-    $("u1881").hide();
+    $collectionsPopUp.show();
+  });
+
+  $addWholeArticleToCollection.click(function() {
+    selectedText = $(".article__body").text();
+    $collectionsPopUp.show();
+  });
+
+  $collectionList.click(function(event) {
+    var article = {
+      "title": $(".article__title").text().trim(),
+      "source": $(".article__source").text().trim(),
+      "content": selectedText
+    }
+    collections[event.target.innerText].push(article);
+    $collectionsPopUp.hide();
+    localStorage.setItem("collections", JSON.stringify(collections));
   });
 
   $copySelectedText.click(function() {
