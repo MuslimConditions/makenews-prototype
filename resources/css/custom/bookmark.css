@@ -68,7 +68,6 @@
 .article__image {
   top: 200px;
   width: 300px;
-  margin-left: 260px;
   margin-bottom: 10px;
 }
 
@@ -82,5 +81,11 @@
 }
 
 #u2867{
-    width:700px;
+    width:750px;
+}
+#u2875_div{
+  background-color: #ffffff;
+}
+#u2869{
+  margin-top: 30px;
 }

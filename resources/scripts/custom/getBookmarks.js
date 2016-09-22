@@ -3,11 +3,12 @@ $(document).ready(function () {
         var cList = $('#bookmark_articles');
 
         var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data"));
-        var body=bookmarkList[0].body.slice(0,100);
+        //var body=bookmarkList[0].body.slice(0,100);
 
         for (var index = 0; index < bookmarkList.length; index++) {
             var title = bookmarkList[index].title;
             var source = bookmarkList[index].source;
+            var body=bookmarkList[index].body.slice(0,100);
 
             var li =$("<li class='bookmark__item'><p class='bookmark__item__title'>"+title
                     +"</p><p class='bookmark__item__summary'>"+body

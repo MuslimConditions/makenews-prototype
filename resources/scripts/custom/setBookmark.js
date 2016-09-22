@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    var bookmark_articles=[];
+    var bookmarks_articles=[];
+
+    bookmarks_articles = JSON.parse(localStorage.getItem("bookmark_data")) || [];
 
     $("div[data-label='bookmark_add']").click(function(e){
         var title=$(".article__title").text();
@@ -8,8 +10,23 @@ $(document).ready(function(){
 
         var bookmark_article={title : title, source: source, body : body};
 
-        bookmark_articles.push(bookmark_article);
-        //alert("added:: "+bookmark_articles.length);
+        var count=0;
+        for (var i=0; i< bookmarks_articles.length; i++) {
+            if (bookmarks_articles[i].title === title) {
+               count++;
+            }
+        }
+
+        if(count===0){
+            bookmarks_articles.push(bookmark_article);
+            $(".bookmarked").attr("src","images/news_board__web/u2087.png");
+            console.log(bookmark_article+"Pushed to array");
+        }
+
+        if(count>0){
+            removeArticle(bookmarks_articles, title);
+        }
+
         storeArticle();
 
     });
@@ -17,23 +34,23 @@ $(document).ready(function(){
     $("div[data-label='bookmark_remove']").click(function(x) {
         var title=$(".article__title").text();
 
-        for(var i=0; i<bookmark_articles.length; i++){
-            if(bookmark_articles[i].title === title){
-                bookmark_articles.splice(i,1);
-            }
-
-        }
-        //alert("removed::"+bookmark_articles.length);
+        removeArticle(bookmarks_articles, title);
         storeArticle();
 
     });
 
     function storeArticle(){
-        //console.log(bookmark_articles);
-        var bookmarks = JSON.parse(localStorage.getItem("bookmark_data")) || [];
-        bookmarks = bookmarks.concat(bookmark_articles);
-        localStorage.setItem("bookmark_data", JSON.stringify(bookmarks));
+        localStorage.setItem("bookmark_data", JSON.stringify(bookmarks_articles));
     }
 
 
 });
+function removeArticle(bookmarks_articles, title) {
+    for (var i = 0; i < bookmarks_articles.length; i++) {
+        if (bookmarks_articles[i].title === title) {
+            bookmarks_articles.splice(i, 1);
+        }
+
+    }
+    $(".bookmarked").attr("src","images/news_board__web/u2085.png");
+}
