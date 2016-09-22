@@ -1,25 +1,86 @@
 #bookmarks{
     margin-top: 100px;
     width: 400px;
-    /*background-color: #DEDEDE;*/
     font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
-    /*font-weight: 500;*/
-    font-style: normal;
-    font-size: 16px;
-    /*!*border: 1px solid red;*!*/
-
     list-style: none;
     border-bottom: 1px solid #d4cccc;
-    padding: 10px 15px;
-    background: #f2f2f2;
     cursor: pointer;
 }
 
-#bookmarks ul{
-    padding: 10px;
+
+.myBookmarks {
+  margin-top: 130px;
+  width: 410px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
 }
-#bookmarks li{
-    list-style-type: none;
-    text-align: left;
-    /*float:left;*/
+
+#bookmarks .bookmark__item {
+  list-style: none;
+  border-bottom: 1px solid #d4cccc;
+  padding: 10px 15px;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.bookmark__item__title {
+  font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+.bookmark__item__source-date:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  background-color: rgba(215, 215, 215, 1);
+  border: none;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-right: 8px;
+  vertical-align: top;
+}
+.bookmark__item__summary {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 14px;
+  color: #848484;
+  line-height: 1.5em;
+}
+
+.bookmark__item__source-date {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 11px;
+  color: #A2A2A2;
+  padding-top: 10px;
+}
+
+.bookmark__item.current {
+  background: #f2f2f2;
+}
+
+.article__image {
+  top: 200px;
+  width: 300px;
+  margin-left: 260px;
+  margin-bottom: 10px;
+}
+
+.article__body p{
+  font-size: 16px;
+  padding-bottom: 12px;
+}
+
+.article__source {
+  padding-right: 5px;
+}
+
+#u2867{
+    width:700px;
 }
