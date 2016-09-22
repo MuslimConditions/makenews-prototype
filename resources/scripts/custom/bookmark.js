@@ -4,9 +4,10 @@ function isBookmarked(){
 
     var count=0;
     var title=$(".article__title").text();
+    var source=$(".article__source").text();
 
     for (var i=0; i< bookmarks_articles.length; i++) {
-        if (bookmarks_articles[i].title === title) {
+        if ((bookmarks_articles[i].title === title)&&(bookmarks_articles[i].source === source)) {
             count++;
         }
     }

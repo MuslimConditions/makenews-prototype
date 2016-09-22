@@ -161,6 +161,7 @@ $(document).ready(function() {
         $currentItem.addClass("current");
         $articleTitle.innerHTML = $currentItem.find(".web-feed__item__title").text();
         $articleSource.innerText = $currentItem.find("#web-feed__item__source").text();
+        isBookmarked();
     }
 
     $("#u2041").click(function(){

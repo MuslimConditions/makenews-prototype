@@ -29,7 +29,8 @@ $(document).ready(function () {
 
     $("div[data-label='bookmark']").click(function(e){
         title= $(".article__title").text();
-        removeArticle(bookmarkList,title);
+        source= $(".article__source").text();
+        removeArticle(bookmarkList,title,source);
         console.log(title);
         location.reload();
     });

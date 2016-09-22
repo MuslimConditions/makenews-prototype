@@ -12,8 +12,8 @@ $(document).ready(function(){
 
         var count=0;
         for (var i=0; i< bookmarks_articles.length; i++) {
-            if (bookmarks_articles[i].title === title) {
-               count++;
+            if ((bookmarks_articles[i].title === title)&&(bookmarks_articles[i].source === source)) {
+                 count++;
             }
         }
 
@@ -24,7 +24,7 @@ $(document).ready(function(){
         }
 
         if(count>0){
-            removeArticle(bookmarks_articles, title);
+            removeArticle(bookmarks_articles, title,source);
         }
 
         storeArticle();
@@ -33,8 +33,9 @@ $(document).ready(function(){
 
     $("div[data-label='bookmark_remove']").click(function(x) {
         var title=$(".article__title").text();
+        var source=$(".article__source").text();
 
-        removeArticle(bookmarks_articles, title);
+        removeArticle(bookmarks_articles, title, source);
 
 
     });
@@ -46,9 +47,9 @@ $(document).ready(function(){
 
 });
 
-function removeArticle(bookmarks_articles, title) {
+function removeArticle(bookmarks_articles, title, source) {
     for (var i = 0; i < bookmarks_articles.length; i++) {
-        if (bookmarks_articles[i].title === title) {
+        if ((bookmarks_articles[i].title === title)&&(bookmarks_articles[i].source === source)) {
             bookmarks_articles.splice(i, 1);
         }
 

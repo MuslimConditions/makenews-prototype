@@ -120,6 +120,7 @@ $(document).ready(function() {
     $currentItem.addClass("current");
     $articleTitle.innerHTML = $currentItem.find(".twitter-feed__item__title").text();
     $articleSource.innerText = $currentItem.find("#twitter-feed__item__source").text();
+    isBookmarked();
   }
   configuredWebUrls.forEach(function(url){
     var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
