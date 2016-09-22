@@ -278,4 +278,7 @@ $(document).ready(function() {
         if(check)
             document.getElementsByClassName("filter-web-checkbox-group")[0].checked = true;
     });
+    $("#u2062").click(function(){
+        window.location.href = "news_board__web.html";
+    });
 });
