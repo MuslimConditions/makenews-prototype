@@ -8,6 +8,7 @@ $(document).ready(function(){
   var $createNewCollectionBtn = $("#newCollectionCreate");
   var $collectionList = $("#collectionList");
   var $collectionListFirstItem = null;
+  var currentCollectionName;
 
   var collections = JSON.parse(localStorage.getItem("collections")) || {};
   var collectionNames = [];
@@ -44,11 +45,12 @@ $(document).ready(function(){
     collectionListFirstItem.className = "collection-item";
     collectionListFirstItem = event.target;
     $(event.target).addClass("current");
-    renderArticles(event.target.innerText);
+    currentCollectionName = event.target.innerText;
+    renderArticles(currentCollectionName);
   });
 
-  var collectionArticles = collectionNames[0];
-  renderArticles(collectionArticles);
+  currentCollectionName = collectionNames[0];
+  renderArticles(currentCollectionName);
   collectionListFirstItem = $(".collection-item")[0];
   collectionListFirstItem.className = "collection-item current";
 
@@ -57,16 +59,36 @@ $(document).ready(function(){
     collections[collectionName].forEach(function(article){
       var $article = $("<div class='article'></div>");
 
+      var $remove = $("<div id='removeArticle' class='remove-article'><img src='images/news_board__collections/delete_u2816.png'/></div>").click(function(event) {
+        removeArticle(article.id, event);
+      });
       var $title = $("<div class='article__title'>"+article.title+"</div>");
       var $source = $("<div class='article__source'>"+article.source+"</div>");
       var $body = $("<div class='article__content'>"+article.content+"</div>");
       var $link = $("<div class='article__link'>Link: www.abcd.xyx.in</div>");
       var $date = $("<div class='article__date'>Created on 24 Sept, 2016</div>");
 
-      $article.append($title).append($source).append($body).append($link).append($date);
+      $article.append($remove).append($title).append($source).append($body).append($link).append($date);
       $collectedArticles.append($article);
     });
   }
 
+  function removeArticle(id, event) {
+    var temp = removeFromArray(collections[currentCollectionName], id);
+    collections[currentCollectionName] = temp;
 
+    localStorage.setItem("collections", JSON.stringify(collections));
+    $(event.currentTarget).parent().remove();
+  }
+
+  function removeFromArray(arr, id) {
+      for(var i = arr.length; i--;) {
+          if(arr[i].id === id) {
+              arr.splice(i, 1);
+              break;
+          }
+      }
+
+      return arr;
+  }
 });

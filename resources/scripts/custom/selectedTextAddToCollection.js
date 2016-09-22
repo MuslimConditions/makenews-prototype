@@ -49,6 +49,7 @@ $(document).ready(function(){
 
   $createNewCollectionBtn.click(function() {
     var article = {
+      "id": 0,
       "title": $(".article__title").text().trim(),
       "source": $(".article__source").text().trim(),
       "content": selectedText
@@ -76,6 +77,7 @@ $(document).ready(function(){
 
   $collectionList.click(function(event) {
     var article = {
+      "id": collections[event.target.innerText].length,
       "title": $(".article__title").text().trim(),
       "source": $(".article__source").text().trim(),
       "content": selectedText
