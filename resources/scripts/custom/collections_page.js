@@ -7,6 +7,7 @@ $(document).ready(function(){
   var $cancelCreateCollectionBtn = $("#newCollectionCancel");
   var $createNewCollectionBtn = $("#newCollectionCreate");
   var $collectionList = $("#collectionList");
+  var $collectionListFirstItem = null;
 
   var collections = JSON.parse(localStorage.getItem("collections")) || {};
   var collectionNames = [];
@@ -40,11 +41,16 @@ $(document).ready(function(){
   })
 
   $collectionList.click(function(event) {
+    collectionListFirstItem.className = "collection-item";
+    collectionListFirstItem = event.target;
+    $(event.target).addClass("current");
     renderArticles(event.target.innerText);
   });
 
   var collectionArticles = collectionNames[0];
   renderArticles(collectionArticles);
+  collectionListFirstItem = $(".collection-item")[0];
+  collectionListFirstItem.className = "collection-item current";
 
   function renderArticles(collectionName) {
     $collectedArticles.empty();

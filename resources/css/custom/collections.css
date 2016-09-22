@@ -1,5 +1,21 @@
 #collectionsPopUp {
   display: block;
+  padding: 0;
+  width: 419px;
+}
+
+#collectionsPopUp h2 {
+  padding-left: 15px;
+}
+
+.new-collection {
+  padding-left: 15px;
+}
+.collection-item {
+  padding: 5px 15px;
+}
+.collection-item.current {
+  background-color: #f2f2f2;
 }
 
 .btn {
