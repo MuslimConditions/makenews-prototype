@@ -13,6 +13,8 @@ $(document).ready(function(){
   var $createNewCollectionBtn = $("#newCollectionCreate");
   var $collectionList = $("#collectionList");
   var $addWholeArticleToCollection = $($(".add-whole-article-to-collection")[0]);
+  var $toast = $("#toast");
+  var $closeToast = $("#closeToast");
 
 
   var collections = JSON.parse(localStorage.getItem("collections")) || [];
@@ -59,6 +61,7 @@ $(document).ready(function(){
     $collectionList.append($li);
     $newCollectionForm.hide();
     $collectionsPopUp.hide();
+    $toast.show();
   })
 
   $addToCollection.click(function() {
@@ -79,6 +82,7 @@ $(document).ready(function(){
     }
     collections[event.target.innerText].push(article);
     $collectionsPopUp.hide();
+    $toast.show();
     localStorage.setItem("collections", JSON.stringify(collections));
   });
 
@@ -90,6 +94,10 @@ $(document).ready(function(){
     $temp.remove();
     $addToCollectionPopUp.hide();
   });
+
+  $closeToast.click (function() {
+    $toast.hide();
+  })
 
   function getSelectedTextWithin(el) {
     var selectedText = "";
