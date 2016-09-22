@@ -17,7 +17,7 @@ $(document).ready(function(){
   var $closeToast = $("#closeToast");
 
 
-  var collections = JSON.parse(localStorage.getItem("collections")) || [];
+  var collections = JSON.parse(localStorage.getItem("collections")) || {};
   renderColletionList(collections);
 
   function renderColletionList(collections) {
