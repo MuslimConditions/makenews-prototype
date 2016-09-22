@@ -35,7 +35,7 @@ $(document).ready(function(){
         var title=$(".article__title").text();
 
         removeArticle(bookmarks_articles, title);
-        storeArticle();
+
 
     });
 
@@ -45,6 +45,7 @@ $(document).ready(function(){
 
 
 });
+
 function removeArticle(bookmarks_articles, title) {
     for (var i = 0; i < bookmarks_articles.length; i++) {
         if (bookmarks_articles[i].title === title) {
@@ -53,4 +54,5 @@ function removeArticle(bookmarks_articles, title) {
 
     }
     $(".bookmarked").attr("src","images/news_board__web/u2085.png");
+    localStorage.setItem("bookmark_data", JSON.stringify(bookmarks_articles));
 }
