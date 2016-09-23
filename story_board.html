@@ -6,20 +6,21 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
-    <link href="resources/css/custom/story_board.css" type="text/css" rel="stylesheet"/>
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/story_board/styles.css" type="text/css" rel="stylesheet"/>
     <link href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/custom/story_board.css" type="text/css" rel="stylesheet"/>
     <script src="resources/scripts/jquery-1.7.1.min.js"></script>
     <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
     <script src="files/story_board/data.js"></script>
     <script src="resources/scripts/custom/story_board.js"></script>
-    <script type="text/javascript">
-      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
-    </script>
+    <script src="resources/scripts/custom/story_board_rightPanel.js"></script>
+    <!--<script type="text/javascript">-->
+      <!--$axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };-->
+      <!--$axure.utils.getOtherPath = function() { return 'resources/Other.html'; };-->
+      <!--$axure.utils.getReloadPath = function() { return 'resources/reload.html'; };-->
+    <!--</script>-->
   </head>
   <body>
     <div id="base" class="">
@@ -39,47 +40,7 @@
           <textarea class="story-content" type="text"></textarea>
 
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -151,13 +112,14 @@
       </div>
 
       <!-- web icon (Dynamic Panel) -->
-      <div id="u5853" class="ax_default" data-label="web icon">
+      <div id="u5853" class="ax_default story_board__web" data-label="web icon">
         <div id="u5853_state0" class="panel_state" data-label="State1">
           <div id="u5853_state0_content" class="panel_state_content">
 
             <!-- Unnamed (Paragraph) -->
             <div id="u5854" class="ax_default font_awesome">
-              <img id="u5854_img" class="img " src="images/news_board__web/u2062.png"/>
+              <img id="u5854_img" class="img web_icon"
+                   src="images/news_board__web/u2062.png"/>
               <!-- Unnamed () -->
               <div id="u5855" class="text" style="visibility: visible;">
                 <p><span></span></p>
@@ -170,7 +132,7 @@
 
             <!-- Unnamed (Paragraph) -->
             <div id="u5856" class="ax_default font_awesome">
-              <img id="u5856_img" class="img " src="images/news_board__web/u2062.png"/>
+              <img id="u5856_img" class="img web_icon" src="images/news_board__web/u2062.png"/>
               <!-- Unnamed () -->
               <div id="u5857" class="text" style="visibility: visible;">
                 <p><span></span></p>
@@ -240,8 +202,11 @@
         </div>
       </div>
 
+
+
       <!-- collection icon (Dynamic Panel) -->
-      <div id="u5868" class="ax_default" data-label="collection icon">
+      <div id="u5868" class="ax_default story_board__collections"
+           data-label="collection icon">
         <div id="u5868_state0" class="panel_state" data-label="State1">
           <div id="u5868_state0_content" class="panel_state_content">
 
@@ -277,7 +242,7 @@
 
             <!-- Unnamed (Paragraph) -->
             <div id="u5874" class="ax_default font_awesome">
-              <img id="u5874_img" class="img " src="images/news_board__web/u2070.png"/>
+              <img id="u5874_img" class="img bookmark_icon" src="images/news_board__web/u2070.png"/>
               <!-- Unnamed () -->
               <div id="u5875" class="text" style="visibility: visible;">
                 <p><span></span></p>
@@ -290,7 +255,7 @@
 
             <!-- Unnamed (Paragraph) -->
             <div id="u5876" class="ax_default font_awesome">
-              <img id="u5876_img" class="img " src="images/news_board__web/u2070.png"/>
+              <img id="u5876_img" class="img bookmark_icon" src="images/news_board__web/u2070.png"/>
               <!-- Unnamed () -->
               <div id="u5877" class="text" style="visibility: visible;">
                 <p><span></span></p>
@@ -327,5 +292,33 @@
         </div>
       </div>
     </div>
+
+
+
+    <div id="storyBoardRightPanel" class="story_board__right_panel">
+      <div id="u5106" class="ax_default text_field">
+        <input id="u5106_input" type="text" placeholder="Search" value=""/>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u5107" class="ax_default icon">
+        <img id="u5107_img" class="img " src="images/news_board__web/u2007.png"/>
+        <!-- Unnamed () -->
+        <div id="u5108" class="text" style="display: none; visibility: hidden">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <div id="feedItemsList" class="feed_item_list">
+        <ul id="collectionList" class="collection_list"></ul>
+        <ul id="bookmarkList" class="bookmark_list"></ul>
+        <ul id="webList" class="web_list"></ul>
+        <ul id="facebookList" class="facebook_list"></ul>
+        <ul id="twitterList" class="twitter_list"></ul>
+      </div>
+  </div>
+  <div id="renderArticleList">
+    <ul id ="artileList"></ul>
+  </div>
   </body>
 </html>
