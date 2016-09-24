@@ -91,9 +91,7 @@ $(document).ready(function() {
       }];
 
       var $webList = $("#webList");
-      var $twitterList = $("#twitterList");
       var $facebookList = $("#facebookList");
-      var $bookmarkList = $("#bookmarkList");
       var $collectionList = $("#collectionList");
 
     $("#u5853").click(function() {
@@ -106,7 +104,7 @@ $(document).ready(function() {
     $("#u5864").click(function() {
         emptyAllLists();
       var configuredTwitterUrls = JSON.parse(localStorage.getItem ("configuredTwitterUrls"));
-        renderUrls(configuredTwitterUrls,$twitterList);
+        renderUrls(configuredTwitterUrls,$webList);
     });
 
     $("#u5874").click(function() {
@@ -122,7 +120,7 @@ $(document).ready(function() {
                     + "</p><p class='bookmark__item__summary'>" + body
                     + "</p><div class='bookmark__item__source-date'><span id='bookmark__item__source'>"
                     + source + "</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
-                $bookmarkList.append(li);
+                $webList.append(li);
 
             }
     });
@@ -183,8 +181,6 @@ $(document).ready(function() {
       }
     function emptyAllLists(){
         $webList.empty();
-        $twitterList.empty();
-        $bookmarkList.empty();
         $facebookList.empty();
         $collectionList.empty();
     }

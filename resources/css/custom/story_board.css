@@ -124,6 +124,10 @@
   text-align: left;
 }
 
+.twitter_list {
+    top: 10px;
+}
+
 .web-feed__items {
   margin: 0;
   padding: 0;
@@ -189,8 +193,56 @@
    overflow-y: scroll; !important
 }
 
-.web_list {
+.web_list, .twitter_list {
     padding: 5px 5px;
+}
+.bookmark__item {
+  list-style: none;
+  border-bottom: 1px solid #d4cccc;
+  padding: 5px 5px;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.bookmark__item__title {
+  font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+.bookmark__item__source-date:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  background-color: rgba(215, 215, 215, 1);
+  border: none;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-right: 8px;
+  vertical-align: top;
+}
+.bookmark__item__summary {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 14px;
+  color: #848484;
+  line-height: 1.5em;
+}
+
+.bookmark__item__source-date {
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 11px;
+  color: #A2A2A2;
+  padding-top: 10px;
+}
+
+.bookmark__item.current {
+  background: #f2f2f2;
 }
 
 #u5853, #u5864, #u5874, #u5869, #u5859{
