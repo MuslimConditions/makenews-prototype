@@ -93,6 +93,9 @@ $(document).ready(function() {
       var $facebookList = $("#facebookList");
       var $collectionList = $("#collectionList");
       emptyAllLists();
+      var filterSource;
+
+
      var collections = JSON.parse(localStorage.getItem("collections")) || {};
      renderCollectionList(collections);
 
@@ -118,9 +121,26 @@ $(document).ready(function() {
       $("#filterIcon").css({'display' : 'block'});
        $(".twitter_icon").css({'display' : 'block'});
        $("#u5865").css({'visibility' : 'hidden'});
-      var configuredTwitterUrls = JSON.parse(localStorage.getItem ("configuredTwitterUrls"));
-        renderUrls(configuredTwitterUrls,$webList);
+      filterSource = $webList;
+      var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
+      renderUrls(configuredWebUrls,$webList);
+      configuredWebUrls.forEach(function(url){
+        var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+        $("#filteredUrlsList").append(listItem);
+      });
     });
+//
+//    $("#u5864").click(function() {
+//      emptyAllLists();
+//      filterSource = $webList;
+//      $("#filterIcon").css({'display': 'block'});
+//      var configuredTwitterUrls = JSON.parse(localStorage.getItem ("configuredTwitterUrls"));
+//      renderUrls(configuredTwitterUrls,$webList);
+//      configuredTwitterUrls.forEach(function(url){
+//         var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+//         $("#filteredUrlsList").append(listItem);
+//      });
+//    });
 
     $("#u5873").click(function() {
         emptyAllLists();
@@ -130,18 +150,18 @@ $(document).ready(function() {
             $(".bookmark_icon").css({'display' : 'block'});
              $("#u5875").css({'visibility' : 'hidden'});
         var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data")) || [];
-            for (var index = 0; index < bookmarkList.length; index++) {
-                var source = bookmarkList[index].source;
-                var title = bookmarkList[index].title;
-                var body = bookmarkList[index].body.slice(0, 100);
+        for (var index = 0; index < bookmarkList.length; index++) {
+            var source = bookmarkList[index].source;
+            var title = bookmarkList[index].title;
+            var body = bookmarkList[index].body.slice(0, 100);
 
-                var li = $("<li class='bookmark__item'><p class='bookmark__item__title'>" + title
-                    + "</p><p class='bookmark__item__summary'>" + body
-                    + "</p><div class='bookmark__item__source-date'><span id='bookmark__item__source'>"
-                    + source + "</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
-                $webList.append(li);
+            var li = $("<li class='bookmark__item'><p class='bookmark__item__title'>" + title
+                + "</p><p class='bookmark__item__summary'>" + body
+                + "</p><div class='bookmark__item__source-date'><span id='bookmark__item__source'>"
+                + source + "</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
+            $webList.append(li);
 
-            }
+        }
     });
 
     $("#u5869").click(function(){
@@ -162,23 +182,33 @@ $(document).ready(function() {
           $("#filterIcon").css({'display' : 'block'});
           $(".fb_icon").css({'display' : 'block'});
           $("#u5860").css({'visibility' : 'hidden'});
+        filterSource = $facebookList;
         var configuredFbUrls = [];
         configuredFbUrls = getConfiguredFbUrls("profile");
         configuredFbUrls = configuredFbUrls.concat(getConfiguredFbUrls("group"));
         configuredFbUrls = configuredFbUrls.concat(getConfiguredFbUrls("pages"));
         renderUrls(configuredFbUrls,$webList);
+        configuredFbUrls.forEach(function(url){
+             var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+             $("#filteredUrlsList").append(listItem);
+          });
     });
 
     $("#collectionList").click(function(event) {
         $(event.target).addClass("current");
         currentCollectionName = event.target.innerText;
-
         renderArticles(currentCollectionName);
      });
 
     $("#filterIcon").click(function(){
         emptyAllLists();
         $("#filteredUrls").css({'display':'block'});
+
+    });
+
+    $("#ApplyBtn").click(function() {
+        emptyAllLists();
+        $(".filtered_urls").css({'display' : 'none'});
         var selectedUrls = [];
         var checkbox = $(".filter-web-checkbox");
         for(var index=0; index<checkbox.length;index++){
@@ -186,7 +216,12 @@ $(document).ready(function() {
                 selectedUrls.push($(checkbox[index]).siblings()[0].innerText);
             }
         }
-        renderUrls(selectedUrls,$webList);
+
+        renderUrls(selectedUrls, filterSource);
+    })
+
+    $("#CancelBtn").click(function() {
+        $(".filtered_urls").css({'display' : 'none'});
     });
 
     function getConfiguredFbUrls(category){
@@ -213,6 +248,7 @@ $(document).ready(function() {
      }
 
     function renderUrls(configuredUrls,list){
+      $("#filteredUrlsList").empty();
       var countConfiguredUrls = configuredUrls.length;
       if(countConfiguredUrls !== 0){
         webFeed.forEach(function(url, index){
@@ -247,6 +283,7 @@ $(document).ready(function() {
         $webList.empty();
         $facebookList.empty();
         $collectionList.empty();
+//        $("#filteredUrlsList").empty();
     }
 
     function removeAllIcons(){

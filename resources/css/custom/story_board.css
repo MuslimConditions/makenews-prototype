@@ -96,11 +96,11 @@
     float: right;
 }
 .story_board__right_panel{
-        position: absolute;
-        left: 890px;
-        top: 60px;
-            width: 416px;
-            height: 678px;
+    position: absolute;
+    left: 890px;
+    top: 60px;
+    width: 416px;
+    height: 678px;
  }
 
 #u5106 {
@@ -268,6 +268,13 @@
   margin-right: 17px;
   vertical-align: top;
 }
+
+.filter_icon {
+    display : none;
+    position : absolute;
+    left: 380px;
+    top: 33px;
+}
 .back {
     font-size : 28px;
     font-weight : bold;
@@ -298,6 +305,30 @@
 margin-right:15px;
 margin-bottom:5px;
 }
+
+.filtered_urls{
+    display : none;
+    position: absolute;
+    left: 892px;
+    top: 130px;
+    width: 413px;
+    height: 678px;
+    background-color : white;
+
+}
+#filteredUrlsList{
+    list-style : none;
+}
+#filteredUrlsList .filter-web-checkbox{
+    margin-right:15px;
+    margin-bottom:5px;
+}
+
+#CancelBtn, #ApplyBtn {
+    font-size: xx-large;
+    margin-left: 56px;
+}
+
 #u5853, #u5864, #u5874, #u5869, #u5859{
     cursor:pointer;
 }
