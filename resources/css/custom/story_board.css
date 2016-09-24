@@ -164,7 +164,8 @@
   padding-top: 10px;
 }
 
-.web__source-date:before {
+.web__source-date:before,
+ .bookmark__item__source-date:before {
   content: '';
   display: inline-block;
   width: 14px;
@@ -210,21 +211,7 @@
   font-size: 16px;
   padding-bottom: 5px;
 }
-.bookmark__item__source-date:before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  background: inherit;
-  background-color: rgba(215, 215, 215, 1);
-  border: none;
-  border-radius: 3px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  margin-right: 8px;
-  vertical-align: top;
-}
+
 .bookmark__item__summary {
   font-family: 'HelveticaNeue', 'Helvetica Neue';
   font-weight: 400;
@@ -245,6 +232,46 @@
   background: #f2f2f2;
 }
 
+.collection_list {
+    list-style : none;
+    font-size: 20px;
+    padding-bottom: 5px;
+    padding: 5px 5px;
+}
+.pick_collection {
+    font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
+    padding-left : 10px;
+    font-size : 28px;
+}
+.collection_name {
+    font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
+    padding-left : 10px;
+    font-size : 28px;
+}
+
+.collection-item {
+        font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium', 'Helvetica Neue';
+    padding: 10px 5px;
+}
+.collection-item:before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: inherit;
+  background-color: rgba(215, 215, 215, 1);
+  border: none;
+  border-radius: 3px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-right: 17px;
+  vertical-align: top;
+}
+.back {
+    font-size : 28px;
+    font-weight : bold;
+}
 #u5853, #u5864, #u5874, #u5869, #u5859{
     cursor:pointer;
 }

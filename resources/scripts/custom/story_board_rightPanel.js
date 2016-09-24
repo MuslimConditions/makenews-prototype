@@ -109,7 +109,7 @@ $(document).ready(function() {
 
     $("#u5874").click(function() {
     emptyAllLists();
-         $(".bookmark_icon").attr("src","images/news_board__web/u2087.png");
+//         $(".bookmark_icon").attr("src","images/news_board__web/u2087.png");
         var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data")) || [];
             for (var index = 0; index < bookmarkList.length; index++) {
                 var source = bookmarkList[index].source;
@@ -127,6 +127,7 @@ $(document).ready(function() {
 
     $("#u5869").click(function(){
         emptyAllLists();
+
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
           renderColletionList(collections);
     });
@@ -140,6 +141,7 @@ $(document).ready(function() {
 
 
      function renderColletionList(collections) {
+        $collectionList.append($("<span class= 'pick_collection'> Pick a collection</span>"));
         var collectionNames = [];
         for (var collection in collections) { collectionNames.push(collection); }
         collectionNames.forEach(function(collection) {
@@ -161,22 +163,32 @@ $(document).ready(function() {
     }
 
     function renderArticles(collectionName) {
-
+            $collectionList.empty();
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
-          var $button = $("<button class= 'back'/>").click(function(){
-                $("#collectionList").empty();
+          var $button = $("<i class='fa fa-angle-left back' aria-hidden='true'></i>").click(function(){
+               // $("#collectionList").empty();
+               emptyAllLists();
               renderColletionList(collections);
           });
          var $name = $("<span class =  'collection_name'>"+collectionName+"</span>");
-       $("#renderArticleList").append($button).append($name);
+       $webList.append($button).append($name);
+//       $("#renderArticleList").append($button).append($name);
         collections[collectionName].forEach(function(article){
-          var $article = $("<div class='article'></div>");
-          var $title = $("<div class='article__title'>"+article.title+"</div>");
-          var $source = $("<div class='article__source'>"+article.source+"</div>");
-          var $body = $("<div class='article__content'>"+(article.content).slice(0,100)+"</div>");
-          var $date = $("<div class='article__date'>Created on 24 Sept, 2016</div>");
-          $article.append($title).append($source).append($body) .append($date);
-          $("#renderArticleList").append($article);
+
+        var webFeedItemDOM =$("<li class='web-feed__item'><p class='web__title'>"+article.title
+                 +"</p><p class='web__summary'>"+article.content.slice(0,100)
+                 +"</p><div class='web__source-date'><span id='web__source'>"
+                  +article.source+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
+
+
+//          var $article = $("<li><div class='article'></div>");
+//          var $title = $("<div class='article__title'>"+article.title+"</div>");
+//          var $source = $("<div class='article__source'>"+article.source+"</div>");
+//          var $body = $("<div class='article__content'>"+(article.content).slice(0,100)+"</div>");
+//          var $date = $("<div class='article__date'>Created on 24 Sept, 2016</div></li>");
+//          $article.append($title).append($source).append($body) .append($date);
+//          $("#renderArticleList").append($article);
+          $webList.append(webFeedItemDOM);
         });
       }
     function emptyAllLists(){
