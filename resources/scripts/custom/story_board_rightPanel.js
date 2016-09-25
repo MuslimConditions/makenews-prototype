@@ -89,26 +89,46 @@ $(document).ready(function() {
         "summary": "A source added that ISIS has set up a special medical unit for the purpose.",
         "id" : "18"
       }];
-
       var $webList = $("#webList");
       var $facebookList = $("#facebookList");
       var $collectionList = $("#collectionList");
+       emptyAllLists();
+          var collections = JSON.parse(localStorage.getItem("collections")) || {};
+        renderColletionList(collections);
 
     $("#u5853").click(function() {
       emptyAllLists();
-      $('.web_icon').attr("src","images/news_board__web/u2058.png");
+      removeAllIcons();
+      visibleAllIcons();
+      $("#filterIcon").css({'display' : 'block'});
+      $(".web_icon").css({'display' : 'block'});
+      $("#u5855").css({'visibility' : 'hidden'});
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
         renderUrls(configuredWebUrls,$webList);
+       configuredWebUrls.forEach(function(url){
+        var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+            $("#filteredUrlsList").append(listItem);
+        });
     });
 
     $("#u5864").click(function() {
         emptyAllLists();
+        removeAllIcons();
+        visibleAllIcons();
+      $("#filterIcon").css({'display' : 'block'});
+       $(".twitter_icon").css({'display' : 'block'});
+       $("#u5865").css({'visibility' : 'hidden'});
       var configuredTwitterUrls = JSON.parse(localStorage.getItem ("configuredTwitterUrls"));
         renderUrls(configuredTwitterUrls,$webList);
     });
 
-    $("#u5874").click(function() {
-    emptyAllLists();
+    $("#u5873").click(function() {
+        emptyAllLists();
+        removeAllIcons();
+        visibleAllIcons();
+          $("#filterIcon").css({'display' : 'none'});
+            $(".bookmark_icon").css({'display' : 'block'});
+             $("#u5875").css({'visibility' : 'hidden'});
         var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data")) || [];
             for (var index = 0; index < bookmarkList.length; index++) {
                 var source = bookmarkList[index].source;
@@ -126,12 +146,22 @@ $(document).ready(function() {
 
     $("#u5869").click(function(){
         emptyAllLists();
+        removeAllIcons();
+        visibleAllIcons();
+      $("#filterIcon").css({'display' : 'none'});
+      $(".collection_icon").css({'display' : 'block'});
+      $("#u5869").css({'visibility' : 'hidden'});
 
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
           renderColletionList(collections);
     });
     $("#u5858").click(function(){
         emptyAllLists();
+        removeAllIcons();
+        visibleAllIcons();
+          $("#filterIcon").css({'display' : 'block'});
+          $(".fb_icon").css({'display' : 'block'});
+          $("#u5860").css({'visibility' : 'hidden'});
         var configuredFbUrls = [];
         configuredFbUrls = getConfiguredFbUrls("profile");
         configuredFbUrls = configuredFbUrls.concat(getConfiguredFbUrls("group"));
@@ -145,6 +175,19 @@ $(document).ready(function() {
 
         renderArticles(currentCollectionName);
      });
+
+    $("#filterIcon").click(function(){
+        emptyAllLists();
+        $("#filteredUrls").css({'display':'block'});
+        var selectedUrls = [];
+        var checkbox = $(".filter-web-checkbox");
+        for(var index=0; index<checkbox.length;index++){
+            if(checkbox[index].checked){
+                selectedUrls.push($(checkbox[index]).siblings()[0].innerText);
+            }
+        }
+        renderUrls(selectedUrls,$webList);
+    });
 
     function getConfiguredFbUrls(category){
         var urlsList = [];
@@ -205,4 +248,21 @@ $(document).ready(function() {
         $facebookList.empty();
         $collectionList.empty();
     }
+
+    function removeAllIcons(){
+        $(".web_icon").css({'display' : 'none'});
+        $(".fb_icon").css({'display' : 'none'});
+        $(".twitter_icon").css({'display' : 'none'});
+        $(".collection_icon").css({'display' : 'none'});
+        $(".bookmark_icon").css({'display' : 'none'});
+    }
+
+    function visibleAllIcons(){
+         $("#u5855").css({'visibility' : 'visible'});
+         $("#u5865").css({'visibility' : 'visible'});
+         $("#u5869").css({'visibility' : 'visible'});
+         $("#u5860").css({'visibility' : 'visible'});
+         $("#u5875").css({'visibility' : 'visible'});
+    }
+
 });

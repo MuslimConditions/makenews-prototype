@@ -272,6 +272,39 @@
     font-size : 28px;
     font-weight : bold;
 }
+.filter_icon {
+    display : none;
+    position: absolute;
+    left: 382px;
+    top: 33px;
+    width: 359px;
+    height: 39px;
+}
+
+#filteredUrlsList{
+    position: absolute;
+    left: 0px;
+    top: 125px;
+    width: 222px;
+    height: 18px;
+    font-size: 16px;
+    list-style: none;
+}
+#filteredUrls{
+    display : none;
+    text-align : left;
+}
+#filteredUrlsList .filter-web-checkbox{
+margin-right:15px;
+margin-bottom:5px;
+}
 #u5853, #u5864, #u5874, #u5869, #u5859{
     cursor:pointer;
 }
+
+#fbIcon, #twitterIcon, #collectionIcon, #bookmarkIcon, #webIcon{
+    font-weight:normal;
+    font-size:28px;
+    display : none;
+}
+

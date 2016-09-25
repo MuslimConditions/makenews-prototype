@@ -152,28 +152,15 @@
       </div>
 
       <!-- web icon (Dynamic Panel) -->
-      <div id="u5853" class="ax_default story_board__web" data-label="web icon">
+      <div id="u5853" class="ax_default story_board__web " data-label="web icon">
+        <div id="webIcon" class="web_icon">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </div>
         <div id="u5853_state0" class="panel_state" data-label="State1">
           <div id="u5853_state0_content" class="panel_state_content">
-
-            <!-- Unnamed (Paragraph) -->
             <div id="u5854" class="ax_default font_awesome">
-              <img id="u5854_img" class="img web_icon" src="images/news_board__web/u2062.png"/>
-              <!-- Unnamed () -->
+              <img id="u5854_img" class="img " src="images/news_board__web/u2062.png"/>
               <div id="u5855" class="text" style="visibility: visible;">
-                <p><span></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="u5853_state1" class="panel_state" data-label="State2" style="display: none; visibility: hidden;">
-          <div id="u5853_state1_content" class="panel_state_content">
-
-            <!-- Unnamed (Paragraph) -->
-            <div id="u5856" class="ax_default font_awesome">
-              <img id="u5856_img" class="img web_icon" src="images/news_board__web/u2062.png"/>
-              <!-- Unnamed () -->
-              <div id="u5857" class="text" style="visibility: visible;">
                 <p><span></span></p>
               </div>
             </div>
@@ -183,6 +170,10 @@
 
       <!-- FB icon (Dynamic Panel) -->
       <div id="u5858" class="ax_default" data-label="FB icon">
+
+          <div id="fbIcon" class="fb_icon">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          </div>
         <div id="u5858_state0" class="panel_state" data-label="State1">
           <div id="u5858_state0_content" class="panel_state_content">
 
@@ -213,6 +204,9 @@
 
       <!-- Twitter icon (Dynamic Panel) -->
       <div id="u5863" class="ax_default" data-label="Twitter icon">
+          <div id="twitterIcon" class="twitter_icon">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+          </div>
         <div id="u5863_state0" class="panel_state" data-label="State1">
           <div id="u5863_state0_content" class="panel_state_content">
 
@@ -246,27 +240,18 @@
       <!-- collection icon (Dynamic Panel) -->
       <div id="u5868" class="ax_default story_board__collections" data-label="collection icon">
       <!-- collection icon (Dynamic Panel) -->
+          <div id="collectionIcon" class="collection_icon">
+              <i class="fa fa-folder-o" aria-hidden="true"></i>
+          </div>
         <div id="u5868_state0" class="panel_state" data-label="State1">
           <div id="u5868_state0_content" class="panel_state_content">
 
             <!-- Unnamed (Shape) -->
             <div id="u5869" class="ax_default icon">
-              <img id="u5869_img" class="img " src="images/news_board__add_new_collections/u2779.png"/>
+              <!--<img id="u5869_img" class="img " src="images/news_board__add_new_collections/u2779.png"/>-->
+              <img id="u5869_img" class="img " src="images/news_board__web/u2068.png"/>
               <!-- Unnamed () -->
               <div id="u5870" class="text" style="display: none; visibility: hidden">
-                <p><span></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="u5868_state1" class="panel_state" data-label="State2" style="display: none; visibility: hidden;">
-          <div id="u5868_state1_content" class="panel_state_content">
-
-            <!-- Unnamed (Shape) -->
-            <div id="u5871" class="ax_default icon">
-              <img id="u5871_img" class="img " src="images/news_board__web/u2068.png"/>
-              <!-- Unnamed () -->
-              <div id="u5872" class="text" style="display: none; visibility: hidden">
                 <p><span></span></p>
               </div>
             </div>
@@ -276,6 +261,9 @@
 
       <!-- Bookmark icon (Dynamic Panel) -->
       <div id="u5873" class="ax_default" data-label="Bookmark icon">
+          <div id="bookmarkIcon" class="bookmark_icon">
+              <i class="fa fa-bookmark" aria-hidden="true"></i>
+          </div>
         <div id="u5873_state0" class="panel_state" data-label="State1">
           <div id="u5873_state0_content" class="panel_state_content">
 
@@ -285,19 +273,6 @@
               <!-- Unnamed () -->
               <div id="u5875" class="text" style="visibility: visible;">
                 <p><span></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="u5873_state1" class="panel_state" data-label="State2" style="display: none; visibility: hidden;">
-          <div id="u5873_state1_content" class="panel_state_content">
-
-            <!-- Unnamed (Paragraph) -->
-            <div id="u5876" class="ax_default font_awesome">
-              <img id="u5876_img" class="img bookmark_icon" src="images/news_board__web/u2070.png"/>
-              <!-- Unnamed () -->
-              <div id="u5877" class="text" style="visibility: visible;">
-                <p><span></span></p>
               </div>
             </div>
           </div>
@@ -348,6 +323,12 @@
         </div>
       </div>
 
+      <div id="filterIcon" class="filter_icon">
+        <img class="filter_image" src="images/news_board__web/u2072.png"/>
+      </div>
+      <div id="filteredUrls">
+        <ul id = "filteredUrlsList"></ul>
+      </div>
       <div id="feedItemsList" class="feed_item_list">
         <ul id="collectionList" class="collection_list">
         </ul>
