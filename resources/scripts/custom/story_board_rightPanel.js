@@ -92,6 +92,8 @@ $(document).ready(function() {
       var $webList = $("#webList");
       var $facebookList = $("#facebookList");
       var $collectionList = $("#collectionList");
+      $(".collection_icon").css({'display' : 'block'});
+      $("#u5869").css({'visibility' : 'hidden'});
       emptyAllLists();
       var filterSource;
 
