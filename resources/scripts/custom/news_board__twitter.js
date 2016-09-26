@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  $("#u2672").click();
   var webFeed = [{
     "title": "Soldiers sacrifice will not go in vain, says Parrikar",
     "summary": "Defence Minister Manohar Parrikar on Sunday said the supreme sacrifice of 17 brave soldiers",
