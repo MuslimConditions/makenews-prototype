@@ -106,6 +106,9 @@ $(document).ready(function() {
       $("#filterIcon").css({'display' : 'block'});
       $(".web_icon").css({'display' : 'block'});
       $("#u5855").css({'visibility' : 'hidden'});
+            $("#filteredUrlsList").empty();
+
+      filterSource = $webList;
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
         renderUrls(configuredWebUrls,$webList);
        configuredWebUrls.forEach(function(url){
@@ -121,6 +124,7 @@ $(document).ready(function() {
       $("#filterIcon").css({'display' : 'block'});
        $(".twitter_icon").css({'display' : 'block'});
        $("#u5865").css({'visibility' : 'hidden'});
+      $("#filteredUrlsList").empty();
       filterSource = $webList;
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
       renderUrls(configuredWebUrls,$webList);
@@ -171,7 +175,6 @@ $(document).ready(function() {
       $("#filterIcon").css({'display' : 'none'});
       $(".collection_icon").css({'display' : 'block'});
       $("#u5869").css({'visibility' : 'hidden'});
-
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
           renderCollectionList(collections);
     });
@@ -183,6 +186,7 @@ $(document).ready(function() {
           $(".fb_icon").css({'display' : 'block'});
           $("#u5860").css({'visibility' : 'hidden'});
         filterSource = $facebookList;
+        $("#filteredUrlsList").empty();
         var configuredFbUrls = [];
         configuredFbUrls = getConfiguredFbUrls("profile");
         configuredFbUrls = configuredFbUrls.concat(getConfiguredFbUrls("group"));
@@ -248,7 +252,6 @@ $(document).ready(function() {
      }
 
     function renderUrls(configuredUrls,list){
-      $("#filteredUrlsList").empty();
       var countConfiguredUrls = configuredUrls.length;
       if(countConfiguredUrls !== 0){
         webFeed.forEach(function(url, index){
