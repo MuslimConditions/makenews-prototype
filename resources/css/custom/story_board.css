@@ -334,3 +334,13 @@ margin-bottom:5px;
     display : none;
 }
 
+.back_to_story_board_header{
+position: absolute;
+display : none;
+left: 55px;
+top: 10px;
+font-size: 23px;
+color:azure;
+}
+
+

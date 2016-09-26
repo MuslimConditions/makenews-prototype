@@ -7,6 +7,7 @@ $(document).ready(function(){
         localStorage.setItem("story-data", data);
     });
     $(".story-box-1").click(function(){
+        $(".back_to_story_board_header").css({'display':'block'});
        document.getElementsByClassName("story-board")[0].style.display = 'none';
        document.getElementsByClassName("add-story")[0].style.display = 'block';
         document.getElementsByClassName('done-img')[0].style.pointerEvents = 'auto';
@@ -61,5 +62,11 @@ $(document).ready(function(){
 
     $("#u5880").click(function() {
         window.location.href = "news_board__web.html";
+    });
+
+    $("#backToStoryBoardHeader").click(function() {
+        $(".add-story").css({'display':'none'});
+        $(".story-board").css({'display':'block'});
+        $(".back_to_story_board_header").css({'display':'none'});
     });
 });
