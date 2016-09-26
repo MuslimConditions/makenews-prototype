@@ -106,4 +106,8 @@ $(document).ready(function(){
   $("#u2917").click(function(){
     window.location.href = "news_board__web.html";
   })
+
+    $("#u2908").click(function() {
+        window.location.href = "story_board.html";
+    });
 });

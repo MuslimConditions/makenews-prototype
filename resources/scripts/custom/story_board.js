@@ -59,4 +59,7 @@ $(document).ready(function(){
 
     });
 
+    $("#u5880").click(function() {
+        window.location.href = "news_board__web.html";
+    });
 });

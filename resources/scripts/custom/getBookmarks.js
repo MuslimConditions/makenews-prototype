@@ -54,4 +54,8 @@ $(document).ready(function () {
     $("#u2863").click(function() {
       window.location.href = "news_board__collections.html";
     });
+
+    $("#u2848").click(function() {
+        window.location.href = "story_board.html";
+    });
 });

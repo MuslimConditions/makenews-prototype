@@ -166,4 +166,8 @@ $(document).ready(function() {
   $("#u2668").click(function(){
       window.location.href = "news_board__collections.html";
   });
+
+    $("#u2653").click(function() {
+        window.location.href = "story_board.html";
+    });
 });

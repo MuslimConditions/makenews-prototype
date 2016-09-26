@@ -303,4 +303,8 @@ $(document).ready(function() {
     $("#u2068").click(function(){
         window.location.href = "news_board__collections.html";
     });
+
+    $("#u2053").click(function() {
+        window.location.href = "story_board.html";
+    });
 });

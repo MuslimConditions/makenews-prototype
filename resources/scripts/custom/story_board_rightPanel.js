@@ -135,18 +135,6 @@ $(document).ready(function() {
         $("#filteredUrlsList").append(listItem);
       });
     });
-//
-//    $("#u5864").click(function() {
-//      emptyAllLists();
-//      filterSource = $webList;
-//      $("#filterIcon").css({'display': 'block'});
-//      var configuredTwitterUrls = JSON.parse(localStorage.getItem ("configuredTwitterUrls"));
-//      renderUrls(configuredTwitterUrls,$webList);
-//      configuredTwitterUrls.forEach(function(url){
-//         var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
-//         $("#filteredUrlsList").append(listItem);
-//      });
-//    });
 
     $("#u5873").click(function() {
         emptyAllLists();
