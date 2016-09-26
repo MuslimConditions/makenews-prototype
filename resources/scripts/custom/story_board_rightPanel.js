@@ -92,9 +92,9 @@ $(document).ready(function() {
       var $webList = $("#webList");
       var $facebookList = $("#facebookList");
       var $collectionList = $("#collectionList");
-       emptyAllLists();
-          var collections = JSON.parse(localStorage.getItem("collections")) || {};
-        renderColletionList(collections);
+      emptyAllLists();
+     var collections = JSON.parse(localStorage.getItem("collections")) || {};
+     renderCollectionList(collections);
 
     $("#u5853").click(function() {
       emptyAllLists();
@@ -153,7 +153,7 @@ $(document).ready(function() {
       $("#u5869").css({'visibility' : 'hidden'});
 
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
-          renderColletionList(collections);
+          renderCollectionList(collections);
     });
     $("#u5858").click(function(){
         emptyAllLists();
@@ -202,7 +202,7 @@ $(document).ready(function() {
         }
     }
 
-     function renderColletionList(collections) {
+     function renderCollectionList(collections) {
         $collectionList.append($("<span class= 'pick_collection'> Pick a collection</span>"));
         var collectionNames = [];
         for (var collection in collections) { collectionNames.push(collection); }
@@ -229,7 +229,7 @@ $(document).ready(function() {
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
           var $button = $("<i class='fa fa-angle-left back' aria-hidden='true'></i>").click(function(){
                emptyAllLists();
-              renderColletionList(collections);
+              renderCollectionList(collections);
           });
          var $name = $("<span class =  'collection_name'>"+collectionName+"</span>");
        $webList.append($button).append($name);
