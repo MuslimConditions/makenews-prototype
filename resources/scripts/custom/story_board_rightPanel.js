@@ -205,7 +205,6 @@ $(document).ready(function() {
      });
 
     $("#filterIcon").click(function(){
-        emptyAllLists();
         $("#filteredUrls").css({'display':'block'});
 
     });

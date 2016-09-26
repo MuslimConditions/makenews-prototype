@@ -268,6 +268,9 @@
   margin-right: 17px;
   vertical-align: top;
 }
+.facebook_list{
+    padding : 10px;
+}
 
 .filter_icon {
     display : none;
@@ -288,15 +291,7 @@
     height: 39px;
 }
 
-#filteredUrlsList{
-    position: absolute;
-    left: 0px;
-    top: 125px;
-    width: 222px;
-    height: 18px;
-    font-size: 16px;
-    list-style: none;
-}
+
 #filteredUrls{
     display : none;
     text-align : left;
