@@ -9,7 +9,6 @@ $(document).ready(function(){
     var fbProfilesList = $("#selected_fb_profiles");
 
 
-
     $(".add_to_fb_profile_configured").click(function(){
         var profile = $(this).siblings()[1].textContent.trim();
         console.log($(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim()+":::proLL:::"+profile);
