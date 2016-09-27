@@ -1,14 +1,24 @@
 $(document).ready(function(){
 
   var configuredWebUrls = [];
+  var configuredSourcesWithId = [];
   var WebUrlsListDOM = $("#webSourcesList");
+  var configuredSources = JSON.parse(localStorage.getItem("configuredWebUrlsWithId")) || [];
+  if(configuredSources.length>0){
+    for(var source in configuredSources){
+        updateConfiguredWebUrlsDOM(configuredSources[source].url,configuredSources[source].id);
+    }
+  }
 
   $("div[data-label='Add']").click(function(e){
     var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
+    var id = $(this)[0].id.split("_")[0];
     if(configuredWebUrls.indexOf(url) === -1) {
       configuredWebUrls.push(url);
-      updateConfiguredWebUrlsDOM(url, $(this)[0].id.split("_")[0]);
-      localStorage.setItem("configuredWebUrls", JSON.stringify(configuredWebUrls));
+      configuredSourcesWithId.push({"url":url,"id":id});
+      updateConfiguredWebUrlsDOM(url, id);
+      localStorage.setItem("configuredWebUrls",JSON.stringify(configuredWebUrls));
+      localStorage.setItem("configuredWebUrlsWithId", JSON.stringify(configuredSourcesWithId));
     }
   });
 
