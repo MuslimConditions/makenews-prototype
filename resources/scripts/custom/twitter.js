@@ -1,21 +1,32 @@
 $(document).ready(function(){
 
-  var configuredWebUrls = [];
   var WebUrlsListDOM = $("#twitterSourcesList");
+  var configuredWebUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls")) || [];
+  var configuredSourcesWithId = JSON.parse(localStorage.getItem("configuredTwitterUrlsWithId")) || [];
+    if(configuredSourcesWithId.length>0){
+      for(var source in configuredSourcesWithId){
+          updateConfiguredWebUrlsDOM(configuredSourcesWithId[source].url,configuredSourcesWithId[source].id);
+      }
+    }
 
   $("div[data-label='Add']").click(function(e){
     var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
+        var id = $(this)[0].id.split("_")[0];
+
     if(configuredWebUrls.indexOf(url) === -1) {
       configuredWebUrls.push(url);
+        configuredSourcesWithId.push({"url":url,"id":id});
       localStorage.setItem("configuredTwitterUrls", JSON.stringify(configuredWebUrls));
-      updateConfiguredWebUrlsDOM(url, $(this)[0].id.split("_")[0]);
+        localStorage.setItem("configuredTwitterUrlsWithId", JSON.stringify(configuredSourcesWithId));
+      updateConfiguredWebUrlsDOM(url,id);
     }
   });
 
   function removeUrl(e, url){
-    console.log(e+"url:: "+url);
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();
+     localStorage.setItem("configuredTwitterUrls", JSON.stringify(configuredWebUrls));
+    localStorage.setItem("configuredTwitterUrlsWithId", JSON.stringify(configuredSourcesWithId));
     $("#"+e.currentTarget.parentNode.dataset.id+"_state0").css({"display": "block", "visibility": "visible"});
     $("#"+e.currentTarget.parentNode.dataset.id+"_state1").css({"display": "none", "visibility": "hidden"});
   }
@@ -35,6 +46,7 @@ $(document).ready(function(){
       for(var i = arr.length; i--;) {
           if(arr[i] === item) {
               arr.splice(i, 1);
+            configuredSourcesWithId.splice(i,1);
           }
       }
   }

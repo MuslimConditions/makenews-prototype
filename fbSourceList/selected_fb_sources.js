@@ -2,11 +2,25 @@ $(document).ready(function(){
     //fb profiles
     var count = 1;var countPage = 1;var countGroup = 1;
     var configuredProfiles =new Set();
+    var configuredFbProfiles=JSON.parse(localStorage.getItem("Profiles")) || [];
+
+    var configuredFbGroups=JSON.parse(localStorage.getItem("Groups")) || [];
+    var configuredFbPages=JSON.parse(localStorage.getItem("Pages")) || [];
     var fbProfilesList = $("#selected_fb_profiles");
+
+
+
     $(".add_to_fb_profile_configured").click(function(){
         var profile = $(this).siblings()[1].textContent.trim();
+        console.log($(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim()+":::proLL:::"+profile);
         if(!configuredProfiles.has(profile)){
             configuredProfiles.add(profile);
+            var temp = "profile" + count;
+            configuredFbProfiles.push({"url":profile, "label":this});
+            localStorage.setItem("Profiles",JSON.stringify(configuredFbProfiles));
+            localStorage.setItem(temp, profile);
+            localStorage.setItem("count", count);
+            count++;
             add_to_profile_configured(this);
         }
     });
@@ -18,15 +32,13 @@ $(document).ready(function(){
         removeConfiguredProfile(this,label);
         });
         fbProfilesList.append(listItem);
-        var temp = "profile" + count;
-        localStorage.setItem(temp, listItem[0].innerText);
-        localStorage.setItem("count", count);
-        count++;
     }
     function removeConfiguredProfile(target,label){
         $(label.children[0]).css({"display": "block", "visibility": "visible"});
         $(label.children[1]).css({"display": "none", "visibility": "hidden"});
         configuredProfiles.delete(target.textContent);
+        remove(configuredFbProfiles,target.textContent);
+        localStorage.setItem("Profiles",JSON.stringify(configuredFbProfiles));
         target.remove();
     }
     $(".profile_down").click(function(){
@@ -47,7 +59,14 @@ $(document).ready(function(){
              var profile = $(friend).siblings()[1].textContent.trim();
              if(!configuredProfiles.has(profile)){
                  configuredProfiles.add(profile);
+                 var temp = "profile" + count;
+                 configuredFbProfiles.push({"url":profile, "label":this});
+                 localStorage.setItem("Profiles",JSON.stringify(configuredFbProfiles));
+                 localStorage.setItem(temp, profile);
+                 localStorage.setItem("count", count);
+                 count++;
                  add_to_profile_configured(friend);
+
              }
         }
     });
@@ -66,6 +85,12 @@ $(document).ready(function(){
        var group = $(this).siblings()[1].textContent.trim();
        if(!configuredGroups.has(group)){
           configuredGroups.add(group);
+          var temp = "group" + countGroup;
+          localStorage.setItem(temp, group);
+          localStorage.setItem("countGroup", countGroup);
+          configuredFbGroups.push(group);
+          localStorage.setItem("Groups",JSON.stringify(configuredFbGroups));
+          countGroup++;
           add_to_group_configured(this);
        }
     });
@@ -77,16 +102,15 @@ $(document).ready(function(){
             removeConfiguredGroup(this,label);
         });
         fbGroupsList.append(listItem);
-        var temp = "group" + countGroup;
-        localStorage.setItem(temp, listItem[0].innerText);
-        localStorage.setItem("countGroup", countGroup);
-        countGroup++;
+
     }
     function removeConfiguredGroup(target,label){
        $(label.children[0]).css({"display": "block", "visibility": "visible"});
        $(label.children[1]).css({"display": "none", "visibility": "hidden"});
        configuredGroups.delete(target.textContent);
+       remove(configuredFbGroups,target.textContent);
        target.remove();
+       localStorage.setItem("Groups",JSON.stringify(configuredFbGroups));
     }
     $(".group_down").click(function(){
        $(this).parent().siblings().show();
@@ -106,6 +130,12 @@ $(document).ready(function(){
                  if(!configuredGroups.has(profile)){
                      configuredGroups.add(profile);
                      add_to_group_configured(friend);
+                     var temp = "group" + countGroup;
+                    localStorage.setItem(temp, profile);
+                    localStorage.setItem("countGroup", countGroup);
+                    configuredFbGroups.push(profile);
+                    localStorage.setItem("Groups",JSON.stringify(configuredFbGroups));
+                    countGroup++;
                  }
             }
         });
@@ -125,6 +155,12 @@ $(document).ready(function(){
         var page = $(this).siblings()[1].textContent.trim();
         if(!configuredPages.has(page)){
             configuredPages.add(page);
+            var temp = "pages" + countPage;
+            localStorage.setItem(temp, page);
+            localStorage.setItem("countPage", countPage);
+            configuredFbPages.push(page);
+            localStorage.setItem("Pages",JSON.stringify(configuredFbPages));
+            countPage++;
             add_to_pages_configured(this);
          }
     })
@@ -136,16 +172,14 @@ $(document).ready(function(){
             removeConfiguredPage(this,label);
         });
         fbPagesList.append(listItem);
-        var temp = "pages" + countPage;
-        localStorage.setItem(temp, listItem[0].innerText);
-        localStorage.setItem("countPage", countPage);
-        countPage++;
     }
     function removeConfiguredPage(target,label){
        $(label.children[0]).css({"display": "block", "visibility": "visible"});
        $(label.children[1]).css({"display": "none", "visibility": "hidden"});
        configuredPages.delete(target.textContent);
+       remove(configuredFbPages,target.textContent);
         target.remove();
+        localStorage.setItem("Pages",JSON.stringify(configuredFbPages));
     }
     $(".page_down").click(function(){
         $(this).parent().siblings().show();
@@ -164,6 +198,12 @@ $(document).ready(function(){
            var profile = $(friend).siblings()[1].textContent.trim();
            if(!configuredPages.has(profile)){
               configuredPages.add(profile);
+              var temp = "pages" + countPage;
+              localStorage.setItem(temp, profile);
+              localStorage.setItem("countPage", countPage);
+              configuredFbPages.push(profile);
+              localStorage.setItem("Pages",JSON.stringify(configuredFbPages));
+              countPage++;
               add_to_pages_configured(friend);
            }
         }
@@ -177,7 +217,19 @@ $(document).ready(function(){
         }
     });
 
+    function remove(arr, item) {
+          for(var i = arr.length; i--;) {
+              if(arr[i].url === item) {
+                  arr.splice(i, 1);
+              }
+          }
+     }
+
     $("#u14222").click(function() {
         window.location.href = "./twitter.html";
     });
+
+    function renderUrls(array){
+
+    }
 });

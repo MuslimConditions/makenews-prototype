@@ -1,12 +1,11 @@
 $(document).ready(function(){
 
-  var configuredWebUrls = [];
-  var configuredSourcesWithId = [];
   var WebUrlsListDOM = $("#webSourcesList");
-  var configuredSources = JSON.parse(localStorage.getItem("configuredWebUrlsWithId")) || [];
-  if(configuredSources.length>0){
-    for(var source in configuredSources){
-        updateConfiguredWebUrlsDOM(configuredSources[source].url,configuredSources[source].id);
+  var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls")) || [];
+  var configuredSourcesWithId = JSON.parse(localStorage.getItem("configuredWebUrlsWithId")) || [];
+  if(configuredSourcesWithId.length>0){
+    for(var source in configuredSourcesWithId){
+        updateConfiguredWebUrlsDOM(configuredSourcesWithId[source].url,configuredSourcesWithId[source].id);
     }
   }
 
@@ -25,6 +24,8 @@ $(document).ready(function(){
   function removeUrl(e, url){
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();
+    localStorage.setItem("configuredWebUrls",JSON.stringify(configuredWebUrls));
+    localStorage.setItem("configuredWebUrlsWithId", JSON.stringify(configuredSourcesWithId));
     $("#"+e.currentTarget.parentNode.dataset.id+"_state0").css({"display": "block", "visibility": "visible"});
     $("#"+e.currentTarget.parentNode.dataset.id+"_state1").css({"display": "none", "visibility": "hidden"});
   }
@@ -44,6 +45,7 @@ $(document).ready(function(){
       for(var i = arr.length; i--;) {
           if(arr[i] === item) {
               arr.splice(i, 1);
+              configuredSourcesWithId.splice(i,1);
           }
       }
   }
