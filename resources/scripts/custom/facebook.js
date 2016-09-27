@@ -34,7 +34,6 @@ $(document).ready(function(){
             configuredProfiles.push(url);
             var temp = "profile" + count;
             configuredFbProfiles.push({"url":url, "id":id});
-            console.log("pro:::"+configuredFbProfiles);
             localStorage.setItem("Profiles",JSON.stringify(configuredFbProfiles));
             localStorage.setItem(temp, url);
             localStorage.setItem("count", count);
@@ -81,6 +80,10 @@ $(document).ready(function(){
             if(configuredProfiles.indexOf(url) === -1) {
                  configuredProfiles.push(url);
                 configuredFbProfiles.push({"url":url,"id":id});
+                var temp = "profile" + count;
+                localStorage.setItem(temp, url);
+                localStorage.setItem("count", count);
+                count++;
                 add_to_profile_configured(url,id );
             }
         }
@@ -102,12 +105,12 @@ $(document).ready(function(){
         var id = $(this)[0].id.split("_")[0];
         if(configuredGroups.indexOf(url)=== -1){
             configuredGroups.push(url);
-            var temp = "profile" + count;
+            var temp = "group" + countGroup;
             configuredFbGroups.push({"url":url, "id":id});
             localStorage.setItem("Groups",JSON.stringify(configuredFbGroups));
             localStorage.setItem(temp, url);
-            localStorage.setItem("count", count);
-            count++;
+            localStorage.setItem("count", countGroup);
+            countGroup++;
             add_to_group_configured(url,id)
         }
     });
@@ -151,6 +154,10 @@ $(document).ready(function(){
                 if(configuredGroups.indexOf(url) === -1) {
                      configuredGroups.push(url);
                     configuredFbGroups.push({"url":url,"id":id});
+                    var temp = "group" + countGroup;
+                    localStorage.setItem(temp, url);
+                    localStorage.setItem("count", countGroup);
+                    countGroup++;
                     add_to_group_configured(url,id );
                 }
             }
@@ -162,18 +169,19 @@ $(document).ready(function(){
          localStorage.setItem("Groups",JSON.stringify(configuredFbGroups));
         fbGroupsList.empty();
     });
+
     // fb pages
     $(".add_to_fb_page_configured").click(function(){
         var url=$(this).siblings(".paragraph").find(".text")[0].innerText.trim();
             var id = $(this)[0].id.split("_")[0];
             if(configuredPages.indexOf(url)=== -1){
                 configuredPages.push(url);
-                var temp = "profile" + count;
+                var temp = "pages" + countPage;
                 configuredFbPages.push({"url":url, "id":id});
                 localStorage.setItem("Pages",JSON.stringify(configuredFbPages));
                 localStorage.setItem(temp, url);
-                localStorage.setItem("count", count);
-                count++;
+                localStorage.setItem("count", countPage);
+                countPage++;
                 add_to_pages_configured(url,id)
             }
     })
@@ -206,7 +214,7 @@ $(document).ready(function(){
     $(".add_all_pages").click(function(){
          var addParent = this.parentElement;
         var parentSiblings = addParent.parentElement.children;
-        for(var i=1; i<=8;i++){
+        for(var i=1; i<=9;i++){
             var child = parentSiblings[i];
             var add = (child.children)[4];
             var url = $((add.children)[0]).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
@@ -214,6 +222,10 @@ $(document).ready(function(){
             if(configuredPages.indexOf(url) === -1) {
                  configuredPages.push(url);
                 configuredFbPages.push({"url":url,"id":id});
+                var temp = "pages" + countPage;
+                localStorage.setItem(temp, url);
+                localStorage.setItem("count", countPage);
+                countPage++;
                 add_to_pages_configured(url,id );
             }
         }
