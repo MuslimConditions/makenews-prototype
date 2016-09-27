@@ -18,7 +18,7 @@ $(document).ready(function(){
        document.getElementsByClassName("add-story")[0].style.display = 'block';
        document.getElementsByClassName('done-img')[0].style.pointerEvents = 'auto';
         document.getElementsByClassName("story-title")[0].value=this.innerText;
-        document.getElementsByClassName("story-content")[0].value=localStorage.getItem(this.innerHTML);
+        document.getElementsByClassName("story-content")[0].value=localStorage.getItem(this.innerText);
 
     });
 
@@ -53,6 +53,7 @@ $(document).ready(function(){
         localStorage.setItem(document.getElementsByClassName("story-title")[0].value, document.getElementsByClassName("story-content")[0].value);
         document.getElementsByClassName("story-board")[0].style.display = 'block';
         document.getElementsByClassName("add-story")[0].style.display = 'none';
+                $(".back_to_story_board_header").css({'display':'none'});
         document.getElementsByClassName('done-img')[0].style.pointerEvents = 'none';
         document.getElementsByClassName("story-title")[0].value ="Story Title";
         document.getElementsByClassName("story-content")[0].value="";

@@ -18,9 +18,10 @@ $(document).ready(function(){
         removeConfiguredProfile(this,label);
         });
         fbProfilesList.append(listItem);
-        var temp = "profile" + count++;
+        var temp = "profile" + count;
         localStorage.setItem(temp, listItem[0].innerText);
         localStorage.setItem("count", count);
+        count++;
     }
     function removeConfiguredProfile(target,label){
         $(label.children[0]).css({"display": "block", "visibility": "visible"});
@@ -76,9 +77,10 @@ $(document).ready(function(){
             removeConfiguredGroup(this,label);
         });
         fbGroupsList.append(listItem);
-        var temp = "group" + countGroup++;
+        var temp = "group" + countGroup;
         localStorage.setItem(temp, listItem[0].innerText);
         localStorage.setItem("countGroup", countGroup);
+        countGroup++;
     }
     function removeConfiguredGroup(target,label){
        $(label.children[0]).css({"display": "block", "visibility": "visible"});
@@ -134,9 +136,10 @@ $(document).ready(function(){
             removeConfiguredPage(this,label);
         });
         fbPagesList.append(listItem);
-        var temp = "pages" + countPage++;
+        var temp = "pages" + countPage;
         localStorage.setItem(temp, listItem[0].innerText);
         localStorage.setItem("countPage", countPage);
+        countPage++;
     }
     function removeConfiguredPage(target,label){
        $(label.children[0]).css({"display": "block", "visibility": "visible"});
