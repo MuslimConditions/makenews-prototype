@@ -110,4 +110,8 @@ $(document).ready(function(){
     $("#u2908").click(function() {
         window.location.href = "story_board.html";
     });
+
+    $("#u2910").click(function() {
+        window.location.href = "web.html";
+      });
 });

@@ -159,4 +159,8 @@ $(document).ready(function() {
   $("#u2053").click(function() {
     window.location.href = "story_board.html";
   });
+
+  $("#u2055").click(function() {
+    window.location.href = "web.html";
+  });
 });

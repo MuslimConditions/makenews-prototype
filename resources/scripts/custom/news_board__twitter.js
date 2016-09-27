@@ -170,4 +170,8 @@ $(document).ready(function() {
     $("#u2653").click(function() {
         window.location.href = "story_board.html";
     });
+
+    $("#u2655").click(function() {
+        window.location.href = "web.html";
+      });
 });
