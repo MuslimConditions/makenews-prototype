@@ -258,7 +258,7 @@ $(document).ready(function(){
 
     $("#u14222").click(function() {
        if((configuredFbProfiles.length > 0) && (configuredFbGroups.length>0) && (configuredFbPages.length>0)){
-            window.location.href = "twitter.html";
+            window.location.href = "tweet.html";
        }
        else{
             $("#Message").css({'display':'block'});
