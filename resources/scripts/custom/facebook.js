@@ -30,6 +30,7 @@ $(document).ready(function(){
       }
 
     $(".add_to_fb_profile_configured").click(function(){
+        $("#Message").css({'display':'none'});
         var url=$(this).siblings(".paragraph").find(".text")[0].innerText.trim();
         var id = $(this)[0].id.split("_")[0];
         if(configuredProfiles.indexOf(url)=== -1){
@@ -72,6 +73,7 @@ $(document).ready(function(){
         $(".profile_up").css({"display": "none","visibility": "hidden"});
     });
     $(".add_all_friends").click(function(x){
+        $("#Message").css({'display':'none'});
         var addParent = this.parentElement;
         var parentSiblings = addParent.parentElement.children;
         for(var i=1; i<=21;i++){
@@ -103,6 +105,7 @@ $(document).ready(function(){
     //fb groups
 
     $(".add_to_fb_group_configured").click(function(){
+        $("#Message").css({'display':'none'});
         var url=$(this).siblings(".paragraph").find(".text")[0].innerText.trim();
         var id = $(this)[0].id.split("_")[0];
         if(configuredGroups.indexOf(url)=== -1){
@@ -146,6 +149,7 @@ $(document).ready(function(){
        $(".group_up").css({"display": "none", "visibility": "hidden"});
     });
     $(".add_all_groups").click(function(){
+            $("#Message").css({'display':'none'});
             var addParent = this.parentElement;
             var parentSiblings = addParent.parentElement.children;
             for(var i=1; i<=18;i++){
@@ -174,6 +178,7 @@ $(document).ready(function(){
 
     // fb pages
     $(".add_to_fb_page_configured").click(function(){
+        $("#Message").css({'display':'none'});
         var url=$(this).siblings(".paragraph").find(".text")[0].innerText.trim();
             var id = $(this)[0].id.split("_")[0];
             if(configuredPages.indexOf(url)=== -1){
@@ -214,6 +219,7 @@ $(document).ready(function(){
         $(".page_up").css({"display": "none","visibility": "hidden"});
     });
     $(".add_all_pages").click(function(){
+         $("#Message").css({'display':'none'});
          var addParent = this.parentElement;
         var parentSiblings = addParent.parentElement.children;
         for(var i=1; i<=9;i++){

@@ -10,6 +10,7 @@ $(document).ready(function(){
   }
 
   $("div[data-label='Add']").click(function(e){
+    $("#Message").css({'display':'none'});
     var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
     var id = $(this)[0].id.split("_")[0];
     if(configuredWebUrls.indexOf(url) === -1) {
@@ -22,15 +23,19 @@ $(document).ready(function(){
   });
 
   $("#u267").click(function() {
-    console.log(configuredWebUrls.length);
-    var configuredProfileLength = (JSON.parse(localStorage.getItem("Profiles"))).length;
-//    var configuredWebUrlsLength = (JSON.parse(localStorage.getItem("configuredWebUrls"))).length;
-    console.log(configuredProfileLength);
-        if(configuredProfileLength> 0){
-            window.location.href = "makenews_fb.html";
+        var configuredWebUrlLength = (JSON.parse(localStorage.getItem("configuredWebUrls"))).length;
+        if(!configuredWebUrlLength>0){
+    //         window.location.href="web.html";
+             $("#Message").css({'display':'block'});
         }
         else{
-            window.location.href = "fb.html";
+            var configuredProfileLength = (JSON.parse(localStorage.getItem("Profiles"))).length;
+            if(configuredProfileLength> 0){
+                window.location.href = "makenews_fb.html";
+            }
+            else{
+                window.location.href = "fb.html";
+            }
         }
    });
 
@@ -73,4 +78,7 @@ $(document).ready(function(){
       }
   }
 
+   $("#removeMessage").click(function() {
+      $("#Message").css({'display':'none'});
+   });
 });

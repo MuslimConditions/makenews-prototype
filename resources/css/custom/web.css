@@ -33,3 +33,20 @@
   color: #bbb6b6;
   cursor: pointer;
 }
+#Message {
+    display : none;
+    position: absolute;
+    top: 710px;
+    left: 550px;
+    color: red;
+}
+.message1{
+    padding-right : 10px;
+    top : 750px;
+}
+.fa-close {
+    color: darkgray;
+}
+.removeMessage{
+cursor:pointer;
+}

@@ -12,6 +12,7 @@
     <link href="files/web/styles.css" type="text/css" rel="stylesheet"/>
     <link href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
     <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/custom/web_configure.js"></script>
     <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
     <script src="resources/scripts/axure/axQuery.js"></script>
     <script src="resources/scripts/axure/globals.js"></script>
@@ -44,11 +45,10 @@
     <script src="resources/scripts/axure/legacy.js"></script>
     <script src="resources/scripts/axure/viewer.js"></script>
     <script src="resources/scripts/axure/math.js"></script>
-    <script src="resources/scripts/custom/web_configure.js"></script>
     <script type="text/javascript">
-      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+    $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+    $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
     </script>
   </head>
   <body>
@@ -1329,7 +1329,10 @@
 
         </ul>
       </div>
-
+    </div>
+    <div id="Message">
+      <span>You must configure atleast one url </span>
+      <span id = 'removeMessage'><i class='fa fa-times'></i></span>
     </div>
   </body>
 </html>

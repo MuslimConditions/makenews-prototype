@@ -137,6 +137,7 @@ $axure.internal(function($ax) {
                         $ax.setjBrowserEvent(e);
                         //                        console.log(axEventObject.description);
                         var eventInfo = $ax.getEventInfoFromEvent($ax.getjBrowserEvent(), false, elementId);
+                        if(elementId != "u267")
                         _handleEvent(elementId, eventInfo, axEventObject);
                     };
                 })(diagramObject.interactionMap[eventName])
