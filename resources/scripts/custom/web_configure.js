@@ -22,16 +22,19 @@ $(document).ready(function(){
   });
 
   $("#u267").click(function() {
+    console.log(configuredWebUrls.length);
     var configuredProfileLength = (JSON.parse(localStorage.getItem("Profiles"))).length;
-    if(configuredProfileLength> 0){
-        window.location.href = "makenews_fb.html";
-    }
-    else{
-        window.location.href = "fb.html";
-    }
+//    var configuredWebUrlsLength = (JSON.parse(localStorage.getItem("configuredWebUrls"))).length;
+    console.log(configuredProfileLength);
+        if(configuredProfileLength> 0){
+            window.location.href = "makenews_fb.html";
+        }
+        else{
+            window.location.href = "fb.html";
+        }
    });
 
-   $("#u35").click(function() {
+   $("#u40").click(function() {
     var configuredProfile = (JSON.parse(localStorage.getItem("Profiles"))).length;
     if(configuredProfile> 0){
         window.location.href = "makenews_fb.html";

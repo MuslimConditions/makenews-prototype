@@ -57,17 +57,23 @@ $(document).ready(function(){
     for(var i=1; i<=21;i++){
         var child = parentSiblings[i];
         var add = (child.children)[4];
-            var url = $((add.children)[0]).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
+        var url = $((add.children)[0]).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
+        var id = $((add.children))[0].id.split("_")[0];
         if(configuredWebUrls.indexOf(url) === -1) {
             configuredWebUrls.push(url);
-            updateConfiguredWebUrlsDOM(url, $((child.children)[4])[0].id.split
-            ("_")[0]);
+            configuredSourcesWithId.push({"url":url,"id":id});
+            localStorage.setItem("configuredTwitterUrls", JSON.stringify(configuredWebUrls));
+            localStorage.setItem("configuredTwitterUrlsWithId", JSON.stringify(configuredSourcesWithId));
+            updateConfiguredWebUrlsDOM(url, $((child.children)[4])[0].id.split("_")[0]);
         }
     }
   });
 
    $("div[data-label='Remove all']").click(function(y){
         configuredWebUrls=[];
+        configuredSourcesWithId = [];
+        localStorage.setItem("configuredTwitterUrls", JSON.stringify(configuredWebUrls));
+        localStorage.setItem("configuredTwitterUrlsWithId", JSON.stringify(configuredSourcesWithId));
         $("#twitterSourcesList").empty();
    });
 
