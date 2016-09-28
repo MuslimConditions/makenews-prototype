@@ -12,6 +12,8 @@ $(document).ready(function(){
     var fbGroupsList = $("#selected_fb_groups");
     var fbPagesList = $("#selected_fb_pages");
 
+    fbGroupsList.hide();
+    fbPagesList.hide();
      for(var i in configuredFbProfiles){
         configuredProfiles.push(configuredFbProfiles[i].url);
         add_to_profile_configured(configuredFbProfiles[i].url, configuredFbProfiles[i].id);
@@ -255,8 +257,58 @@ $(document).ready(function(){
    }
 
     $("#u14222").click(function() {
-        window.location.href = "./twitter.html";
+       if((configuredFbProfiles.length > 0) && (configuredFbGroups.length>0) && (configuredFbPages.length>0)){
+            window.location.href = "twitter.html";
+       }
+       else{
+            $("#Message").css({'display':'block'});
+       }
     });
 
+    $("#removeMessage").click(function() {
+        $("#Message").css({'display':'none'});
+    });
+
+    $("#u812").click(function(){
+         $(".profile_down").click();
+         $(".page_up").click();
+         $(".group_up").click();
+    });
+
+    $("#u1398").click(function(){
+         $(".profile_down").click();
+         $(".page_up").click();
+         $(".group_up").click();
+    });
+
+    $("#u1123").click(function(){
+         $(".profile_down").click();
+         $(".page_up").click();
+         $(".group_up").click();
+    });
+
+    $("#u808").click(function(){
+         $(".profile_up").click();
+         $(".group_down").click();
+         $(".page_up").click();
+    });
+
+    $("#u1400").click(function(){
+         $(".profile_up").click();
+         $(".group_down").click();
+         $(".page_up").click();
+    });
+
+    $("#u810").click(function(){
+         $(".profile_up").click();
+         $(".group_up").click();
+         $(".page_down").click();
+    });
+
+    $("#u1127").click(function(){
+         $(".profile_up").click();
+         $(".group_up").click();
+         $(".page_down").click();
+    });
 
 });

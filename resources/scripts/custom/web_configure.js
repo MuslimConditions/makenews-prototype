@@ -21,6 +21,26 @@ $(document).ready(function(){
     }
   });
 
+  $("#u267").click(function() {
+    var configuredProfileLength = (JSON.parse(localStorage.getItem("Profiles"))).length;
+    if(configuredProfileLength> 0){
+        window.location.href = "makenews_fb.html";
+    }
+    else{
+        window.location.href = "fb.html";
+    }
+   });
+
+   $("#u35").click(function() {
+    var configuredProfile = (JSON.parse(localStorage.getItem("Profiles"))).length;
+    if(configuredProfile> 0){
+        window.location.href = "makenews_fb.html";
+    }
+    else{
+        window.location.href = "fb.html";
+    }
+  });
+
   function removeUrl(e, url){
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();
@@ -49,4 +69,5 @@ $(document).ready(function(){
           }
       }
   }
+
 });

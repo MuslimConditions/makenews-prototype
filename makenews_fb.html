@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!--﻿<!DOCTYPE html>-->
 <html>
   <head>
     <title>Makenews FB</title>
@@ -10,6 +10,7 @@
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/makenews_fb/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/makenews_fb/custom.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/custom/facebook.css" type="text/css" rel="stylesheet"/>
     <link href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
     <script src="resources/scripts/jquery-1.7.1.min.js"></script>
     <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
@@ -202,15 +203,15 @@
         </ul></div>
         <div class="fb-configured-urls">
         <h4 id="group_label"> Facebook Groups
-          <i class="fa fa-sort-desc group_down" style=" visibility: hidden"></i>
-          <i class="fa fa-sort-asc group_up" style=" visibility: visible"></i></h4>
+          <i class="fa fa-sort-desc group_down" style=" visibility: visible"></i>
+          <i class="fa fa-sort-asc group_up" style=" visibility: hidden"></i></h4>
         <ul id="selected_fb_groups" >
 
         </ul></div>
         <div class="fb-configured-urls">
         <h4 id="page_label"> Facebook Pages
-          <i class="fa fa-sort-desc page_down" style=" visibility: hidden"></i>
-          <i class="fa fa-sort-asc page_up" style=" visibility: visible"></i></h4>
+          <i class="fa fa-sort-desc page_down" style=" visibility: visible"></i>
+          <i class="fa fa-sort-asc page_up" style=" visibility: hidden"></i></h4>
         <ul id="selected_fb_pages" >
 
         </ul></div>
@@ -3958,5 +3959,9 @@
         </div>
       </div>
     </div>
+  <div id="Message">
+    <span>You must configure atleast one url from each</span>
+    <span id = 'removeMessage'><i class='fa fa-times'></i></span>
+  </div>
   </body>
 </html>
