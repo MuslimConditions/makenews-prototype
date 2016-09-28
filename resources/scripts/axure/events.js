@@ -458,6 +458,7 @@ $axure.internal(function($ax) {
     };
 
     var _attachDefaultObjectEvent = function(elementIdQuery, elementId, eventName, fn) {
+        if(elementId !== "u1873"){
         var func = function() {
             if(!$ax.style.IsWidgetDisabled(elementId)) return fn.apply(this, arguments);
             return true;
@@ -466,6 +467,7 @@ $axure.internal(function($ax) {
         var bind = !elementIdQuery[eventName];
         if(bind) elementIdQuery.bind(eventName, func);
         else elementIdQuery[eventName](func);
+        }
     };
 
     var _attachCustomObjectEvent = function(elementId, eventName, fn) {

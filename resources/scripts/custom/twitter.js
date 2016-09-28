@@ -10,6 +10,7 @@ $(document).ready(function(){
     }
 
   $("div[data-label='Add']").click(function(e){
+     $("#Message").css({'display':'none'});
     var url = $(this).parent().siblings(".paragraph").find(".text")[0].innerText.trim();
         var id = $(this)[0].id.split("_")[0];
 
@@ -52,6 +53,7 @@ $(document).ready(function(){
   }
 
   $("div[data-label='Add All']").click(function(x){
+     $("#Message").css({'display':'none'});
     var addParent = this.parentElement;
     var parentSiblings = addParent.parentElement.children;
     for(var i=1; i<=21;i++){
@@ -77,4 +79,17 @@ $(document).ready(function(){
         $("#twitterSourcesList").empty();
    });
 
+    $("#u1873").click(function() {
+        var configuredTwitterUrlLength = (JSON.parse(localStorage.getItem("configuredTwitterUrls"))).length;
+        if(!configuredTwitterUrlLength>0){
+             $("#Message").css({'display':'block'});
+        }
+        else{
+            window.location.href="news_board__web.html";
+        }
+    });
+
+    $("#removeMessage").click(function() {
+        $("#Message").css({'display':'none'});
+    });
 });

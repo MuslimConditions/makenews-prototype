@@ -23,14 +23,17 @@ $(document).ready(function(){
   });
 
   $("#u267").click(function() {
-        var configuredWebUrlLength = (JSON.parse(localStorage.getItem("configuredWebUrls"))).length;
+//        var configuredWebUrl = JSON.parse(localStorage.getItem("configuredWebUrls")) || [];
+        var configuredWebUrlLength = configuredWebUrls.length;
         if(!configuredWebUrlLength>0){
     //         window.location.href="web.html";
              $("#Message").css({'display':'block'});
         }
         else{
-            var configuredProfileLength = (JSON.parse(localStorage.getItem("Profiles"))).length;
-            if(configuredProfileLength> 0){
+//            var configuredProfile =  JSON.parse(localStorage.getItem("Profiles")) || [];
+            var configuredProfile = JSON.parse(localStorage.getItem("Profiles")) || [];
+            var configuredWebUrlLength = configuredProfile.length;
+            if(configuredProfileLength > 0){
                 window.location.href = "makenews_fb.html";
             }
             else{
@@ -40,7 +43,8 @@ $(document).ready(function(){
    });
 
    $("#u40").click(function() {
-    var configuredProfile = (JSON.parse(localStorage.getItem("Profiles"))).length;
+    var configuredProfile = JSON.parse(localStorage.getItem("Profiles")) || [];
+    var configuredWebUrlLength = configuredProfile.length;
     if(configuredProfile> 0){
         window.location.href = "makenews_fb.html";
     }
