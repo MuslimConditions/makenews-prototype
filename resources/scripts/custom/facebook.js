@@ -264,7 +264,8 @@ $(document).ready(function(){
 
     $("#u14222").click(function() {
        if((configuredFbProfiles.length > 0) && (configuredFbGroups.length>0) && (configuredFbPages.length>0)){
-            var configuredTwitterUrlsLength = (JSON.parse(localStorage.getItem("configuredTwitterUrls"))).length;
+            var configuredTwitterUrls = (JSON.parse(localStorage.getItem("configuredTwitterUrls")))||[];
+            var configuredTwitterUrlsLength = configuredTwitterUrls.length;
             if(configuredTwitterUrlsLength > 0){
                 window.location.href = "twitter.html";
              }

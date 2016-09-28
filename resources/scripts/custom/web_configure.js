@@ -32,7 +32,7 @@ $(document).ready(function(){
         else{
 //            var configuredProfile =  JSON.parse(localStorage.getItem("Profiles")) || [];
             var configuredProfile = JSON.parse(localStorage.getItem("Profiles")) || [];
-            var configuredWebUrlLength = configuredProfile.length;
+            var configuredProfileLength = configuredProfile.length;
             if(configuredProfileLength > 0){
                 window.location.href = "makenews_fb.html";
             }

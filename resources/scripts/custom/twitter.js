@@ -80,7 +80,7 @@ $(document).ready(function(){
    });
 
     $("#u1873").click(function() {
-        var configuredTwitterUrlLength = (JSON.parse(localStorage.getItem("configuredTwitterUrls"))).length;
+        var configuredTwitterUrlLength = configuredWebUrls.length;
         if(!configuredTwitterUrlLength>0){
              $("#Message").css({'display':'block'});
         }
