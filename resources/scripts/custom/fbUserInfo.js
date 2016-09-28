@@ -5,8 +5,8 @@ $(window).load(function() {
     var configuredWebUrlsLength = configuredWebUrls.length;
 
     if(configuredWebUrlsLength <= 0){
-       $("#Message").css({'display':'block'});
        window.location.href = "web.html";
+       $("#Message").css({'display':'block'});
     }
 
     else if(configuredProfilesLength > 0){

@@ -324,4 +324,23 @@ $(document).ready(function(){
          $(".page_down").click();
     });
 
+    $("#u667").click(function(){
+        var configuredFbProfilesLength = configuredFbProfiles.length;
+        var configuredFbGroupsLength = configuredFbGroups.length;
+        var configuredFbPagesLength = configuredFbPages.length;
+        if(configuredFbProfilesLength> 0 && (configuredFbGroupsLength > 0) && (configuredFbPagesLength>0)){
+            var configuredTwitterUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls")) || [];
+            var configuredTwitterUrlsLength = configuredTwitterUrls.length;
+            if(configuredTwitterUrlsLength > 0){
+                window.location.href = "twitter.html";
+            }
+            else{
+                window.location.href = "tweet.html";
+            }
+        }
+        else{
+        $("#Message").css({'display':'block'});
+        }
+    });
+
 });
