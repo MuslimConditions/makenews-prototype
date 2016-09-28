@@ -35,11 +35,17 @@
 }
 
 #Message {
-    display : none;
-    position: absolute;
-    top: 710px;
-    left: 550px;
-    color: red;
+       display: none;
+       position: absolute;
+       top: 340px;
+       left: 670px;
+       color: white;
+       border: 1px;
+       background-color: dimgrey;
+       height: 40px;
+       width: 502px;
+       font-size: 28px;
+       text-align: center;
 }
 .message1{
     padding-right : 10px;

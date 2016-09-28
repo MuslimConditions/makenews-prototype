@@ -42,17 +42,6 @@ $(document).ready(function(){
         }
    });
 
-   $("#u40").click(function() {
-    var configuredProfile = JSON.parse(localStorage.getItem("Profiles")) || [];
-    var configuredWebUrlLength = configuredProfile.length;
-    if(configuredProfile> 0){
-        window.location.href = "makenews_fb.html";
-    }
-    else{
-        window.location.href = "fb.html";
-    }
-  });
-
   function removeUrl(e, url){
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();

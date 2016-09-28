@@ -1,9 +1,16 @@
 #Message {
-    display : none;
-    position: absolute;
-    top: 710px;
-    left: 550px;
-    color: red;
+  display: none;
+  position: absolute;
+  top: 307px;
+  left: 496px;
+  color: white;
+  border: 1px;
+  background-color: dimgrey;
+  height: 37px;
+  width: 692px;
+  font-size: 28px;
+  text-align: center;
+  font-family: serif;
 }
 .message1{
     padding-right : 10px;
