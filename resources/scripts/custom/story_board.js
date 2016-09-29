@@ -19,6 +19,7 @@ $(document).ready(function(){
         localStorage.setItem("story-title", title);
         localStorage.setItem("story-data", data);
     });
+
     $(".story-box-1").click(function(){
         $(".back_to_story_board_header").css({'display':'block'});
        document.getElementsByClassName("story-board")[0].style.display = 'none';
@@ -45,40 +46,31 @@ $(document).ready(function(){
     });
 
     $(document).on('click',".story-image-tag", function(e) {
+        for(var i=0; i<storiesList.length; i++){
+            if(e.srcElement.parentElement.innerText === storiesList[i].title){
+                storiesList.splice(i,1);
+            }
+        }
+
+        localStorage.setItem("Stories",JSON.stringify(storiesList));
         e.stopPropagation();
         var arrayElements = document.getElementsByClassName("story-board");
         this.parentElement.remove();
+        window.location.reload();
     });
 
     $(".done-img").click(function(){
-
-
-        console.log(($(document.getElementsByClassName("add-story")).children())[0].value);
-        console.log(($(document.getElementsByClassName("add-story")).children())[1].value);
-
-            var newBox = document.createElement('div');
-            newBox.className = "story-box";
-            newBox.innerHTML = ($(document.getElementsByClassName("add-story")).children())[0].value
-            var imageTag  = document.createElement('img');
-            imageTag.src= 'images/news_board__collections/delete_u2816.png';
-            imageTag.className = 'story-image-tag';
-            newBox.appendChild(imageTag);
-            var elements = document.getElementsByClassName('story-box');
-            if (elements.length === 0) {
-                newBox.style.marginTop='67px';
-                newBox.style.marginLeft='256px';
-                $(newBox).insertAfter(document.getElementsByClassName('story-box-1')[0]);
-            }
-            else {
-                if (elements.length === 1) {
-                    newBox.style.marginTop = '67px';
-                }
-                $(newBox).insertAfter(document.getElementsByClassName('story-box')[elements.length - 1]);
-            }
-
-//        localStorage.setItem(document.getElementsByClassName("story-title")[0].value, document.getElementsByClassName("story-content")[0].value);
-
-        storiesList.push({'title' :($(document.getElementsByClassName("add-story")).children())[0].value, 'content' : ($(document.getElementsByClassName("add-story")).children())[1].value });
+        var storyTitle = ($(document.getElementsByClassName("add-story")).children())[0].value;
+        var storyContent = ($(document.getElementsByClassName("add-story")).children())[1].value;
+        console.log("be"+storiesList);
+        for(var i=0; i<storiesList.length; i++){
+           if(storyTitle === storiesList[i].title){
+               storiesList.splice(i,1);
+           }
+        }
+        console.log("af"+storiesList);
+        renderStory(storyTitle, storyContent);
+        storiesList.push({'title' :storyTitle, 'content' :storyContent });
         localStorage.setItem("Stories",JSON.stringify(storiesList));
 
         document.getElementsByClassName("story-board")[0].style.display = 'block';
@@ -100,6 +92,7 @@ $(document).ready(function(){
         $(".story-board").css({'display':'block'});
         $(".back_to_story_board_header").css({'display':'none'});
     });
+
 
     function renderStory(title,content){
         var newBox = document.createElement('div');
