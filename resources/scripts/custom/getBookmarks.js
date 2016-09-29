@@ -4,6 +4,17 @@ $(document).ready(function () {
 
     var bookmarkList = JSON.parse(localStorage.getItem("bookmark_data")) || [];
 
+     if(bookmarkList.length > 0){
+        $(".article__body").text(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
+        $(".article__title").text(JSON.parse(localStorage.getItem("bookmark_data"))[0].title);
+        $(".article__source").text(JSON.parse(localStorage.getItem("bookmark_data"))[0].source);
+         $(".article__image").css({'visibility':'visible'});
+        $("#u2873_div").css({'display':'block'});
+        $("#u2885").css({'display':'block'});
+        $("#u2877").css({'display':'block'});
+
+     }
+
     for (var index = 0; index < bookmarkList.length; index++) {
         var source = bookmarkList[index].source;
         var title = bookmarkList[index].title;
@@ -25,6 +36,11 @@ $(document).ready(function () {
         var $currentItem = $(event.currentTarget);
         $(".article__title").text($currentItem.find(".bookmark__item__title").text());
         $(".article__source").text($currentItem.find("#bookmark__item__source").text());
+        $(".article__image").css({'visibility':'visible'});
+        $("#u2873_div").css({'display':'block'});
+        $("#u2885").css({'display':'block'});
+        $("#u2877").css({'display':'block'});
+        $(".article__body").replaceWith(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
     }
 
     $("div[data-label='bookmark']").click(function(e){
@@ -35,9 +51,7 @@ $(document).ready(function () {
         location.reload();
     });
 
-         if(bookmarkList.length > 0){
-           $(".article__body").replaceWith(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
-         }
+
 
     $("#u2857").click(function() {
       window.location.href = "news_board__web.html";
@@ -65,11 +79,5 @@ $(document).ready(function () {
 
      $("#u2884_state0").click(function() {
             $("#RemovedFromBookmarks").css({'display':'block'});
-        });
-
-        $("#removeBookmark").click(function() {
-            $("#RemovedFromBookmarks").css({'display':'none'});
-        });
-
-
+    });
 });

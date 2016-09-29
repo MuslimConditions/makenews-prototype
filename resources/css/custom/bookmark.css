@@ -69,6 +69,7 @@
   top: 200px;
   width: 300px;
   margin-bottom: 10px;
+  visibility:hidden;
 }
 
 .article__body p{
@@ -113,3 +114,6 @@
   color: white;
 }
 
+#u2873_div, #u2885, #u2877 {
+    display:none;
+}
