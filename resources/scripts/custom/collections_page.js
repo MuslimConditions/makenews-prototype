@@ -12,13 +12,16 @@ $(document).ready(function(){
 
   var collections = JSON.parse(localStorage.getItem("collections")) || {};
   var collectionNames = [];
-  renderColletionList(collections);
+  renderCollectionList(collections);
+  renderFirstCollectionArticles();
 
-  function renderColletionList(collections) {
+
+
+  function renderCollectionList(collections) {
     collectionNames = [];
     for (var collection in collections) { collectionNames.push(collection); }
     collectionNames.forEach(function(collection) {
-      var $li = $("<li class='collection-item'>"+collection+"</li>");
+      var $li = $("<li class='collection-item'>"+collection+"<span id = 'removeCollection' class = 'remove_collection'><i class='fa fa-times'></i></span></li>");
       $collectionList.append($li);
     });
   }
@@ -36,23 +39,32 @@ $(document).ready(function(){
     $("#newCollectionName").val("");
     collections[newCollectionName] = []
     localStorage.setItem("collections", JSON.stringify(collections));
-    var $li = $("<li class='collection-item'>"+newCollectionName+"</li>");
+    var $li = $("<li class='collection-item'>"+newCollectionName+"<span class = 'remove_collection' ><i class='fa fa-times'></i></span></li>");
     $collectionList.append($li);
     $newCollectionForm.hide();
-  })
-
-  $collectionList.click(function(event) {
-    collectionListFirstItem.className = "collection-item";
-    collectionListFirstItem = event.target;
-    $(event.target).addClass("current");
-    currentCollectionName = event.target.innerText;
-    renderArticles(currentCollectionName);
   });
 
-  currentCollectionName = collectionNames[0];
-  renderArticles(currentCollectionName);
-  collectionListFirstItem = $(".collection-item")[0];
-  collectionListFirstItem.className = "collection-item current";
+  $collectionList.click(function(event) {
+    console.log(event);
+        console.log(event.srcElement.className);
+
+    if(event.srcElement.className === "fa fa-times") {
+       console.log("in if");
+        var removeCollectionName = (($(event.srcElement).parent().parent())[0].innerText);
+        removeCollectionFn(removeCollectionName);
+    }
+    else {
+        console.log("in else");
+         $(event.target).addClass("current");
+         currentCollectionName = event.target.innerText;
+        collectionListFirstItem.className = "collection-item";
+        collectionListFirstItem = event.target;
+
+        renderArticles(currentCollectionName);
+    }
+  });
+
+
 
   function renderArticles(collectionName) {
     $collectedArticles.empty();
@@ -88,8 +100,16 @@ $(document).ready(function(){
               break;
           }
       }
-
       return arr;
+  }
+
+  function renderFirstCollectionArticles(){
+     if(collectionNames.length > 0){
+         currentCollectionName = collectionNames[0];
+         renderArticles(currentCollectionName);
+         collectionListFirstItem = $(".collection-item")[0];
+         collectionListFirstItem.className = "collection-item current";
+     }
   }
   $("#u2925").click(function(){
     window.location.href = "news_board__bookmarks.html";
@@ -113,5 +133,11 @@ $(document).ready(function(){
 
     $("#u2910").click(function() {
         window.location.href = "web.html";
-      });
+    });
+
+    function removeCollectionFn(name){
+        delete collections[name];
+        localStorage.setItem("collections",JSON.stringify(collections));
+        window.location.reload();
+    }
 });
