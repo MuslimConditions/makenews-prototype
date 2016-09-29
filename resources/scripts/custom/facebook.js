@@ -14,20 +14,20 @@ $(document).ready(function(){
 
     fbGroupsList.hide();
     fbPagesList.hide();
-     for(var i in configuredFbProfiles){
-        configuredProfiles.push(configuredFbProfiles[i].url);
-        add_to_profile_configured(configuredFbProfiles[i].url, configuredFbProfiles[i].id);
-      }
+    for(var i in configuredFbProfiles){
+    configuredProfiles.push(configuredFbProfiles[i].url);
+    add_to_profile_configured(configuredFbProfiles[i].url, configuredFbProfiles[i].id);
+    }
 
-      for(var j in configuredFbGroups){
-        configuredGroups.push(configuredFbGroups[j].url);
-        add_to_group_configured(configuredFbGroups[j].url, configuredFbGroups[j].id);
-      }
+    for(var j in configuredFbGroups){
+    configuredGroups.push(configuredFbGroups[j].url);
+    add_to_group_configured(configuredFbGroups[j].url, configuredFbGroups[j].id);
+    }
 
-      for(var k in configuredFbPages){
-        configuredPages.push(configuredFbPages[k].url);
-        add_to_pages_configured(configuredFbPages[k].url, configuredFbPages[k].id);
-      }
+    for(var k in configuredFbPages){
+    configuredPages.push(configuredFbPages[k].url);
+    add_to_pages_configured(configuredFbPages[k].url, configuredFbPages[k].id);
+    }
 
     $(".add_to_fb_profile_configured").click(function(){
         $("#Message").css({'display':'none'});
@@ -72,6 +72,7 @@ $(document).ready(function(){
         $(".profile_down").css({"display": "block","visibility": "visible"});
         $(".profile_up").css({"display": "none","visibility": "hidden"});
     });
+
     $(".add_all_friends").click(function(x){
         $("#Message").css({'display':'none'});
         var addParent = this.parentElement;
@@ -218,6 +219,7 @@ $(document).ready(function(){
         $(".page_down").css({"display": "block","visibility": "visible"});
         $(".page_up").css({"display": "none","visibility": "hidden"});
     });
+
     $(".add_all_pages").click(function(){
          $("#Message").css({'display':'none'});
          var addParent = this.parentElement;
@@ -239,6 +241,7 @@ $(document).ready(function(){
         }
          localStorage.setItem("Pages",JSON.stringify(configuredFbPages));
     });
+
     $(".remove_all_pages").click(function(){
         configuredFbPages=[];
         configuredPages = [];

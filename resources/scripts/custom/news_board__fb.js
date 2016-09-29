@@ -94,32 +94,39 @@ $(document).ready(function() {
     var $articleSource = $(".article__source")[0];
     var $articleTitle = $(".article__title")[0];
     var length = parseInt(localStorage.getItem('count'));
+    var profiles = JSON.parse(localStorage.getItem("Profiles")) || [];
+    var groups = JSON.parse(localStorage.getItem("Groups")) || [];
+    var pages = JSON.parse(localStorage.getItem("Pages")) || [];
     var arrayList = [];
-    var profileLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-profile' checked><span class ='filter-web-source' style='font-weight: bold'>Facebook Friends</span><span class='profile-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></span></li>");
-    var pagesLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-page' checked><span class ='filter-web-source' style='font-weight: bold'>Facebook Pages</span><span class='page-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></li>");
-    var groupsLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-group' checked><span class ='filter-web-source' style='font-weight: bold'>Facebook Groups</span><span class='group-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></li>");
+    var profileLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-profile' checked><span class ='filter-web-source filter-profile-source' style='font-weight: bold'>Facebook Friends</span><span class='profile-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></span></li>");
+    var pagesLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-page' checked><span class ='filter-web-source filter-page-source' style='font-weight: bold'>Facebook Pages</span><span class='page-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></li>");
+    var groupsLabel = $("<li><input type = 'checkbox' class = 'filter-web-checkbox-group' checked><span class ='filter-web-source filter-group-source' style='font-weight: bold'>Facebook Groups</span><span class='group-select' style= 'font-family: FontAwesome;margin-left:43px;color: #DEDEDE;'></span></li>");
 
     $("#filteredWebUrlsList").append(profileLabel);
 
-    for(var i =1 ; i<=length; i++){
-        var listItem = $("<li class='profile-elements'><input type = 'checkbox' class = 'filter-web-checkbox profile' checked><span class ='filter-web-source'>"+localStorage.getItem("profile"+i)+"</span></li>");
+    for(var i =0 ; i<profiles.length; i++){
+        var listItem = $("<li class='profile-elements'><input type = 'checkbox' class = 'filter-web-checkbox profile' checked><span class ='filter-web-source'>"+profiles[i].url+"</span></li>");
         $("#filteredWebUrlsList").append(listItem);
-        arrayList.push(localStorage.getItem("profile"+i));
+        arrayList.push(profiles[i].url);
     }
-    $("#filteredWebUrlsList").append(pagesLabel);
-    var length1 = parseInt(localStorage.getItem('countPage'));
-    for(var i1 =1 ; i1<=length1; i1++){
-        var listItem1 = $("<li class='page-elements'><input type = 'checkbox' class = 'filter-web-checkbox page' checked><span class ='filter-web-source'>"+localStorage.getItem("pages"+i1)+"</span></li>");
-        $("#filteredWebUrlsList").append(listItem1);
-        arrayList.push(localStorage.getItem("pages"+i1));
-    }
+
     $("#filteredWebUrlsList").append(groupsLabel);
     var length2 = parseInt(localStorage.getItem('countGroup'));
-    for(var i2 =1 ; i2<=length2; i2++){
-        var listItem2 = $("<li class='group-elements'><input type = 'checkbox' class = 'filter-web-checkbox group' checked><span class ='filter-web-source'>"+localStorage.getItem("group"+i2)+"</span></li>");
+    for(var i2 =0 ; i2<groups.length; i2++){
+        var listItem2 = $("<li class='group-elements'><input type = 'checkbox' class = 'filter-web-checkbox group' checked><span class ='filter-web-source'>"+groups[i2].url+"</span></li>");
         $("#filteredWebUrlsList").append(listItem2);
-        arrayList.push(localStorage.getItem("group"+i2));
+        arrayList.push(groups[i2].url);
     }
+
+    $("#filteredWebUrlsList").append(pagesLabel);
+    var length1 = parseInt(localStorage.getItem('countPage'));
+    for(var i1 =0 ; i1<pages.length; i1++){
+        var listItem1 = $("<li class='page-elements'><input type = 'checkbox' class = 'filter-web-checkbox page' checked><span class ='filter-web-source'>"+pages[i1].url+"</span></li>");
+        $("#filteredWebUrlsList").append(listItem1);
+        arrayList.push(pages[i1].url);
+    }
+
+
     var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
     renderFeeds(arrayList);
     for(var i=0; i< document.getElementsByClassName("page").length; i++){
@@ -225,7 +232,8 @@ $(document).ready(function() {
             checkbox[index].checked = check;
         }
     });
-    $(".profile-select").click(function(){
+
+    $(".profile-select, .filter-profile-source").click(function(){
         for(var i=0; i< document.getElementsByClassName("page").length; i++){
             document.getElementsByClassName("page-elements")[i].style.display='none';
         }
@@ -236,7 +244,7 @@ $(document).ready(function() {
             document.getElementsByClassName("profile-elements")[i].style.display='block';
         }
     });
-    $(".group-select").click(function(){
+   $('.group-select, .filter-group-source').click(function(){
         for(var i=0; i< document.getElementsByClassName("page").length; i++){
             document.getElementsByClassName("page-elements")[i].style.display='none';
         }
@@ -247,7 +255,7 @@ $(document).ready(function() {
             document.getElementsByClassName("group-elements")[i].style.display='block';
         }
     });
-    $(".page-select").click(function(){
+    $(".page-select, .filter-page-source").click(function(){
         for(var i=0; i< document.getElementsByClassName("profile").length; i++){
             document.getElementsByClassName("profile-elements")[i].style.display='none';
         }

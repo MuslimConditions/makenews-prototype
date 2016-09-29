@@ -126,6 +126,7 @@ $(document).ready(function() {
     var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
     $("#filteredWebUrlsList").append(listItem);
   });
+
   $("#u2041").click(function(){
     var selectedUrls = [];
     var checkbox = $(".filter-web-checkbox");
