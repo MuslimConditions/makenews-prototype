@@ -62,25 +62,25 @@ $(document).ready(function(){
     $(".done-img").click(function(){
         var storyTitle = ($(document.getElementsByClassName("add-story")).children())[0].value;
         var storyContent = ($(document.getElementsByClassName("add-story")).children())[1].value;
-        console.log("be"+storiesList);
-        for(var i=0; i<storiesList.length; i++){
-           if(storyTitle === storiesList[i].title){
-               storiesList.splice(i,1);
-           }
-        }
-        console.log("af"+storiesList);
-        renderStory(storyTitle, storyContent);
-        storiesList.push({'title' :storyTitle, 'content' :storyContent });
-        localStorage.setItem("Stories",JSON.stringify(storiesList));
+        if(storyTitle !== ""){
+            for(var i=0; i<storiesList.length; i++){
+               if(storyTitle === storiesList[i].title){
+                   storiesList.splice(i,1);
+               }
+            }
+            renderStory(storyTitle, storyContent);
+            storiesList.push({'title' :storyTitle, 'content' :storyContent });
+            localStorage.setItem("Stories",JSON.stringify(storiesList));
 
-        document.getElementsByClassName("story-board")[0].style.display = 'block';
-        document.getElementsByClassName("add-story")[0].style.display = 'none';
-         $(".back_to_story_board_header").css({'display':'none'});
-        document.getElementsByClassName('done-img')[0].style.pointerEvents = 'none';
-        document.getElementsByClassName("story-title").value ="";
-        document.getElementsByClassName("story-content").value="";
+            document.getElementsByClassName("story-board")[0].style.display = 'block';
+            document.getElementsByClassName("add-story")[0].style.display = 'none';
+             $(".back_to_story_board_header").css({'display':'none'});
+            document.getElementsByClassName('done-img')[0].style.pointerEvents = 'none';
+            document.getElementsByClassName("story-title").value ="";
+            document.getElementsByClassName("story-content").value="";
 
-        window.location.reload();
+            window.location.reload();
+       }
     });
 
     $("#u5880").click(function() {
