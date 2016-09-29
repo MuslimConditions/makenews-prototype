@@ -128,7 +128,7 @@ $(document).ready(function() {
        $("#u5865").css({'visibility' : 'hidden'});
       $("#filteredUrlsList").empty();
       filterSource = $webList;
-      var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
+      var configuredWebUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
       renderUrls(configuredWebUrls,$webList);
       configuredWebUrls.forEach(function(url){
         var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
@@ -168,6 +168,8 @@ $(document).ready(function() {
         var collections = JSON.parse(localStorage.getItem("collections")) || {};
           renderCollectionList(collections);
     });
+
+    //facebook
     $("#u5858").click(function(){
         emptyAllLists();
         removeAllIcons();
@@ -177,10 +179,16 @@ $(document).ready(function() {
           $("#u5860").css({'visibility' : 'hidden'});
         filterSource = $facebookList;
         $("#filteredUrlsList").empty();
+
         var configuredFbUrls = [];
-        configuredFbUrls = getConfiguredFbUrls("profile");
-        configuredFbUrls = configuredFbUrls.concat(getConfiguredFbUrls("group"));
-        configuredFbUrls = configuredFbUrls.concat(getConfiguredFbUrls("pages"));
+        var sourceList = JSON.parse(localStorage.getItem("Profiles")) || [];
+        configuredFbUrls = sourceList.map(function(object) {return object.url});
+        sourceList = JSON.parse(localStorage.getItem("Groups")) || [];
+        configuredFbUrls = configuredFbUrls.concat(sourceList.map(function(object) {return object.url}));
+        sourceList = JSON.parse(localStorage.getItem("Pages")) || [];
+        configuredFbUrls = configuredFbUrls.concat(sourceList.map(function(object) {return object.url}));
+
+
         renderUrls(configuredFbUrls,$webList);
         configuredFbUrls.forEach(function(url){
              var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
@@ -216,19 +224,6 @@ $(document).ready(function() {
     $("#CancelBtn").click(function() {
         $(".filtered_urls").css({'display' : 'none'});
     });
-
-    function getConfiguredFbUrls(category){
-        var urlsList = [];
-        var count = 1;
-        while(true){
-            var url = localStorage.getItem(category+count);
-            if(url === null){
-                return urlsList;
-            }
-            urlsList.push(url);
-            count++;
-        }
-    }
 
      function renderCollectionList(collections) {
         $collectionList.append($("<span class= 'pick_collection'> Pick a collection</span>"));
@@ -271,6 +266,7 @@ $(document).ready(function() {
           $webList.append(webFeedItemDOM);
         });
       }
+
     function emptyAllLists(){
         $webList.empty();
         $facebookList.empty();
