@@ -96,3 +96,20 @@
 #u2850 {
   cursor: pointer;
 }
+#addedToBookmarks,
+ #RemovedFromBookmarks {
+  display: none;
+  font-family: 'HelveticaNeue', 'Helvetica Neue';
+  font-weight: 400;
+  font-style: normal;
+  position: fixed;
+  padding: 10px;
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.71);
+  border: 1px solid black;
+  border-radius: 5px;
+  top: 437px;
+  left: 760px;
+  color: white;
+}
+

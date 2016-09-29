@@ -44,6 +44,30 @@ $(document).ready(function(){
         localStorage.setItem("bookmark_data", JSON.stringify(bookmarks_articles));
     }
 
+    $("#u2084_state0").click(function() {
+        $("#addedToBookmarks").css({'display':'block'});
+    });
+
+    $("#u2691_state0").click(function() {
+            $("#addedToBookmarks").css({'display':'block'});
+        });
+
+
+    $("#addBookmark").click(function() {
+        $("#addedToBookmarks").css({'display':'none'});
+    });
+
+    $("#u2084_state1").click(function() {
+        $("#RemovedFromBookmarks").css({'display':'block'});
+    });
+
+    $("#u2691_state1").click(function() {
+        $("#RemovedFromBookmarks").css({'display':'block'});
+    });
+
+    $("#removeBookmark").click(function() {
+        $("#RemovedFromBookmarks").css({'display':'none'});
+    });
 
 });
 

@@ -63,4 +63,13 @@ $(document).ready(function () {
             window.location.href = "web.html";
     });
 
+     $("#u2884_state0").click(function() {
+            $("#RemovedFromBookmarks").css({'display':'block'});
+        });
+
+        $("#removeBookmark").click(function() {
+            $("#RemovedFromBookmarks").css({'display':'none'});
+        });
+
+
 });
