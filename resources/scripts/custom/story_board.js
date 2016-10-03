@@ -44,7 +44,7 @@ $(document).ready(function(){
         setInterval();
     });
 
-    setInterval(function () {
+    var myInterval = setInterval(function () {
             var storyTitle = ($(document.getElementsByClassName("add-story")).children())[0].value;
             var storyContent = ($(document.getElementsByClassName("add-story")).children())[1].value;
             console.log("content::"+storyContent);
@@ -75,6 +75,7 @@ $(document).ready(function(){
     });
 
     $(".done-img").click(function(){
+        clearInterval(myInterval);
         var storyTitle = ($(document.getElementsByClassName("add-story")).children())[0].value;
         var storyContent = ($(document.getElementsByClassName("add-story")).children())[1].value;
         if(storyTitle !== ""){
