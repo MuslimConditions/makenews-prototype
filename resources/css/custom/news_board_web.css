@@ -135,3 +135,11 @@ visibility: visible;
   color: white;
 }
 
+#u2007_img{
+    visibility: visible;
+}
+
+#searchCancel{
+    display : none;
+    color : #848484;
+}
