@@ -128,6 +128,7 @@ $(document).ready(function() {
 
 
     var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
+
     renderFeeds(arrayList);
     for(var i=0; i< document.getElementsByClassName("page").length; i++){
         document.getElementsByClassName("page-elements")[i].style.display='none';
@@ -139,25 +140,29 @@ $(document).ready(function() {
         document.getElementsByClassName("profile-elements")[i].style.display='block';
     }
 
-
     var firstElement = document.querySelector("ul > li > p");
     var source = document.querySelector("ul > li > div > span");
     document.getElementsByClassName("article__source")[0].innerHTML = source.innerHTML;
     document.getElementById("u2075").innerHTML = firstElement.innerHTML;
+
+
     function renderFeeds(configuredUrls){
         var countConfiguredUrls = configuredUrls.length;
         if(countConfiguredUrls !== 0){
             webFeed.forEach(function(url, index){
-                var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title
-                    +"</p><p class='web-feed__item__summary'>"+url.summary
-                    +"</p><div class='web-feed__item__source-date'><span id='web-feed__item__source'>"
-                    +configuredUrls[index%countConfiguredUrls]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
-                    .click(function(event){showSelectedArticle(event)});
-                $webFeed.append(webFeedItemDOM);
+                createListItem(url, index);
             });
         }
     }
 
+    function createListItem(url, index){
+        var webFeedItemDOM = $("<li class='web-feed__item'><p class='web-feed__item__title'>"+url.title
+                            +"</p><p class='web-feed__item__summary'>"+url.summary
+                            +"</p><div class='web-feed__item__source-date'><span id='web-feed__item__source'>"
+                            +arrayList[index%arrayList.length]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
+                            .click(function(event){showSelectedArticle(event)});
+        $webFeed.append(webFeedItemDOM);
+    }
     var $oldSelectedArticle = $($(".web-feed__item")[0]);
     $oldSelectedArticle.addClass("current");
 
@@ -318,5 +323,22 @@ $(document).ready(function() {
 
     $("#u2055").click(function() {
         window.location.href = "web.html";
+    });
+
+    $("#u2007").click(function (){
+        $("#u2007_img").css({'visibility' : 'hidden'});
+        $("#searchCancel").css({'display' : 'block'});
+
+        var keyword=$("#u2006_input").val();
+         $webFeed.empty();
+        webFeed.forEach(function(url,index){
+            if((url.title.indexOf(keyword) !== -1) || (url.summary.indexOf(keyword) !== -1)){
+                createListItem(url,index);
+            }
+        });
       });
+
+  $("#searchCancel").click(function(){
+        window.location.reload();
+  });
 });

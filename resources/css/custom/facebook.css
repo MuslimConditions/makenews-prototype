@@ -38,3 +38,12 @@ cursor:pointer;
   left: 760px;
   color: white;
 }
+
+#u2007_img{
+    visibility: visible;
+}
+
+#searchCancel{
+    display : none;
+    color : #848484;
+}
