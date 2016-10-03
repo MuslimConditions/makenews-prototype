@@ -41,8 +41,6 @@ $(document).ready(function(){
                 document.getElementsByClassName("story-content")[0].value=story.content;
             }
         });
-
-
     });
 
     $(document).on('click',".story-image-tag", function(e) {
@@ -84,10 +82,12 @@ $(document).ready(function(){
     });
 
     $("#u5880").click(function() {
+    $(".done-img").click();
         window.location.href = "news_board__web.html";
     });
 
     $("#backToStoryBoardHeader").click(function() {
+         $(".done-img").click();
         $(".add-story").css({'display':'none'});
         $(".story-board").css({'display':'block'});
         $(".back_to_story_board_header").css({'display':'none'});

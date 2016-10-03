@@ -259,7 +259,7 @@ $(document).ready(function() {
         collections[collectionName].forEach(function(article){
 
         var webFeedItemDOM =$("<li class='web-feed__item'><p class='web__title'>"+article.title
-                 +"</p><p class='web__summary'>"+article.content.slice(0,100)
+                 +"</p><p class='web__summary'>"+article.content
                  +"</p><div class='web__source-date'><span id='web__source'>"
                   +article.source+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
 
