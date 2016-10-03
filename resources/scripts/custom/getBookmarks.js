@@ -20,14 +20,20 @@ $(document).ready(function () {
         var title = bookmarkList[index].title;
         var body = bookmarkList[index].body;
 
+        createListItem(title,body,source);
+
+    }
+
+    function createListItem(title,body,source){
         var li = $("<li class='bookmark__item'><p class='bookmark__item__title'>" + title
-            + "</p><p class='bookmark__item__summary'>" + body.slice(0,100)
-            + "</p><p class='bookmark__item__body' style = 'display: none'>"+ body
-            + "</p><div class='bookmark__item__source-date'><span id='bookmark__item__source'>"
-            + source + "</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
+                    + "</p><p class='bookmark__item__summary'>" + body.slice(0,100)
+                    + "</p><p class='bookmark__item__body' style = 'display: none'>"+ body
+                    + "</p><div class='bookmark__item__source-date'><span id='bookmark__item__source'>"
+                    + source + "</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
         cList.append(li);
 
     }
+
 
     $(".bookmark__item").click(function (event) {
         showSelectedArticle(event)
@@ -81,5 +87,25 @@ $(document).ready(function () {
 
      $("#u2884_state0").click(function() {
             $("#RemovedFromBookmarks").css({'display':'block'});
+    });
+
+    $("#u2838").click(function (){
+        $("#u2838_img").css({'visibility' : 'hidden'});
+        $("#searchCancel").css({'display' : 'block'});
+        var keyword=$("#u2837_input").val();
+        console.log(keyword);
+        cList.empty();
+        bookmarkList.forEach(function(url,index){
+                console.log(url.title);
+                console.log(url.body);
+
+               if((url.title.indexOf(keyword) !== -1) || (url.body.indexOf(keyword) !== -1)){
+                   createListItem(url.title,url.body,url.source);
+               }
+           });
+        });
+
+          $("#searchCancel").click(function(){
+                window.location.reload();
     });
 });

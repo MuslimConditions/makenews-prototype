@@ -121,3 +121,11 @@
     height : 280px;
     overflow-y : scroll;
 }
+#u2838_img{
+    visibility: visible;
+}
+
+#searchCancel{
+    display : none;
+    color : #848484;
+}
