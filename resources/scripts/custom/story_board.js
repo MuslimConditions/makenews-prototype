@@ -41,7 +41,24 @@ $(document).ready(function(){
                 document.getElementsByClassName("story-content")[0].value=story.content;
             }
         });
+        setInterval();
     });
+
+    setInterval(function () {
+            var storyTitle = ($(document.getElementsByClassName("add-story")).children())[0].value;
+            var storyContent = ($(document.getElementsByClassName("add-story")).children())[1].value;
+            console.log("content::"+storyContent);
+            if(storyTitle !== ""){
+                for(var i=0; i<storiesList.length; i++){
+                   if(storyTitle === storiesList[i].title){
+                       storiesList.splice(i,1);
+                   }
+                }
+            storiesList.push({'title' :storyTitle, 'content' :storyContent });
+            localStorage.setItem("Stories",JSON.stringify(storiesList));
+            }
+
+    },30000);
 
     $(document).on('click',".story-image-tag", function(e) {
         for(var i=0; i<storiesList.length; i++){
