@@ -18,10 +18,11 @@ $(document).ready(function () {
     for (var index = 0; index < bookmarkList.length; index++) {
         var source = bookmarkList[index].source;
         var title = bookmarkList[index].title;
-        var body = bookmarkList[index].body.slice(0, 100);
+        var body = bookmarkList[index].body;
 
         var li = $("<li class='bookmark__item'><p class='bookmark__item__title'>" + title
-            + "</p><p class='bookmark__item__summary'>" + body
+            + "</p><p class='bookmark__item__summary'>" + body.slice(0,100)
+            + "</p><p class='bookmark__item__body' style = 'display: none'>"+ body
             + "</p><div class='bookmark__item__source-date'><span id='bookmark__item__source'>"
             + source + "</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
         cList.append(li);
@@ -36,11 +37,12 @@ $(document).ready(function () {
         var $currentItem = $(event.currentTarget);
         $(".article__title").text($currentItem.find(".bookmark__item__title").text());
         $(".article__source").text($currentItem.find("#bookmark__item__source").text());
+        $(".article__body").text($currentItem.find(".bookmark__item__body").text());
         $(".article__image").css({'visibility':'visible'});
         $("#u2873_div").css({'display':'block'});
         $("#u2885").css({'display':'block'});
         $("#u2877").css({'display':'block'});
-        $(".article__body").replaceWith(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
+        //$(".article__body").replaceWith(JSON.parse(localStorage.getItem("bookmark_data"))[0].body);
     }
 
     $("div[data-label='bookmark']").click(function(e){

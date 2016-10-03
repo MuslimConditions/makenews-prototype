@@ -117,3 +117,7 @@
 #u2873_div, #u2885, #u2877 {
     display:none;
 }
+.article__body {
+    height : 280px;
+    overflow-y : scroll;
+}
