@@ -1,99 +1,119 @@
 $(document).ready(function() {
-  var webFeed = [{
-    "title": "Soldiers sacrifice will not go in vain, says Parrikar",
-    "summary": "Defence Minister Manohar Parrikar on Sunday said the supreme sacrifice of 17 brave soldiers",
-    "id" : "36"
-  },
-  {
-    "title": "Nagarjuna Agri-Tech AGM on Sept 30",
-    "summary": "The 28th Annual General Meeting of Nagarjuna Agri-Tech Ltd will be held here on September 30.",
-    "id" : "37"
-  },
-  {
-    "title": "NTPC bond issue oversubscribed 3 times",
-    "summary": "NTPC today said it has received bids amounting to Rs 1,495 crore for its taxable secured non convertible debentures issue of Rs 500 crore.",
-    "id" : "38"
-  },
-  {
-    "title": "Hiroshi Nakagawa takes over as Isuzu Motors India Chairman",
-    "summary": "Japanese automobile maker Isuzu today announced top level changes in its Indian operations with Hiroshi Nakagawa taking over over as the Chairman of Isuzu Motors India (IMI) with immediate effect.Hir...",
-    "id" : "39"
-  },
-  {
-    "title": "New voting machines for increasing secrecy rejected by govt",
-    "summary": "Totaliser voting machines make it difficult to learn how an area voted by scrambling data from polling booths.",
-    "id" : "40"
-  },
-  {
-    "title": "‘SBI’s dollar bond issue to set pricing benchmark for other issuers’",
-    "summary": "The dollar denominated bond issuance by the State Bank of India (SBI) will provide Indian banks with an alternative funding option and would be positive for the sector, rating agencies said.The bond ...",
-    "id" : "41"
-  },
-  {
-    "title": "Comic Con back in Hyderabad",
-    "summary": "Comic Con, the rendezvous of comics lovers, is back in Hyderabad this month. The two-day event, beginning September 24, is attracting some top names in the international comics market.",
-    "id" : "42"
-  },
-  {
-    "title": "Eye on China: India to woo Nepal PM Prachanda with new railway line",
-    "summary": "India is likely to offer Nepal's new prime minister help building an east-west railway line and better access to its ports on his first visit this week, as it tries to regain ground lost recently to China.",
-    "id" : "43"
-  },
-  {
-    "title": "Vibrant Gujarat Summit To Showcase GST Issues: Official",
-    "summary": "The Vibrant Gujarat Summit in January could be the first occasion to showcase to the international community the issues related to Goods and Services Tax (GST) and its implementation, a senior state...",
-    "id" : "44"
-  },
-  {
-    "title": "India’s sovereign rating review after one to two years: Moody’s",
-    "summary": "Moody’s Investor Service on Tuesday said that a review of India’s sovereign ratings will take at least another one to two years.",
-    "id" : "45"
-  },
-  {
-    "title": "Uri attack: NIA to send GPS sets to US to trace terrorists' route",
-    "summary": "The National Investigation Agency (NIA) on Tuesday registered a case to probe the terror attack at the Army installation in Uri in Jammu and Kashmir in which 18 soldiers were killed and dozens others injured after four Pakistani militants stormed the base.",
-    "id" : "46"
-  },
-  {
-    "title": "Jubilant FoodWorks plunges over 8%",
-    "summary": "Shares of Jubilant FoodWorks today plunged over 8 per cent following news that its CEO and Whole-time Director Ajay Kaul will resign to pursue opportunities outside the company.",
-    "id" : "47"
-  },
-  {
-    "title": "Akhilesh Yadav puts up a brave face, says 'Samajwadi Pariwar' united",
-    "summary": "Akhilesh was locked in a turf war with uncle Shivpal, who expelled seven party functionaries, including three MLCs, considered close to CM.",
-    "id" : "48"
-  },
-  {
-    "title": "Opera VPN for Desktop Is Here",
-    "summary": "Opera's free unlimited VPN has now launched for Desktop users though it's been available since April as a beta.",
-    "id" : "49"
-  },
-  {
-    "title": "Goa Chief Minister Defends Manohar Parrikar's Frequent Visits To Goa",
-    "summary": "Taking a jibe at the Congress for its remarks over Manohar Parrikar frequenting the state",
-    "id" : "50"
-  },
-  {
-    "title": "Chandrababu Naidu Declares 'War' Against Contagious Diseases",
-    "summary": "Andhra Pradesh Chief Minister N Chandrababu Naidu today declared a 'war' on contagious diseases with an aim to root them out of the state.",
-    "id" : "51"
-  },
-  {
-    "title": "ONGC Videsh Slapped With Service Tax Demand Of Rs 6,100 Crore",
-    "summary": "The Tax Department has slapped a service tax demand of over Rs 6,100 crore on the overseas arm of state-owned Oil and Natural Gas Corp (ONGC).",
-    "id" : "52"
-  },
-  {
-    "title": "As oil fields run dry, cash-strapped ISIS steals organs of its dead militants",
-    "summary": "A source added that ISIS has set up a special medical unit for the purpose.",
-    "id" : "53"
-  }];
+
+ var webFeed = [{
+      "title": "18 jawans killed in pre-dawn strike at Uri",
+      "summary": "Seventeen soldiers were killed in a militant attack in Uri area of Baramulla district on Sunday morning...",
+      "content" : "Seventeen soldiers were killed in a militant attack in Uri area of Baramulla district on Sunday morning...",
+      "id" : "1"
+    },
+    {
+      "title": "In first speech after POK raid, PM refrains from rubbing it in",
+      "summary": "Avoiding triumphalism or even a direct comment on the cross-LoC strikes on terror camps.",
+      "content" : "NEW DELHI: Avoiding triumphalism or even a direct comment on the cross-LoC strikes on terror camps.",
+      "id" : "2"
+    },
+    {
+      "title": "SC has no jurisdiction to order constitution of Cauvery management board: Centre",
+      "summary": "The Central government on Monday said the Supreme Court has no jurisdiction to direct it to constitute a Cauvery management board...",
+      "content" : "The Central government on Monday said the Supreme Court has no jurisdiction to direct it to constitute a Cauvery management board...",
+      "id" : "3"
+    },
+    {
+      "title": "Pledge against terrorism marks Gandhi Jayanthi celebration",
+      "summary": "Representatives of various social organisations and religious bodies in the city took an oath against terrorism and violence ",
+      "content" : "Representatives of various social organisations and religious bodies in the city took an oath against terrorism and violence  ",
+      "id" : "4"
+    },
+    {
+      "title": "4 hours, choppers and 38 kills: How India avenged the Uri attack",
+      "summary": "India says 38 terrorists and 2 Pakistani soldiers killed in #SurgicalStrike across line of control in Kashmir",
+     "content" : "India says 38 terrorists and 2 Pakistani soldiers killed in #SurgicalStrike across line of control in Kashmir",
+      "id" : "5"
+    },
+    {
+      "title": "Dengue cases in Delhi: SC fines Health Minister Satyendar Jain",
+      "summary": "The Supreme Court slammed a fine of Rs. 25,000 on Delhi Health Minister Satyendar Jain for not filing an affidavit revealing the names of officers the AAP...",
+      "content" : "The Supreme Court slammed a fine of Rs. 25,000 on Delhi Health Minister Satyendar Jain for not filing an affidavit revealing the names of officers the AAP ",
+      "id" : "6"
+    },
+    {
+      "title": "NRSA to help State assess irrigation tanks capacity",
+      "summary": "Precise storage of a particular water body will be put on the web, which will be helpful to all stakeholders",
+      "content" : "Precise storage of a particular water body will be put on the web, which will be helpful to all stakeholders",
+      "id" : "7"
+    },
+    {
+      "title": "Uri Brigade Commander 'shifted out' after terror attack",
+      "summary": "There were obvious security lapses at Uri base even after Pathankot. Good that accountability is being fixed",
+      "content" : "There were obvious security lapses at Uri base even after Pathankot. Good that accountability is being fixed",
+      "id" : "8"
+    },
+    {
+      "title": "Taliban fighters enter Kunduz, mount assault",
+      "summary": "Taliban fighters mounted a coordinated assault on the northern city of Kunduz overnight",
+      "content" : "Taliban fighters mounted a coordinated assault on the northern city of Kunduz overnight",
+      "id" : "9"
+    },
+    {
+      "title": "Nitish Katara murder case: What you need to know",
+      "summary": "Two cousins, Vikas and Vishal Yadav, abducted Nitish Katara from the wedding of his classmate in Ghaziabad in February 2002. ",
+      "content" : "Two cousins, Vikas and Vishal Yadav, abducted Nitish Katara from the wedding of his classmate in Ghaziabad in February 2002.",
+      "id" : "10"
+    },
+    {
+      "title": "Uri attack: NIA to send GPS sets to US to trace terrorists route",
+      "summary": "NIA on Tuesday registered a case to probe the terror attack at the Army installation in Uri in Jammu and Kashmir in...",
+      "content" :"NIA on Tuesday registered a case to probe the terror attack at the Army installation in Uri in Jammu and Kashmir in...",
+      "id" : "11"
+    },
+    {
+      "title": "Indian-origin teen wins Google Science Fair prize",
+      "summary": "Another Indian excelling out of India!!",
+      "content" : "A 16-year-old Indian-origin South African teen has won a $50,000 scholarship, ",
+      "id" : "12"
+    },
+    {
+      "title": "Private consumption to rise on better monsoon",
+      "summary": "Monsoon rains, the best in three years",
+      "content" :"The distribution of monsoon this season has been the best in the last three years",
+      "id" : "13"
+    },
+    {
+      "title": "Mega launchers for ISRO soon",
+      "summary": "Apart from powering rockets to lift heavier satellites, it will also lower the cost per kilo",
+      "content" : "#ISRO developing advanced semi-cryogenic engines for heavier lifts of upto 15,000 kilos",
+      "id" : "14"
+    },
+    {
+      "title": "Sensex climbs 161 points ahead of RBI policy meet, on Asian cues",
+      "summary": "#thehindu #India Sensex climbs 161 points ahead of RBI policy meet, on Asian cues",
+      "content" : "#thehindu #India Sensex climbs 161 points ahead of RBI policy meet, on Asian cues",
+      "id" : "15"
+    },
+    {
+      "title": "US Reacts to Uri Attack and India’s Surgical Strike",
+      "summary": "America gives a muted response to India's #surgicalStrike on Pakistan.",
+      "content" : "America gives a muted response to India's #surgicalStrike on Pakistan.",
+      "id" : "16"
+    },
+    {
+      "title": "By Jupiter! Proof of water plumes on moon",
+      "summary": "By Jupiter! Proof of water plumes on moon: Hubble telescope spots more evidence in the planet’s satellite Europa",
+      "content" : "By Jupiter! Proof of water plumes on moon: Hubble telescope spots more evidence in the planet’s satellite Europa",
+      "id" : "17"
+    },
+    {
+      "title": "NSAs of India, Pak. agree to reduce tension along LoC: Aziz",
+      "summary": "NSAs of India, Pak. agree to reduce tension along LoC: Aziz: 'Pakistan wants to reduce tensions on LoC and fo...'",
+      "content" : "NSAs of India, Pak. agree to reduce tension along LoC: Aziz: 'Pakistan wants to reduce tensions on LoC and fo...",
+      "id" : "18"
+    }];
 
 
   var $webFeed = $("#TwitterFeedItems");
   var $articleSource = $(".article__source")[0];
   var $articleTitle = $(".article__title")[0];
+  var $articleBody = $(".article__body")[0];
   var configuredTwitterUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
   renderFeeds(configuredTwitterUrls);
 
@@ -115,20 +135,22 @@ $(document).ready(function() {
             +"</p><p class='twitter-feed__item__summary'>"+url.summary
             +"</p><div class='twitter-feed__item__source-date'><span id='twitter-feed__item__source'>"
             +configuredTwitterUrls[index%configuredTwitterUrls.length]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
-            .click(function(event){showSelectedArticle(event)});
+            .click(function(event){showSelectedArticle(event,url.content, url.id)});
             $webFeed.append(webFeedItemDOM);
   }
 
   var $oldSelectedArticle = $($(".twitter-feed__item")[0]);
   $oldSelectedArticle.addClass("current");
 
-  function showSelectedArticle(event) {
+  function showSelectedArticle(event,content, id) {
     var $currentItem = $(event.currentTarget);
     $oldSelectedArticle.removeClass("current");
     $oldSelectedArticle = $currentItem;
     $currentItem.addClass("current");
     $articleTitle.innerHTML = $currentItem.find(".twitter-feed__item__title").text();
     $articleSource.innerText = $currentItem.find("#twitter-feed__item__source").text();
+    $articleBody.innerHTML = content;
+    $(".article__image").attr("src","images/articleImages/"+id+".jpg");
     isBookmarked();
   }
   configuredTwitterUrls.forEach(function(url){

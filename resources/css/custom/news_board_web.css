@@ -4,6 +4,9 @@
 
 #u2077 {
   position: static;
+   width: 840px;
+  height: 280px;;
+  overflow-y: scroll;
 }
 
 #u2079 {
@@ -21,6 +24,7 @@
 .article .article__image {
   top: 200px;
   width: 300px;
+  height: 266px;
   margin-left: 260px;
   margin-bottom: 10px;
 }
@@ -143,3 +147,4 @@ visibility: visible;
     display : none;
     color : #848484;
 }
+

@@ -56,9 +56,6 @@
   top: 227px;
 }
 
-#u2675 {
-  width: 430px !important;
-}
 
 .article .article__image {
   top: 200px;
@@ -243,4 +240,9 @@ visibility: visible;
 #searchCancel{
     display : none;
     color : #848484;
+}
+
+#u2675 {
+  width: 437px !important;
+  top: -36px;
 }
