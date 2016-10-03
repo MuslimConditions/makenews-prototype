@@ -235,3 +235,12 @@ visibility: visible;
   left: 760px;
   color: white;
 }
+
+#u2495_img{
+    visibility: visible;
+}
+
+#searchCancel{
+    display : none;
+    color : #848484;
+}

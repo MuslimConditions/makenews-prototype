@@ -121,6 +121,7 @@ $(document).ready(function() {
             .click(function(event){showSelectedArticle(event)});
             $webFeed.append(webFeedItemDOM);
   }
+
   var $oldSelectedArticle = $($(".web-feed__item")[0]);
   $oldSelectedArticle.addClass("current");
 

@@ -105,15 +105,20 @@ $(document).ready(function() {
     var countConfiguredUrls = configuredUrls.length;
     if(countConfiguredUrls !== 0){
       webFeed.forEach(function(url, index){
-        var webFeedItemDOM = $("<li class='twitter-feed__item'><p class='twitter-feed__item__title'>"+url.title
-        +"</p><p class='twitter-feed__item__summary'>"+url.summary
-        +"</p><div class='twitter-feed__item__source-date'><span id='twitter-feed__item__source'>"
-        +configuredUrls[index%countConfiguredUrls]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
-        .click(function(event){showSelectedArticle(event)});
-        $webFeed.append(webFeedItemDOM);
+        createListItem(url, index);
       });
     }
   }
+
+  function createListItem(url, index){
+    var webFeedItemDOM = $("<li class='twitter-feed__item'><p class='twitter-feed__item__title'>"+url.title
+            +"</p><p class='twitter-feed__item__summary'>"+url.summary
+            +"</p><div class='twitter-feed__item__source-date'><span id='twitter-feed__item__source'>"
+            +configuredTwitterUrls[index%configuredTwitterUrls.length]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
+            .click(function(event){showSelectedArticle(event)});
+            $webFeed.append(webFeedItemDOM);
+  }
+
   var $oldSelectedArticle = $($(".twitter-feed__item")[0]);
   $oldSelectedArticle.addClass("current");
 
@@ -173,5 +178,22 @@ $(document).ready(function() {
 
     $("#u2655").click(function() {
         window.location.href = "web.html";
+    });
+
+    $("#u2495").click(function (){
+            $("#u2495_img").css({'visibility' : 'hidden'});
+            $("#searchCancel").css({'display' : 'block'});
+
+            var keyword=$("#u2494_input").val();
+             $webFeed.empty();
+            webFeed.forEach(function(url,index){
+                if((url.title.indexOf(keyword) !== -1) || (url.summary.indexOf(keyword) !== -1)){
+                    createListItem(url,index);
+                }
+            });
+          });
+
+      $("#searchCancel").click(function(){
+            window.location.reload();
       });
 });
