@@ -130,7 +130,7 @@ $(document).ready(function() {
             +"</p><p class='web-feed__item__summary'>"+url.summary
             +"</p><div class='web-feed__item__source-date'><span id='web-feed__item__source'>"
             +configuredWebUrls[index%configuredWebUrls.length]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>")
-            .click(function(event){showSelectedArticle(event,url.content)});
+            .click(function(event){showSelectedArticle(event,url.content,url.id)});
             $webFeed.append(webFeedItemDOM);
   }
 
@@ -142,7 +142,7 @@ $(document).ready(function() {
     $("#filteredWebUrlsList").append(listItem);
   });
 
-  function showSelectedArticle(event,content) {
+  function showSelectedArticle(event,content,id) {
     var $currentItem = $(event.currentTarget);
     $oldSelectedArticle.removeClass("current");
     $oldSelectedArticle = $currentItem;
@@ -150,6 +150,7 @@ $(document).ready(function() {
     $articleTitle.innerHTML = $currentItem.find(".web-feed__item__title").text();
     $articleSource.innerText = $currentItem.find("#web-feed__item__source").text();
     $articleBody.innerHTML = content;
+    $(".article__image").attr("src","images/articleImages/"+id+".jpg");
     isBookmarked();
   }
 
