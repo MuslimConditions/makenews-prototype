@@ -115,7 +115,19 @@ $(document).ready(function() {
   var $articleTitle = $(".article__title")[0];
   var $articleBody = $(".article__body")[0];
   var configuredTwitterUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
-  renderFeeds(configuredTwitterUrls);
+
+
+  var searchWord=localStorage.getItem("searchWord")|| "";
+  if(searchWord !== ""){
+      $('#u2494_input').val(searchWord);
+     search();
+  }
+  else{
+    $('#u2494_input').val("Search");
+    $("#u2495_img").css({'visibility' : 'visible'});
+    $("#searchCancel").css({'display' : 'none'});
+    renderFeeds(configuredTwitterUrls);
+  }
 
   var $newHashTag = $(".new-hash-tag");
   var $filterTwitterHashTags = $("#filterTwitterHashTags");
@@ -202,20 +214,27 @@ $(document).ready(function() {
         window.location.href = "web.html";
     });
 
-    $("#u2495").click(function (){
-            $("#u2495_img").css({'visibility' : 'hidden'});
-            $("#searchCancel").css({'display' : 'block'});
+    $("#u2495_img").click(function (){
+          search();
+    });
 
-            var keyword=$("#u2494_input").val();
-             $webFeed.empty();
-            webFeed.forEach(function(url,index){
-                if((url.title.indexOf(keyword) !== -1) || (url.summary.indexOf(keyword) !== -1)){
-                    createListItem(url,index);
-                }
-            });
-          });
+    function search(){
+        $("#u2495_img").css({'visibility' : 'hidden'});
+        $("#searchCancel").css({'display' : 'block'});
+
+        var keyword=$("#u2494_input").val();
+         $webFeed.empty();
+        webFeed.forEach(function(url,index){
+            if((url.title.indexOf(keyword) !== -1) || (url.summary.indexOf(keyword) !== -1)){
+                createListItem(url,index);
+            }
+        });
+
+        localStorage.setItem("searchWord",keyword);
+    }
 
       $("#searchCancel").click(function(){
+            localStorage.removeItem("searchWord");
             window.location.reload();
       });
 });

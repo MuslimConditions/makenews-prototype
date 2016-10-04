@@ -123,6 +123,9 @@ $(document).ready(function() {
 
     $("#filteredWebUrlsList").append(profileLabel);
 
+
+
+
     for(var i =0 ; i<profiles.length; i++){
         var listItem = $("<li class='profile-elements'><input type = 'checkbox' class = 'filter-web-checkbox profile' checked><span class ='filter-web-source'>"+profiles[i].url+"</span></li>");
         $("#filteredWebUrlsList").append(listItem);
@@ -148,7 +151,18 @@ $(document).ready(function() {
 
     var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
 
-    renderFeeds(arrayList);
+    var searchWord=localStorage.getItem("searchWord") || "";
+    if(searchWord !== ""){
+        $('#u2006_input').val(searchWord);
+        search();
+    }
+    else{
+        $("#u2007_img").css({'visibility' : 'visible'});
+        $("#searchCancel").css({'display' : 'none'});
+        $('#u2006_input').val("Search Friends or Groups or Pages");
+        renderFeeds(arrayList);
+    }
+
     for(var i=0; i< document.getElementsByClassName("page").length; i++){
         document.getElementsByClassName("page-elements")[i].style.display='none';
     }
@@ -346,20 +360,28 @@ $(document).ready(function() {
         window.location.href = "web.html";
     });
 
-    $("#u2007").click(function (){
+    $("#u2007_img").click(function (){
+        search();
+      });
+
+      function search(){
         $("#u2007_img").css({'visibility' : 'hidden'});
         $("#searchCancel").css({'display' : 'block'});
 
         var keyword=$("#u2006_input").val();
+        console.log("In search"+keyword);
          $webFeed.empty();
+
         webFeed.forEach(function(url,index){
             if((url.title.indexOf(keyword) !== -1) || (url.summary.indexOf(keyword) !== -1)){
                 createListItem(url,index);
             }
         });
-      });
+        localStorage.setItem("searchWord",keyword);
+      }
 
   $("#searchCancel").click(function(){
+        localStorage.removeItem("searchWord");
         window.location.reload();
   });
 });

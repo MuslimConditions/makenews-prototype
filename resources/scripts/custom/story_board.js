@@ -47,7 +47,7 @@ $(document).ready(function(){
     var myInterval = setInterval(function () {
             var storyTitle = ($(document.getElementsByClassName("add-story")).children())[0].value;
             var storyContent = ($(document.getElementsByClassName("add-story")).children())[1].value;
-            console.log("content::"+storyContent);
+//            console.log("content::"+storyContent);
             if(storyTitle !== ""){
                 for(var i=0; i<storiesList.length; i++){
                    if(storyTitle === storiesList[i].title){
