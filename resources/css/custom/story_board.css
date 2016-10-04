@@ -117,6 +117,7 @@
     top: 35px;
     width: 19px;
     height: 19px;
+    display : block;
 }
 .web-feed {
   margin-top: 130px;
@@ -342,5 +343,10 @@ top: 10px;
 font-size: 23px;
 color:azure;
 }
-
-
+#u5107_img{
+    display:block;
+}
+#searchCancel{
+    display:none;
+    color: darkgray;
+}

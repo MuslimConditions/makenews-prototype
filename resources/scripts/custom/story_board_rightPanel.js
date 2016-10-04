@@ -107,6 +107,16 @@ $(document).ready(function() {
             "content" : "The National Security Advisors (NSAs) of India and Pakistan have spoken over the phone and agreed to reduce tensions on the Line of Control (LoC), Pakistan Prime Minister Nawaz Sharif’s Advisor on Foreign Affairs Sartaj Aziz said on Monday as tensions soared high between the two nations after India’s surgical strikes. Mr. Aziz confirmed that a contact was established between India’s NSA Ajit Doval and his Pakistan counterpart Nasir Janjua and they agreed to reduce tensions on the LoC. 'Pakistan wants to reduce tensions on LoC and focus on Kashmir,” Geo News quoted Mr. Aziz as saying. He said India wanted to divert world’s attention from ‘Occupied Kashmir’ by escalating tensions. Last week, the Indian Army said it carried out surgical strikes on multiple terrorist launch pads across the LoC in Pakistan occupied Kashmir, inflicting heavy casualties on terrorists waiting to sneak into India.After Uri strikes The surgical strikes came days after Pakistani terrorists attacked an Army camp in Kashmir’s Uri, killing 19 soldier Pakistan has denied that the surgical strikes took place on Thursday, calling it “cross-border” firing. Talking about Mr. Sharif’s recent United States visit, Mr. Aziz said the Prime Minister had explained to the world leaders that incidents of border tensions would continue between both countries without the resolution of the Kashmir dispute.",
             "id" : "18"
           }];
+        var configuredFbUrls = [];
+       var sourceList = JSON.parse(localStorage.getItem("Profiles")) || [];
+       configuredFbUrls = sourceList.map(function(object) {return object.url});
+       sourceList = JSON.parse(localStorage.getItem("Groups")) || [];
+       configuredFbUrls = configuredFbUrls.concat(sourceList.map(function(object) {return object.url}));
+       sourceList = JSON.parse(localStorage.getItem("Pages")) || [];
+       configuredFbUrls = configuredFbUrls.concat(sourceList.map(function(object) {return object.url}));
+       var $oldIcon;
+
+
       var $webList = $("#webList");
       var $facebookList = $("#facebookList");
       var $collectionList = $("#collectionList");
@@ -119,25 +129,37 @@ $(document).ready(function() {
      var collections = JSON.parse(localStorage.getItem("collections")) || {};
      renderCollectionList(collections);
 
-    $("#u5853").click(function() {
+    $("#u5853").click(function(event) {
       emptyAllLists();
       removeAllIcons();
       visibleAllIcons();
+
       $("#filterIcon").css({'display' : 'block'});
       $(".web_icon").css({'display' : 'block'});
       $("#u5855").css({'visibility' : 'hidden'});
-            $("#filteredUrlsList").empty();
-
-      filterSource = $webList;
+      $("#filteredUrlsList").empty();
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
-        renderUrls(configuredWebUrls,$webList);
-       configuredWebUrls.forEach(function(url){
-        var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
-            $("#filteredUrlsList").append(listItem);
+
+      if($("#u5107").css("display") === 'none'){
+        var keyword = ($("#u5106_input").val()).toLowerCase();
+        $webList.empty();
+        webFeed.forEach(function(url, index){
+            if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                  createListItem(url,index,configuredWebUrls,$webList);
+            }
         });
+      }
+       else{
+          filterSource = $webList;
+            renderUrls(configuredWebUrls,$webList);
+           configuredWebUrls.forEach(function(url){
+            var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+                $("#filteredUrlsList").append(listItem);
+            });
+       }
     });
 
-    $("#u5864").click(function() {
+    $("#u5864").click(function(event) {
         emptyAllLists();
         removeAllIcons();
         visibleAllIcons();
@@ -145,14 +167,55 @@ $(document).ready(function() {
        $(".twitter_icon").css({'display' : 'block'});
        $("#u5865").css({'visibility' : 'hidden'});
       $("#filteredUrlsList").empty();
-      filterSource = $webList;
+        filterSource = $webList;
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
-      renderUrls(configuredWebUrls,$webList);
-      configuredWebUrls.forEach(function(url){
-        var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
-        $("#filteredUrlsList").append(listItem);
-      });
+
+      if($("#u5107").css("display") === 'none'){
+          var keyword = ($("#u5106_input").val()).toLowerCase();
+          $webList.empty();
+          webFeed.forEach(function(url, index){
+              if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                    createListItem(url,index,configuredWebUrls,$webList);
+              }
+          });
+       }
+       else{
+          renderUrls(configuredWebUrls,$webList);
+          configuredWebUrls.forEach(function(url){
+            var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+            $("#filteredUrlsList").append(listItem);
+          });
+       }
     });
+
+    //facebook
+    $("#u5858").click(function(event){
+        emptyAllLists();
+        removeAllIcons();
+        visibleAllIcons();
+          $("#filterIcon").css({'display' : 'block'});
+          $(".fb_icon").css({'display' : 'block'});
+          $("#u5860").css({'visibility' : 'hidden'});
+        filterSource = $facebookList;
+        $("#filteredUrlsList").empty();
+        if($("#u5107").css("display") === 'none'){
+          var keyword = ($("#u5106_input").val()).toLowerCase();
+          $webList.empty();
+          webFeed.forEach(function(url, index){
+              if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                    createListItem(url,index,configuredFbUrls,$webList);
+              }
+          });
+       }
+       else{
+           renderUrls(configuredFbUrls,$webList);
+            configuredFbUrls.forEach(function(url){
+                 var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
+                 $("#filteredUrlsList").append(listItem);
+              });
+       }
+    });
+
 
     $("#u5873").click(function() {
         emptyAllLists();
@@ -187,32 +250,7 @@ $(document).ready(function() {
           renderCollectionList(collections);
     });
 
-    //facebook
-    $("#u5858").click(function(){
-        emptyAllLists();
-        removeAllIcons();
-        visibleAllIcons();
-          $("#filterIcon").css({'display' : 'block'});
-          $(".fb_icon").css({'display' : 'block'});
-          $("#u5860").css({'visibility' : 'hidden'});
-        filterSource = $facebookList;
-        $("#filteredUrlsList").empty();
 
-        var configuredFbUrls = [];
-        var sourceList = JSON.parse(localStorage.getItem("Profiles")) || [];
-        configuredFbUrls = sourceList.map(function(object) {return object.url});
-        sourceList = JSON.parse(localStorage.getItem("Groups")) || [];
-        configuredFbUrls = configuredFbUrls.concat(sourceList.map(function(object) {return object.url}));
-        sourceList = JSON.parse(localStorage.getItem("Pages")) || [];
-        configuredFbUrls = configuredFbUrls.concat(sourceList.map(function(object) {return object.url}));
-
-
-        renderUrls(configuredFbUrls,$webList);
-        configuredFbUrls.forEach(function(url){
-             var listItem = $("<li><input type = 'checkbox' class = 'filter-web-checkbox' checked><span class ='filter-web-source'>"+url+"</span></li>");
-             $("#filteredUrlsList").append(listItem);
-          });
-    });
 
     $("#collectionList").click(function(event) {
         $(event.target).addClass("current");
@@ -243,6 +281,44 @@ $(document).ready(function() {
         $(".filtered_urls").css({'display' : 'none'});
     });
 
+    $("#u5107").click(function() {
+        var keyword = ($("#u5106_input").val()).toLowerCase();
+        $("#u5107_img").css({'display':'none'});
+        $("#searchCancel").css({'display':'block'});
+        $webList.empty();
+
+        if($("#u5855").css("visibility") === "hidden"){
+            var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
+            webFeed.forEach(function(url, index){
+                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                      createListItem(url,index,configuredWebUrls,$webList);
+                }
+            });
+        }
+
+        if($("#u5860").css("visibility") === "hidden"){
+            webFeed.forEach(function(url, index){
+                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                      createListItem(url,index,configuredFbUrls,$webList);
+                }
+            });
+        }
+
+        if($("#u5865").css("visibility") === "hidden"){
+            var configuredWebUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
+            webFeed.forEach(function(url, index){
+                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                      createListItem(url,index,configuredWebUrls,$webList);
+                }
+            });
+        }
+
+    });
+
+    $("#searchCancel").click(function(){
+        window.location.reload();
+    });
+
      function renderCollectionList(collections) {
         $collectionList.append($("<span class= 'pick_collection'> Pick a collection</span>"));
         var collectionNames = [];
@@ -257,12 +333,16 @@ $(document).ready(function() {
       var countConfiguredUrls = configuredUrls.length;
       if(countConfiguredUrls !== 0){
         webFeed.forEach(function(url, index){
-          var webFeedItemDOM = $("<li class='web-feed__item'><p class='web__title'>"+url.title
-          +"</p><p class='web__summary'>"+url.summary+"</p><div class='web__source-date'><span id='web__source'>"
-          +configuredUrls[index%countConfiguredUrls]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
-          list.append(webFeedItemDOM);
+          createListItem(url,index,configuredUrls,list);
         });
       }
+    }
+
+    function createListItem(url,index,configuredUrls,list){
+        var webFeedItemDOM = $("<li class='web-feed__item'><p class='web__title'>"+url.title
+                  +"</p><p class='web__summary'>"+url.summary+"</p><div class='web__source-date'><span id='web__source'>"
+                  +configuredUrls[index%configuredUrls.length]+"</span> | Aug 21, 2016, 08.23 PM IST</div></li>");
+                  list.append(webFeedItemDOM);
     }
 
     function renderArticles(collectionName) {
