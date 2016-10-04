@@ -140,7 +140,7 @@ $(document).ready(function() {
       $("#filteredUrlsList").empty();
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
 
-      if($("#u5107").css("display") === 'none'){
+      if($("#u5107_img").css("display") === 'none'){
         var keyword = ($("#u5106_input").val()).toLowerCase();
         $webList.empty();
         webFeed.forEach(function(url, index){
@@ -170,7 +170,7 @@ $(document).ready(function() {
         filterSource = $webList;
       var configuredWebUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
 
-      if($("#u5107").css("display") === 'none'){
+      if($("#u5107_img").css("display") === 'none'){
           var keyword = ($("#u5106_input").val()).toLowerCase();
           $webList.empty();
           webFeed.forEach(function(url, index){
@@ -198,7 +198,7 @@ $(document).ready(function() {
           $("#u5860").css({'visibility' : 'hidden'});
         filterSource = $facebookList;
         $("#filteredUrlsList").empty();
-        if($("#u5107").css("display") === 'none'){
+        if($("#u5107_img").css("display") === 'none'){
           var keyword = ($("#u5106_input").val()).toLowerCase();
           $webList.empty();
           webFeed.forEach(function(url, index){
@@ -290,7 +290,7 @@ $(document).ready(function() {
         if($("#u5855").css("visibility") === "hidden"){
             var configuredWebUrls = JSON.parse(localStorage.getItem("configuredWebUrls"));
             webFeed.forEach(function(url, index){
-                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) ){
                       createListItem(url,index,configuredWebUrls,$webList);
                 }
             });
@@ -298,7 +298,7 @@ $(document).ready(function() {
 
         if($("#u5860").css("visibility") === "hidden"){
             webFeed.forEach(function(url, index){
-                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) ){
                       createListItem(url,index,configuredFbUrls,$webList);
                 }
             });
@@ -307,7 +307,7 @@ $(document).ready(function() {
         if($("#u5865").css("visibility") === "hidden"){
             var configuredWebUrls = JSON.parse(localStorage.getItem("configuredTwitterUrls"));
             webFeed.forEach(function(url, index){
-                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
+                if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) ){
                       createListItem(url,index,configuredWebUrls,$webList);
                 }
             });
