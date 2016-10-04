@@ -369,11 +369,11 @@ $(document).ready(function() {
         $("#searchCancel").css({'display' : 'block'});
 
         var keyword=$("#u2006_input").val();
-        console.log("In search"+keyword);
+        keyword = keyword.toLowerCase();
          $webFeed.empty();
 
         webFeed.forEach(function(url,index){
-            if((url.title.indexOf(keyword) !== -1) || (url.summary.indexOf(keyword) !== -1)){
+            if(((url.title.toLowerCase()).indexOf(keyword) !== -1) || ((url.summary.toLowerCase()).indexOf(keyword) !== -1) || ((url.content.toLowerCase()).indexOf(keyword) !== -1)){
                 createListItem(url,index);
             }
         });
