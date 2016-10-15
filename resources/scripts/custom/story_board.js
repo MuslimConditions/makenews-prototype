@@ -110,6 +110,9 @@ $(document).ready(function(){
         $(".back_to_story_board_header").css({'display':'none'});
     });
 
+    $("#u5847").click(function() {
+        window.location.href = "web.html";
+    })
 
     function renderStory(title,content){
         var newBox = document.createElement('div');

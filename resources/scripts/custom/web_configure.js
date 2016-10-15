@@ -42,6 +42,33 @@ $(document).ready(function(){
         }
    });
 
+   $("#u272_input").on('input',function() {
+        var searchVal = $("#u272_input").val();
+        if(searchVal.length > 3)
+        {
+            if(searchVal !== 'The' &&  searchVal !== 'The ' && searchVal !== 'the' && searchVal !== 'the ' && searchVal !== 'wire' && searchVal !== 'dna' && searchVal !== 'DNA' && searchVal !== 'DNA ' && searchVal !== 'dna '){
+                $("#u49_state0").css({'visibility' : 'hidden', 'display':'none'});
+                $("#u49_state1").css({'visibility' : 'hidden', 'display':'none'});
+                $("#u49_state2").css({'visibility' : 'hidden', 'display':'none'});
+                $("#u49_state3").css({'visibility' : 'hidden', 'display':'none'});
+                $("#u49_state4").css({'visibility' : 'visible', 'display':'block'});
+            }
+        }
+   });
+
+    $("#rightArrow").click(function() {
+        $("#secondBox").css({'display': 'block'});
+        $("#firstBox").css({'display': 'none'});
+    });
+
+    $(".remove-message").click(function() {
+        $("#u49_state0").css({'visibility' : 'visible', 'display':'block'});
+        $("#u49_state4").css({'visibility' : 'hidden', 'display':'none'});
+        $("#secondBox").css({'display': 'none'});
+        $("#firstBox").css({'display': 'block'});
+        $("#u272_input").value = "";
+    });
+
   function removeUrl(e, url){
     remove(configuredWebUrls, url);
     e.currentTarget.parentNode.remove();

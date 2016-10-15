@@ -1,3 +1,10 @@
+#u49_state4 {
+
+    background-color: rgba(222, 222, 222, 1);
+    position: relative;
+    width: 1066px;
+    height: 510px;
+}
 #selectedWebSources{
   position: absolute;
   top: 134px;
@@ -55,4 +62,79 @@
 }
 .removeMessage{
 cursor:pointer;
+}
+.sorry-message-box {
+    position: absolute;
+    top: 62px;
+    left: 110px;
+    width: 845px;
+    height: 56px;
+    background-color: rgba(242, 242, 242, 1);
+    border-radius: 10px;
+}
+.sorry-message {
+    position: absolute;
+    top: 16px;
+    left: 62px;
+}
+.alert-icon {
+    position: absolute;
+    left: 20px;
+    top: 12px;
+    font-size: 27px;
+}
+.input-box{
+position: absolute;
+    left: 113px;
+    top: 172px;
+    width: 760px;
+    height: 42px;
+    background-color: transparent;
+    font-family: 'HelveticaNeue', 'Helvetica Neue';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-decoration: none;
+    color: #b3b3b3;
+    text-align: left;
+    border-color: transparent;
+    outline-style: none;
+}
+
+.horizontal-line {
+    position: relative;
+    top: 221px;
+    width: 836px;
+    left: 113px;
+}
+
+.right-arrow {
+    position: absolute;
+    top: 176px;
+    left: 913px;
+    color: darkgray;
+    font-size: 34px;
+}
+.second-box {
+    position: absolute;
+    left: 90px;
+    top: 90px;
+    width: 845px;
+    height: 79px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+.remove-message {
+    position: absolute;
+    top: -12px;
+    left: 826px;
+    font-size: 35px;
+    color: darkgray;
+}
+.second-message {
+    position: relative;
+    top: 17px;
+    font-family: 'HelveticaNeue', 'Helvetica Neue';
+    text-align: left;
+    left: 53px;
 }
